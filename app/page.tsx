@@ -13,9 +13,9 @@ export default function DashboardPage() {
       title="Dashboard"
       subtitle="How you're doing so far"
     >
-      <div className="space-y-8">
-        <DailyChallenge />
+      <div className="space-y-10">
         <DashboardOverview />
+        <DailyChallenge />
         <LearningJourney />
 
         <div className="grid gap-6 xl:grid-cols-[1fr_1.4fr]">

@@ -76,7 +76,7 @@ export function BadgeToaster() {
         <Confetti />
         <div className="relative flex items-center gap-3 overflow-hidden rounded-2xl border border-emerald-500/40 bg-zinc-900/95 px-4 py-3 shadow-2xl shadow-black/50 backdrop-blur-xl">
           <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-transparent" />
-          <span className="relative flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950 shadow-lg shadow-emerald-500/30">
+          <span className="relative flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950">
             <Icon className="size-6" strokeWidth={2.25} />
           </span>
           <div className="relative min-w-0">

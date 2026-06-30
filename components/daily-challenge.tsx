@@ -137,18 +137,17 @@ export function DailyChallenge() {
   const result = picked !== null ? scenario.options[picked].correct : null
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5">
-      <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-amber-500/10 blur-2xl" />
-      <div className="relative flex items-center justify-between">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-[11px] font-medium text-amber-300">
-          <Sparkles className="size-3" /> Daily Brain Teaser
+    <div className="rounded-md border border-zinc-800 border-l-2 border-l-amber-500 bg-zinc-900/50 p-5">
+      <div className="flex items-center justify-between">
+        <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-400">
+          <Sparkles className="size-3.5" /> Daily Brain Teaser
         </span>
         {picked === null && (
-          <span className="text-[11px] text-zinc-500">+4% / −6% rationality</span>
+          <span className="font-mono text-[11px] text-zinc-500">+4% / −6%</span>
         )}
       </div>
 
-      <h3 className="relative mt-3 font-serif text-lg font-semibold text-zinc-50">
+      <h3 className="mt-3 font-serif text-lg font-semibold text-zinc-50">
         {scenario.prompt}
       </h3>
 
@@ -163,7 +162,7 @@ export function DailyChallenge() {
               disabled={picked !== null}
               className={cn(
                 'rounded-xl border px-4 py-3 text-left text-sm transition-all',
-                !showState && 'border-zinc-700 bg-zinc-800/40 text-zinc-200 hover:scale-[1.01] hover:border-amber-500/40',
+                !showState && 'border-zinc-700 bg-zinc-800/40 text-zinc-200 hover:border-amber-500/40',
                 showState && opt.correct && 'border-emerald-500/50 bg-emerald-500/10 text-emerald-100',
                 showState && !opt.correct && chosen && 'border-rose-500/50 bg-rose-500/10 text-rose-100',
                 showState && !opt.correct && !chosen && 'border-zinc-800 bg-zinc-900/40 text-zinc-500',

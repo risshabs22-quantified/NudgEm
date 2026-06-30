@@ -526,7 +526,6 @@ export function LifeSimulator() {
   if (g.phase === 'intro') {
     return (
       <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8 text-center">
-        <div className="pointer-events-none absolute -right-10 -top-10 size-48 rounded-full bg-emerald-500/15 blur-3xl" />
         <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
           <Hourglass className="size-3" /> The 10-Minute Life Run
         </span>
@@ -542,7 +541,7 @@ export function LifeSimulator() {
         </p>
         <button
           onClick={begin}
-          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-6 py-3 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.03]"
+          className="mt-6 inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3 text-sm font-bold text-zinc-950 transition-all"
         >
           <Play className="size-4" /> Start the Life Run
         </button>
@@ -895,7 +894,7 @@ function DecisionCard({
             key={i}
             onClick={() => onChoose(i)}
             className={cn(
-              'group rounded-xl border p-3 text-left transition-all hover:scale-[1.02]',
+              'group rounded-xl border p-3 text-left transition-all',
               opt.tone === 'impulse'
                 ? 'border-rose-500/30 bg-rose-500/5 hover:border-rose-500/50'
                 : 'border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/50',

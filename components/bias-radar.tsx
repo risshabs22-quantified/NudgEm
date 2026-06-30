@@ -317,7 +317,7 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
                 key={i}
                 onClick={() => answer(i)}
                 className={cn(
-                  'group flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all hover:scale-[1.01]',
+                  'group flex w-full items-center justify-between gap-3 rounded-xl border px-4 py-3 text-left text-sm transition-all',
                   answers[step] === i
                     ? 'border-violet-500/50 bg-violet-500/10 text-zinc-50'
                     : 'border-zinc-700 bg-zinc-800/40 text-zinc-300 hover:border-violet-500/40 hover:text-zinc-100',
@@ -361,7 +361,6 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
       {/* Profile */}
       <div className="flex flex-col gap-4">
         <div className="relative overflow-hidden rounded-2xl border border-violet-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 nudge-rise">
-          <div className="pointer-events-none absolute -right-8 -top-8 size-32 rounded-full bg-violet-500/15 blur-3xl" />
           <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-[11px] font-medium text-violet-300">
             <Sparkles className="size-3" /> Your archetype
           </span>
@@ -406,7 +405,7 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
         <div className="flex gap-3">
           <button
             onClick={download}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-violet-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:scale-[1.02]"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-violet-500 px-4 py-2.5 text-sm font-bold text-white transition-all"
           >
             <Download className="size-4" /> Download profile
           </button>

@@ -227,7 +227,7 @@ export function HabitLoop() {
                 key={f.id}
                 onClick={() => apply(f)}
                 className={cn(
-                  'flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2.5 text-left text-sm transition-all hover:scale-[1.01]',
+                  'flex w-full items-center justify-between gap-2 rounded-xl border px-3 py-2.5 text-left text-sm transition-all',
                   friction?.id === f.id
                     ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-200'
                     : 'border-zinc-700 bg-zinc-800/40 text-zinc-300 hover:border-emerald-500/40',

@@ -245,7 +245,7 @@ input[type='range'].nudge-range::-moz-range-thumb {
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 0.375rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -350,6 +350,11 @@ input[type='range'].nudge-range::-moz-range-thumb {
   --color-violet-400: #bc8cff;
   --color-violet-500: #a371f7;
   --color-violet-600: #8957e5;
+
+  /* Tighter, editorial corner radii — de-pills the big soft cards.
+     sm/md/lg/xl derive from --radius (0.375rem) in @theme inline. */
+  --radius-2xl: 0.625rem;
+  --radius-3xl: 0.75rem;
 }
 
 @theme inline {

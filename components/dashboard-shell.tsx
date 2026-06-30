@@ -164,75 +164,73 @@ export function DashboardShell({
       {/* Brand */}
       <Link
         href="/"
-        className="group flex items-center gap-3 px-5 py-5"
+        className="group flex items-center gap-3 border-b border-zinc-800 px-5 py-4"
         aria-label="NudgeEm home"
       >
-        <div className="relative size-10 overflow-hidden rounded-xl ring-1 ring-zinc-700 transition-transform group-hover:scale-105">
+        <div className="relative size-9 overflow-hidden rounded-md ring-1 ring-zinc-700 transition-transform group-hover:scale-105">
           <Image
             src="/logo.png"
             alt="NudgeEm logo"
             fill
-            sizes="40px"
+            sizes="36px"
             className="object-cover"
             priority
           />
         </div>
         <div className="leading-tight">
-          <div className="font-serif text-lg font-semibold tracking-tight text-zinc-50">
+          <div className="font-serif text-base font-semibold tracking-tight text-zinc-50">
             Nudge<span className="text-emerald-400">Em</span>
           </div>
-          <div className="text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+          <div className="text-[9px] uppercase tracking-[0.2em] text-zinc-500">
             Behavioral Lab
           </div>
         </div>
       </Link>
 
-      <nav className="flex-1 space-y-3 overflow-y-auto nudge-scroll px-3 py-2">
+      <nav className="flex-1 overflow-y-auto nudge-scroll px-2.5 py-4">
         {NAV.map((group, gi) => (
-          <div key={gi} className="space-y-1">
+          <div key={gi} className={cn(gi > 0 && 'mt-5')}>
             {group.heading && (
-              <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-600">
+              <p className="px-2.5 pb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-600">
                 {group.heading}
               </p>
             )}
-            {group.items.map((item) => {
-              const active = isActive(item.href)
-              const Icon = item.icon
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all',
-                    active
-                      ? 'bg-zinc-800/80 text-zinc-50 ring-1 ring-emerald-500/20'
-                      : 'text-zinc-400 hover:bg-zinc-800/40 hover:text-zinc-100',
-                  )}
-                >
-                  {active && (
-                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-500" />
-                  )}
-                  <span
+            <div className="space-y-px">
+              {group.items.map((item) => {
+                const active = isActive(item.href)
+                const Icon = item.icon
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
                     className={cn(
-                      'flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors',
+                      'group relative flex items-center gap-3 border-l-2 py-2 pl-3.5 pr-2.5 text-sm transition-colors',
                       active
-                        ? 'bg-emerald-500/15 text-emerald-400'
-                        : 'bg-zinc-800/60 text-zinc-400 group-hover:text-zinc-200',
+                        ? 'border-emerald-500 bg-zinc-800/50 text-zinc-50'
+                        : 'border-transparent text-zinc-400 hover:bg-zinc-800/30 hover:text-zinc-100',
                     )}
                   >
-                    <Icon className="size-4" strokeWidth={2.25} />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate font-medium">
-                      {item.label}
+                    <Icon
+                      className={cn(
+                        'size-4 shrink-0 transition-colors',
+                        active
+                          ? 'text-emerald-400'
+                          : 'text-zinc-500 group-hover:text-zinc-300',
+                      )}
+                      strokeWidth={2.25}
+                    />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-medium leading-tight">
+                        {item.label}
+                      </span>
+                      <span className="block truncate text-[11px] leading-tight text-zinc-600">
+                        {item.desc}
+                      </span>
                     </span>
-                    <span className="block truncate text-[11px] text-zinc-500">
-                      {item.desc}
-                    </span>
-                  </span>
-                </Link>
-              )
-            })}
+                  </Link>
+                )
+              })}
+            </div>
           </div>
         ))}
       </nav>
@@ -296,8 +294,8 @@ export function DashboardShell({
       {/* Main column */}
       <div className="relative lg:pl-72">
         {/* Top bar */}
-        <header className="sticky top-0 z-20 border-b border-zinc-800/80 bg-zinc-950/70 backdrop-blur-xl">
-          <div className="flex flex-col gap-3 px-4 py-3 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+        <header className="sticky top-0 z-20 border-b border-zinc-800 bg-zinc-950/95 backdrop-blur-sm">
+          <div className="mx-auto flex max-w-5xl flex-col gap-3 px-5 py-3.5 sm:px-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setMobileOpen(true)}
@@ -320,23 +318,23 @@ export function DashboardShell({
                 />
               </Link>
               <div className="min-w-0">
-                <h1 className="truncate font-serif text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+                <h1 className="truncate font-serif text-lg font-semibold tracking-tight text-zinc-50 sm:text-xl">
                   {title}
                 </h1>
                 {subtitle && (
-                  <p className="truncate text-xs text-zinc-500 sm:text-sm">
-                    {subtitle}
-                  </p>
+                  <p className="truncate text-xs text-zinc-500">{subtitle}</p>
                 )}
               </div>
             </div>
-            <div className="lg:max-w-2xl lg:flex-1">
+            <div className="lg:max-w-md lg:flex-1">
               <MetricTicker />
             </div>
           </div>
         </header>
 
-        <main className="relative px-4 py-6 sm:px-6 lg:px-8">{children}</main>
+        <main className="relative px-5 py-10 sm:px-8">
+          <div className="mx-auto max-w-5xl">{children}</div>
+        </main>
       </div>
 
       {/* Global overlays */}

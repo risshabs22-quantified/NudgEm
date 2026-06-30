@@ -197,7 +197,7 @@ export function TrapScanner() {
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <button
                 onClick={loadExample}
-                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-5 py-2.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.03]"
+                className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-sm font-bold text-zinc-950 transition-all"
               >
                 <Sparkles className="size-4" /> Load E-commerce Example
               </button>

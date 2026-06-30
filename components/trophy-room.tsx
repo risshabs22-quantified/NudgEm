@@ -62,7 +62,6 @@ export function TrophyRoom() {
     <div className="space-y-6">
       {/* Progress hero */}
       <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6">
-        <div className="pointer-events-none absolute -right-10 -top-10 size-44 rounded-full bg-emerald-500/15 blur-3xl" />
         <div className="relative flex flex-wrap items-center justify-between gap-4">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
@@ -155,7 +154,7 @@ export function TrophyRoom() {
                   className={cn(
                     'flex size-12 shrink-0 items-center justify-center rounded-xl',
                     has
-                      ? 'bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950 shadow-lg shadow-emerald-500/20'
+                      ? 'bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950'
                       : 'bg-zinc-800 text-zinc-600',
                   )}
                 >

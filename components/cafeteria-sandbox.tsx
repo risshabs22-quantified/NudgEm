@@ -234,7 +234,7 @@ export function CafeteriaSandbox() {
           <button
             onClick={run}
             disabled={running}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-4 py-2.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.02] disabled:opacity-60"
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-bold text-zinc-950 transition-all disabled:opacity-60"
           >
             <Play className="size-4" /> {running ? 'Diners choosing…' : 'Run Nudge Simulation'}
           </button>

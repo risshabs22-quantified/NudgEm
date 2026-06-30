@@ -67,7 +67,7 @@ export function ShieldSimulator() {
         <button
           onClick={toggle}
           className={cn(
-            'flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all hover:scale-[1.02]',
+            'flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-bold transition-all',
             shield ? 'bg-emerald-500 text-zinc-950' : 'bg-zinc-800 text-zinc-200',
           )}
         >

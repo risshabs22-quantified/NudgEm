@@ -69,58 +69,59 @@ export function DashboardOverview() {
 
   return (
     <div className="space-y-6">
-      {/* Hero */}
-      <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-6 sm:p-8">
-        <div className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-emerald-500/[0.07] blur-3xl" />
-        <div className="relative max-w-2xl">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
-            <Sparkles className="size-3" />
-            Behavioral econ you can actually play
-          </span>
-          <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-4xl">
-            Your brain is getting{' '}
-            <span className="text-emerald-400">played</span>{' '}
-            right now.
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
-            Every app you open is nudging you to spend. NudgeEm does it on
-            purpose so you can feel it happening. Mess with the simulators and
-            watch your{' '}
-            <span className="font-medium text-zinc-200">Rationality Score</span>{' '}
-            and{' '}
-            <span className="font-medium text-zinc-200">Psychological Budget</span>{' '}
-            move with every choice you make.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
+      {/* Editorial masthead */}
+      <div className="border-b border-zinc-800 pb-8">
+        <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-emerald-400">
+          <Sparkles className="size-3.5" />
+          Behavioral economics, played not read
+        </p>
+        <div className="mt-4 grid items-end gap-6 lg:grid-cols-[1.5fr_1fr]">
+          <div>
+            <h2 className="font-serif text-3xl font-semibold leading-[1.1] tracking-tight text-zinc-50 sm:text-[2.6rem]">
+              Your brain is getting{' '}
+              <span className="text-emerald-400">played</span> right now.
+            </h2>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+              Every app you open is nudging you to spend. NudgeEm does it on
+              purpose so you can feel it happening. Mess with the simulators and
+              watch your{' '}
+              <span className="font-medium text-zinc-200">Rationality Score</span>{' '}
+              and{' '}
+              <span className="font-medium text-zinc-200">
+                Psychological Budget
+              </span>{' '}
+              move with every choice you make.
+            </p>
+          </div>
+          <div className="flex flex-col items-start gap-4 lg:items-end">
+            <div className="flex items-baseline gap-2 border-l-2 border-zinc-700 pl-3 lg:border-l-0 lg:border-r-2 lg:pl-0 lg:pr-3 lg:text-right">
+              <span className="text-xs uppercase tracking-wider text-zinc-500">
+                Verdict
+              </span>
+              <span className={cn('font-serif text-lg font-semibold', v.tone)}>
+                {v.label}
+              </span>
+            </div>
             <Link
               href="/impulse-lab"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-5 py-2.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.03]"
+              className="group inline-flex items-center gap-2 rounded-md bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-zinc-950 transition-colors hover:bg-emerald-400"
             >
               See if you can be tricked
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <div className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-2.5 text-sm">
-              <span className="text-zinc-500">Right now you’re:</span>
-              <span className={cn('font-semibold', v.tone)}>{v.label}</span>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Stat cards */}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {/* Stat strip — one panel, divided */}
+      <div className="grid grid-cols-2 divide-x divide-y divide-zinc-800 overflow-hidden rounded-md border border-zinc-800 sm:grid-cols-4 sm:divide-y-0">
         {stats.map((s) => {
           const Icon = s.icon
           return (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
-                  {s.label}
-                </span>
-                <Icon className={cn('size-4', s.tone)} />
+            <div key={s.label} className="bg-zinc-900/40 p-4">
+              <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500">
+                <Icon className={cn('size-3.5', s.tone)} />
+                {s.label}
               </div>
               <p
                 className={cn(

@@ -172,17 +172,14 @@ export function LearningJourney() {
   const next = finished ? null : STEPS[nextIndex]
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-900/70 to-zinc-950">
-      <div className="pointer-events-none absolute -left-20 -top-20 size-64 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-24 right-0 size-64 rounded-full bg-amber-500/10 blur-3xl" />
-
+    <div className="overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/40">
       {/* Header */}
-      <div className="relative flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800/80 p-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-800 p-6">
         <div className="min-w-0">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
-            <Compass className="size-3" /> Your path
+          <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-400">
+            <Compass className="size-3.5" /> Your path
           </span>
-          <h2 className="mt-3 font-serif text-2xl font-semibold tracking-tight text-zinc-50">
+          <h2 className="mt-2.5 font-serif text-2xl font-semibold tracking-tight text-zinc-50">
             From easily nudged to nudge-immune
           </h2>
           <p className="mt-1 max-w-xl text-sm leading-relaxed text-zinc-400">
@@ -201,7 +198,7 @@ export function LearningJourney() {
                 cy="18"
                 r="15.5"
                 fill="none"
-                stroke="rgba(58,44,36,0.7)"
+                stroke="rgba(42,49,60,0.9)"
                 strokeWidth="3"
               />
               <circle
@@ -238,8 +235,8 @@ export function LearningJourney() {
 
       {/* Next-up CTA */}
       {next ? (
-        <div className="relative flex flex-wrap items-center gap-3 border-b border-zinc-800/80 bg-amber-500/5 px-6 py-4">
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-400">
+        <div className="flex flex-wrap items-center gap-3 border-b border-zinc-800 border-l-2 border-l-amber-500 bg-amber-500/[0.06] px-6 py-4">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-400">
             Do this next
           </span>
           <span className="text-sm text-zinc-200">
@@ -248,14 +245,14 @@ export function LearningJourney() {
           </span>
           <Link
             href={next.href}
-            className="ml-auto inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 px-4 py-2 text-sm font-bold text-zinc-950 shadow-lg shadow-amber-500/20 transition-transform hover:scale-[1.03]"
+            className="ml-auto inline-flex items-center gap-1.5 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-zinc-950 transition-colors hover:bg-amber-400"
           >
             Start it
             <ArrowRight className="size-4" />
           </Link>
         </div>
       ) : (
-        <div className="relative flex items-center gap-3 border-b border-zinc-800/80 bg-emerald-500/5 px-6 py-4">
+        <div className="flex items-center gap-3 border-b border-zinc-800 border-l-2 border-l-emerald-500 bg-emerald-500/[0.06] px-6 py-4">
           <GraduationCap className="size-5 text-emerald-400" />
           <p className="text-sm text-zinc-200">
             <span className="font-semibold text-emerald-300">

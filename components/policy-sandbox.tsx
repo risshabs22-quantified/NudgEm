@@ -271,7 +271,7 @@ export function PolicySandbox() {
           </p>
           <button
             onClick={brief}
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-sky-500 to-sky-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-sky-500/20 transition-all hover:scale-[1.02]"
+            className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-bold text-white transition-all"
           >
             <Megaphone className="size-4" /> Brief the Cabinet
           </button>

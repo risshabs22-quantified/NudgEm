@@ -155,7 +155,7 @@ function AnchoringWidget() {
       {anchor === null ? (
         <button
           onClick={spin}
-          className="w-full rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 px-4 py-2.5 text-sm font-bold text-zinc-950 transition-all hover:scale-[1.01]"
+          className="w-full rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-bold text-zinc-950 transition-all"
         >
           Spin the wheel of fortune 🎡
         </button>

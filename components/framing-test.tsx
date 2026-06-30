@@ -74,7 +74,7 @@ export function FramingTest() {
           <button
             onClick={() => choose('gain')}
             className={cn(
-              'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all hover:scale-[1.02]',
+              'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all',
               pick === 'gain'
                 ? 'border-emerald-500/60 bg-emerald-500/10 ring-2 ring-emerald-500/30'
                 : 'border-zinc-700 bg-zinc-900/60 hover:border-emerald-500/40',
@@ -103,7 +103,7 @@ export function FramingTest() {
           <button
             onClick={() => choose('loss')}
             className={cn(
-              'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all hover:scale-[1.02]',
+              'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all',
               pick === 'loss'
                 ? 'border-rose-500/60 bg-rose-500/10 ring-2 ring-rose-500/30'
                 : 'border-zinc-700 bg-zinc-900/60 hover:border-rose-500/40',

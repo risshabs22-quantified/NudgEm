@@ -184,7 +184,6 @@ export function EscalationAuction() {
     <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       {/* Arena */}
       <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5">
-        <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-rose-500/10 blur-3xl" />
 
         <div className="flex items-center gap-2">
           <span className="flex size-9 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400 ring-1 ring-rose-500/30">
@@ -239,7 +238,7 @@ export function EscalationAuction() {
             <button
               onClick={raise}
               disabled={turn !== 'user'}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-rose-500 to-rose-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-rose-500/25 transition-all hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-rose-500 px-4 py-3 text-sm font-bold text-white transition-all disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Flame className="size-4" />
               {turn === 'user'

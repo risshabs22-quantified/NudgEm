@@ -12,9 +12,9 @@ function rationalityColor(score: number) {
   return 'text-rose-400'
 }
 function rationalityBar(score: number) {
-  if (score >= 75) return 'from-emerald-500 to-emerald-400'
-  if (score >= 45) return 'from-amber-500 to-amber-400'
-  return 'from-rose-500 to-rose-400'
+  if (score >= 75) return 'bg-emerald-500'
+  if (score >= 45) return 'bg-amber-500'
+  return 'bg-rose-500'
 }
 
 export function MetricTicker({ compact = false }: { compact?: boolean }) {
@@ -26,62 +26,57 @@ export function MetricTicker({ compact = false }: { compact?: boolean }) {
   return (
     <div
       className={cn(
-        'flex flex-wrap items-stretch gap-2 sm:gap-3',
+        'flex items-stretch divide-x divide-zinc-800 overflow-hidden rounded-md border border-zinc-800 bg-zinc-900/50',
         compact ? '' : 'w-full',
       )}
     >
       {/* Rationality */}
-      <div className="group relative flex min-w-[160px] flex-1 items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/70 px-3 py-2 backdrop-blur">
-        <div
-          className={cn(
-            'flex size-9 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80',
-            rationalityColor(rationality),
-          )}
-        >
-          <Brain className="size-4.5" strokeWidth={2.25} />
-        </div>
+      <div className="flex min-w-0 flex-1 items-center gap-2.5 px-3.5 py-2">
+        <Brain
+          className={cn('size-4 shrink-0', rationalityColor(rationality))}
+          strokeWidth={2.25}
+        />
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-            Rationality Score
+          <div className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+            Rationality
           </div>
-          <div className="flex items-baseline gap-1.5">
+          <div className="flex items-center gap-2">
             <span
               className={cn(
-                'font-mono text-lg font-bold tabular-nums leading-none',
+                'font-mono text-base font-bold tabular-nums leading-none',
                 rationalityColor(rationality),
               )}
             >
               {Math.round(animScore)}%
             </span>
-          </div>
-          <div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-zinc-800">
-            <div
-              className={cn(
-                'h-full rounded-full bg-gradient-to-r transition-all duration-500',
-                rationalityBar(rationality),
-              )}
-              style={{ width: `${rationality}%` }}
-            />
+            <div className="hidden h-1 flex-1 overflow-hidden rounded-full bg-zinc-800 sm:block">
+              <div
+                className={cn(
+                  'h-full transition-all duration-500',
+                  rationalityBar(rationality),
+                )}
+                style={{ width: `${rationality}%` }}
+              />
+            </div>
           </div>
         </div>
       </div>
 
       {/* Budget */}
-      <div className="relative flex min-w-[160px] flex-1 items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/70 px-3 py-2 backdrop-blur">
-        <div
+      <div className="flex min-w-0 flex-1 items-center gap-2.5 px-3.5 py-2">
+        <Wallet
           className={cn(
-            'flex size-9 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80',
+            'size-4 shrink-0',
             budget >= startingBudget ? 'text-emerald-400' : 'text-amber-400',
           )}
-        >
-          <Wallet className="size-4.5" strokeWidth={2.25} />
-        </div>
-        <div className="min-w-0 flex-1">
+          strokeWidth={2.25}
+        />
+        <div className="min-w-0">
           <div className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-            Psychological Budget
+            Budget
           </div>
           <div className="flex items-baseline gap-1.5">
-            <span className="font-mono text-lg font-bold tabular-nums leading-none text-zinc-100">
+            <span className="font-mono text-base font-bold tabular-nums leading-none text-zinc-100">
               ${Math.round(animBudget)}
             </span>
             <span className="text-[11px] text-zinc-600">/ ${startingBudget}</span>
@@ -91,28 +86,24 @@ export function MetricTicker({ compact = false }: { compact?: boolean }) {
 
       {!compact && (
         <>
-          <div className="hidden items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/70 px-3 py-2 backdrop-blur md:flex">
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80 text-emerald-400">
-              <ShieldCheck className="size-4.5" strokeWidth={2.25} />
-            </div>
+          <div className="hidden min-w-0 items-center gap-2.5 px-3.5 py-2 md:flex">
+            <ShieldCheck className="size-4 shrink-0 text-emerald-400" strokeWidth={2.25} />
             <div>
               <div className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                Traps Avoided
+                Avoided
               </div>
-              <div className="flex items-center gap-1 font-mono text-lg font-bold tabular-nums leading-none text-emerald-400">
+              <div className="flex items-center gap-1 font-mono text-base font-bold tabular-nums leading-none text-emerald-400">
                 <TrendingUp className="size-3.5" /> {trapsAvoided}
               </div>
             </div>
           </div>
-          <div className="hidden items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-900/70 px-3 py-2 backdrop-blur md:flex">
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-zinc-800/80 text-rose-400">
-              <TrendingDown className="size-4.5" strokeWidth={2.25} />
-            </div>
+          <div className="hidden min-w-0 items-center gap-2.5 px-3.5 py-2 md:flex">
+            <TrendingDown className="size-4 shrink-0 text-rose-400" strokeWidth={2.25} />
             <div>
               <div className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                Traps Sprung
+                Sprung
               </div>
-              <div className="font-mono text-lg font-bold tabular-nums leading-none text-rose-400">
+              <div className="font-mono text-base font-bold tabular-nums leading-none text-rose-400">
                 {trapsFallen}
               </div>
             </div>

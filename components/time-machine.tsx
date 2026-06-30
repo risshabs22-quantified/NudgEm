@@ -141,7 +141,6 @@ export function TimeMachine() {
           </p>
         </div>
         <div className="relative overflow-hidden rounded-2xl border border-emerald-500/40 bg-emerald-500/5 p-5">
-          <div className="pointer-events-none absolute -right-8 -top-8 size-28 rounded-full bg-emerald-500/15 blur-2xl" />
           <div className="flex items-center gap-2 text-emerald-300">
             <TrendingUp className="size-4" />
             <span className="text-xs font-medium uppercase tracking-wider">
