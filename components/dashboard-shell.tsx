@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard,
@@ -11,7 +12,6 @@ import {
   Menu,
   X,
   RotateCcw,
-  Sparkles,
   Hourglass,
   Landmark,
   Radar,
@@ -162,9 +162,20 @@ export function DashboardShell({
   const SidebarInner = (
     <div className="flex h-full flex-col">
       {/* Brand */}
-      <div className="flex items-center gap-2.5 px-5 py-5">
-        <div className="relative flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 shadow-lg shadow-emerald-500/30">
-          <Sparkles className="size-5 text-zinc-950" strokeWidth={2.5} />
+      <Link
+        href="/"
+        className="group flex items-center gap-3 px-5 py-5"
+        aria-label="NudgeEm home"
+      >
+        <div className="relative size-10 overflow-hidden rounded-xl ring-1 ring-amber-500/30 shadow-lg shadow-black/40 transition-transform group-hover:scale-105">
+          <Image
+            src="/logo.png"
+            alt="NudgeEm logo"
+            fill
+            sizes="40px"
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="leading-tight">
           <div className="font-serif text-lg font-semibold tracking-tight text-zinc-50">
@@ -174,7 +185,7 @@ export function DashboardShell({
             Behavioral Lab
           </div>
         </div>
-      </div>
+      </Link>
 
       <nav className="flex-1 space-y-3 overflow-y-auto nudge-scroll px-3 py-2">
         {NAV.map((group, gi) => (
@@ -300,6 +311,19 @@ export function DashboardShell({
               >
                 <Menu className="size-5" />
               </button>
+              <Link
+                href="/"
+                aria-label="NudgeEm home"
+                className="relative size-9 shrink-0 overflow-hidden rounded-lg ring-1 ring-amber-500/30 lg:hidden"
+              >
+                <Image
+                  src="/logo.png"
+                  alt="NudgeEm logo"
+                  fill
+                  sizes="36px"
+                  className="object-cover"
+                />
+              </Link>
               <div className="min-w-0">
                 <h1 className="truncate font-serif text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
                   {title}

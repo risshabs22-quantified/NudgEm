@@ -3,19 +3,12 @@
 import * as React from 'react'
 import Link from 'next/link'
 import {
-  Zap,
-  SlidersHorizontal,
-  Brain,
   ArrowRight,
   Sparkles,
   Wallet,
   TrendingDown,
   ShieldCheck,
   Gauge,
-  Hourglass,
-  Landmark,
-  Radar,
-  ScanLine,
 } from 'lucide-react'
 import { useNudge } from '@/components/nudge-provider'
 import { cn } from '@/lib/utils'
@@ -30,62 +23,6 @@ function verdict(rationality: number) {
   if (rationality >= 20)
     return { label: 'Marketers Love You', tone: 'text-rose-400' }
   return { label: 'A Marketer’s Dream', tone: 'text-rose-400' }
-}
-
-const QUICK = [
-  {
-    href: '/impulse-lab',
-    label: 'The Impulse Lab',
-    desc: 'Fake checkout tricks and a rigged $20 auction.',
-    icon: Zap,
-    accent: 'rose',
-  },
-  {
-    href: '/life-simulator',
-    label: 'Life Simulator',
-    desc: 'Speedrun ten years of money choices. See what past-you did to future-you.',
-    icon: Hourglass,
-    accent: 'emerald',
-  },
-  {
-    href: '/bias-simulators',
-    label: 'Bias Simulators',
-    desc: 'Forgotten subs and wording that flips your brain.',
-    icon: SlidersHorizontal,
-    accent: 'amber',
-  },
-  {
-    href: '/macro-lab',
-    label: 'Macro Lab',
-    desc: 'Run a country with nudges. No laws required.',
-    icon: Landmark,
-    accent: 'sky',
-  },
-  {
-    href: '/bias-radar',
-    label: 'Bias Radar',
-    desc: 'Ten questions that show where you get played.',
-    icon: Radar,
-    accent: 'violet',
-  },
-  {
-    href: '/trap-scanner',
-    label: 'Trap Scanner',
-    desc: 'Scan a shady checkout and watch every trick light up.',
-    icon: ScanLine,
-    accent: 'emerald',
-  },
-] as const
-
-const accentMap = {
-  rose: 'from-rose-500/20 to-transparent text-rose-400 group-hover:border-rose-500/40',
-  amber:
-    'from-amber-500/20 to-transparent text-amber-400 group-hover:border-amber-500/40',
-  violet:
-    'from-violet-500/20 to-transparent text-violet-400 group-hover:border-violet-500/40',
-  emerald:
-    'from-emerald-500/20 to-transparent text-emerald-400 group-hover:border-emerald-500/40',
-  sky: 'from-sky-500/20 to-transparent text-sky-400 group-hover:border-sky-500/40',
 }
 
 export function DashboardOverview() {
@@ -196,47 +133,6 @@ export function DashboardOverview() {
               </p>
               <p className="mt-0.5 text-[11px] text-zinc-500">{s.sub}</p>
             </div>
-          )
-        })}
-      </div>
-
-      {/* Quick links */}
-      <div className="grid gap-4 md:grid-cols-3">
-        {QUICK.map((q) => {
-          const Icon = q.icon
-          return (
-            <Link
-              key={q.href}
-              href={q.href}
-              className="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 transition-all hover:bg-zinc-900"
-            >
-              <div
-                className={cn(
-                  'pointer-events-none absolute inset-0 bg-gradient-to-br opacity-60',
-                  accentMap[q.accent].split(' ').slice(0, 2).join(' '),
-                )}
-              />
-              <div className="relative">
-                <span
-                  className={cn(
-                    'flex size-11 items-center justify-center rounded-xl bg-zinc-800/80 transition-colors',
-                    accentMap[q.accent].split(' ')[2],
-                  )}
-                >
-                  <Icon className="size-5" strokeWidth={2.25} />
-                </span>
-                <h3 className="mt-4 font-serif text-lg font-semibold text-zinc-50">
-                  {q.label}
-                </h3>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-400">
-                  {q.desc}
-                </p>
-                <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-300 group-hover:text-zinc-100">
-                  Let's go
-                  <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-                </span>
-              </div>
-            </Link>
           )
         })}
       </div>
