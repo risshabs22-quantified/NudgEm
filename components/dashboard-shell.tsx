@@ -12,6 +12,10 @@ import {
   X,
   RotateCcw,
   Sparkles,
+  Hourglass,
+  Landmark,
+  Radar,
+  ScanLine,
 } from 'lucide-react'
 import { MetricTicker } from '@/components/metric-ticker'
 import { useNudge } from '@/components/nudge-provider'
@@ -24,30 +28,71 @@ type NavItem = {
   desc: string
 }
 
-const NAV: NavItem[] = [
+type NavGroup = { heading: string | null; items: NavItem[] }
+
+const NAV: NavGroup[] = [
   {
-    href: '/',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-    desc: 'Your behavioral overview',
+    heading: null,
+    items: [
+      {
+        href: '/',
+        label: 'Dashboard',
+        icon: LayoutDashboard,
+        desc: 'Your behavioral overview',
+      },
+    ],
   },
   {
-    href: '/impulse-lab',
-    label: 'The Impulse Lab',
-    icon: Zap,
-    desc: 'Dark-pattern simulator',
+    heading: 'Simulations',
+    items: [
+      {
+        href: '/impulse-lab',
+        label: 'The Impulse Lab',
+        icon: Zap,
+        desc: 'Dark patterns & auction',
+      },
+      {
+        href: '/life-simulator',
+        label: 'Life Simulator',
+        icon: Hourglass,
+        desc: 'The 10-minute life run',
+      },
+      {
+        href: '/bias-simulators',
+        label: 'Bias Simulators',
+        icon: SlidersHorizontal,
+        desc: 'Defaults & framing',
+      },
+      {
+        href: '/macro-lab',
+        label: 'Macro Lab',
+        icon: Landmark,
+        desc: 'Nudge a whole nation',
+      },
+    ],
   },
   {
-    href: '/bias-simulators',
-    label: 'Bias Simulators',
-    icon: SlidersHorizontal,
-    desc: 'Defaults & framing',
-  },
-  {
-    href: '/anatomy',
-    label: 'The Anatomy of a Choice',
-    icon: Brain,
-    desc: 'Core concept library',
+    heading: 'Tools',
+    items: [
+      {
+        href: '/bias-radar',
+        label: 'Bias Radar',
+        icon: Radar,
+        desc: 'Diagnose your profile',
+      },
+      {
+        href: '/trap-scanner',
+        label: 'Trap Scanner',
+        icon: ScanLine,
+        desc: 'Spot dark patterns',
+      },
+      {
+        href: '/anatomy',
+        label: 'Anatomy of a Choice',
+        icon: Brain,
+        desc: 'Core concept library',
+      },
+    ],
   },
 ]
 
@@ -89,43 +134,54 @@ export function DashboardShell({
         </div>
       </div>
 
-      <nav className="flex-1 space-y-1 px-3 py-2">
-        {NAV.map((item) => {
-          const active = isActive(item.href)
-          const Icon = item.icon
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                'group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all',
-                active
-                  ? 'bg-zinc-800/80 text-zinc-50 ring-1 ring-emerald-500/20'
-                  : 'text-zinc-400 hover:bg-zinc-800/40 hover:text-zinc-100',
-              )}
-            >
-              {active && (
-                <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
-              )}
-              <span
-                className={cn(
-                  'flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors',
-                  active
-                    ? 'bg-emerald-500/15 text-emerald-400'
-                    : 'bg-zinc-800/60 text-zinc-400 group-hover:text-zinc-200',
-                )}
-              >
-                <Icon className="size-4" strokeWidth={2.25} />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block truncate font-medium">{item.label}</span>
-                <span className="block truncate text-[11px] text-zinc-500">
-                  {item.desc}
-                </span>
-              </span>
-            </Link>
-          )
-        })}
+      <nav className="flex-1 space-y-3 overflow-y-auto nudge-scroll px-3 py-2">
+        {NAV.map((group, gi) => (
+          <div key={gi} className="space-y-1">
+            {group.heading && (
+              <p className="px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-zinc-600">
+                {group.heading}
+              </p>
+            )}
+            {group.items.map((item) => {
+              const active = isActive(item.href)
+              const Icon = item.icon
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    'group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-all',
+                    active
+                      ? 'bg-zinc-800/80 text-zinc-50 ring-1 ring-emerald-500/20'
+                      : 'text-zinc-400 hover:bg-zinc-800/40 hover:text-zinc-100',
+                  )}
+                >
+                  {active && (
+                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
+                  )}
+                  <span
+                    className={cn(
+                      'flex size-8 shrink-0 items-center justify-center rounded-lg transition-colors',
+                      active
+                        ? 'bg-emerald-500/15 text-emerald-400'
+                        : 'bg-zinc-800/60 text-zinc-400 group-hover:text-zinc-200',
+                    )}
+                  >
+                    <Icon className="size-4" strokeWidth={2.25} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-medium">
+                      {item.label}
+                    </span>
+                    <span className="block truncate text-[11px] text-zinc-500">
+                      {item.desc}
+                    </span>
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        ))}
       </nav>
 
       <div className="px-3 pb-4">
@@ -140,6 +196,19 @@ export function DashboardShell({
           NudgeEm is an educational sandbox. No real money is involved — only
           your behavioral instincts.
         </p>
+        <div className="mt-2 flex items-center justify-center gap-2 text-[10px] text-zinc-600">
+          <Link href="/privacy" className="hover:text-zinc-400">
+            Privacy
+          </Link>
+          <span className="text-zinc-700">·</span>
+          <Link href="/terms" className="hover:text-zinc-400">
+            Terms
+          </Link>
+          <span className="text-zinc-700">·</span>
+          <Link href="/disclaimer" className="hover:text-zinc-400">
+            Disclaimer
+          </Link>
+        </div>
       </div>
     </div>
   )

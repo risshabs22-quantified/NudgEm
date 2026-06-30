@@ -48,9 +48,26 @@ type ResistArgs = {
   detail: string
 }
 
+type OutcomeArgs = {
+  /** Positive credits the budget, negative debits it. */
+  budgetDelta?: number
+  /** Positive raises the Rationality Score, negative lowers it. */
+  rationalityDelta?: number
+  kind: NudgeEventKind
+  title: string
+  bias?: string
+  detail: string
+}
+
 type NudgeContextValue = NudgeState & {
   fallForTrap: (args: FallArgs) => void
   resistTrap: (args: ResistArgs) => void
+  /**
+   * Generic, flexible feedback hook used by the larger simulators (Life
+   * Simulator, Escalation Auction, etc.). Lets a module push an arbitrary
+   * budget/rationality delta into the global dashboard metrics in one call.
+   */
+  applyOutcome: (args: OutcomeArgs) => void
   logInfo: (args: { title: string; detail: string; bias?: string }) => void
   reset: () => void
 }
@@ -158,6 +175,40 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
     [],
   )
 
+  const applyOutcome = React.useCallback(
+    ({
+      budgetDelta = 0,
+      rationalityDelta = 0,
+      kind,
+      title,
+      bias,
+      detail,
+    }: OutcomeArgs) => {
+      const ev: NudgeEvent = {
+        id: uid(),
+        kind,
+        title,
+        detail,
+        bias,
+        amount: budgetDelta !== 0 ? budgetDelta : undefined,
+        rationality: rationalityDelta !== 0 ? rationalityDelta : undefined,
+        at: Date.now(),
+      }
+      setState((s) => ({
+        ...s,
+        budget: Math.max(0, s.budget + budgetDelta),
+        rationality: clamp(s.rationality + rationalityDelta, 0, 100),
+        trapsFallen: kind === 'trap' ? s.trapsFallen + 1 : s.trapsFallen,
+        trapsAvoided: kind === 'good' ? s.trapsAvoided + 1 : s.trapsAvoided,
+        decisions: kind === 'info' ? s.decisions : s.decisions + 1,
+        moneyLost: budgetDelta < 0 ? s.moneyLost + Math.abs(budgetDelta) : s.moneyLost,
+        moneySaved: budgetDelta > 0 ? s.moneySaved + budgetDelta : s.moneySaved,
+        events: [ev, ...s.events].slice(0, 14),
+      }))
+    },
+    [],
+  )
+
   const logInfo = React.useCallback(
     ({ title, detail, bias }: { title: string; detail: string; bias?: string }) => {
       pushEvent({ id: uid(), kind: 'info', title, detail, bias, at: Date.now() })
@@ -175,8 +226,8 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const value = React.useMemo<NudgeContextValue>(
-    () => ({ ...state, fallForTrap, resistTrap, logInfo, reset }),
-    [state, fallForTrap, resistTrap, logInfo, reset],
+    () => ({ ...state, fallForTrap, resistTrap, applyOutcome, logInfo, reset }),
+    [state, fallForTrap, resistTrap, applyOutcome, logInfo, reset],
   )
 
   return <NudgeContext.Provider value={value}>{children}</NudgeContext.Provider>

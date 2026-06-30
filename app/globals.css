@@ -107,6 +107,26 @@ html {
   animation: nudge-slide-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes nudge-scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+.nudge-scan-line {
+  animation: nudge-scan 1.8s ease-in-out infinite;
+}
+
 .nudge-grid-bg {
   background-image:
     linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),

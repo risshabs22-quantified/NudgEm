@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { Zap, ShieldAlert } from 'lucide-react'
+import { Zap, ShieldAlert, Gavel } from 'lucide-react'
 import { DashboardShell } from '@/components/dashboard-shell'
 import { ImpulseSimulator } from '@/components/impulse-simulator'
+import { EscalationAuction } from '@/components/escalation-auction'
 import { SectionHeader } from '@/components/section-header'
 import { NudgeFeed } from '@/components/nudge-feed'
 
@@ -45,12 +46,23 @@ export default function ImpulseLabPage() {
 
         <div className="space-y-4 pt-2">
           <SectionHeader
+            icon={Gavel}
+            eyebrow="Sunk cost mini-game"
+            title="The Escalation Pit"
+            description="Bid against an AI for a $20 bill — but the loser pays their bid too. Watch how far sunk cost drags you past rational."
+            accent="rose"
+          />
+          <EscalationAuction />
+        </div>
+
+        <div className="space-y-4 pt-2">
+          <SectionHeader
             icon={ShieldAlert}
             eyebrow="The biases at play"
             title="What just happened to your brain"
             accent="amber"
           />
-          <NudgeFeed slugs={['scarcity', 'anchoring', 'loss-aversion']} />
+          <NudgeFeed slugs={['scarcity', 'anchoring', 'sunk-cost']} />
         </div>
       </div>
     </DashboardShell>

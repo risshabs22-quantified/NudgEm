@@ -12,6 +12,10 @@ import {
   TrendingDown,
   ShieldCheck,
   Gauge,
+  Hourglass,
+  Landmark,
+  Radar,
+  ScanLine,
 } from 'lucide-react'
 import { useNudge } from '@/components/nudge-provider'
 import { cn } from '@/lib/utils'
@@ -32,9 +36,16 @@ const QUICK = [
   {
     href: '/impulse-lab',
     label: 'The Impulse Lab',
-    desc: 'Face a live dark-pattern checkout and see if you crack under manufactured urgency.',
+    desc: 'A live dark-pattern checkout plus the sunk-cost Escalation Pit auction.',
     icon: Zap,
     accent: 'rose',
+  },
+  {
+    href: '/life-simulator',
+    label: 'Life Simulator',
+    desc: 'Live a decade of money decisions in real time — the 10-minute life run.',
+    icon: Hourglass,
+    accent: 'emerald',
   },
   {
     href: '/bias-simulators',
@@ -44,11 +55,25 @@ const QUICK = [
     accent: 'amber',
   },
   {
-    href: '/anatomy',
-    label: 'The Anatomy of a Choice',
-    desc: 'Dissect the 9 core biases marketers use — with defenses for each.',
-    icon: Brain,
+    href: '/macro-lab',
+    label: 'Macro Lab',
+    desc: 'Become a policy advisor and nudge a whole nation toward its targets.',
+    icon: Landmark,
+    accent: 'sky',
+  },
+  {
+    href: '/bias-radar',
+    label: 'Bias Radar',
+    desc: 'Take the diagnostic and map your behavioral profile on a radar chart.',
+    icon: Radar,
     accent: 'violet',
+  },
+  {
+    href: '/trap-scanner',
+    label: 'Trap Scanner',
+    desc: 'Scan any checkout and reveal its hidden dark patterns with fixes.',
+    icon: ScanLine,
+    accent: 'emerald',
   },
 ] as const
 
@@ -58,6 +83,9 @@ const accentMap = {
     'from-amber-500/20 to-transparent text-amber-400 group-hover:border-amber-500/40',
   violet:
     'from-violet-500/20 to-transparent text-violet-400 group-hover:border-violet-500/40',
+  emerald:
+    'from-emerald-500/20 to-transparent text-emerald-400 group-hover:border-emerald-500/40',
+  sky: 'from-sky-500/20 to-transparent text-sky-400 group-hover:border-sky-500/40',
 }
 
 export function DashboardOverview() {
