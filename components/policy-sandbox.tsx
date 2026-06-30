@@ -112,7 +112,7 @@ export function PolicySandbox() {
     <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       {/* Policy controls */}
       <div className="space-y-4">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center gap-2">
             <Landmark className="size-4 text-sky-400" />
             <h4 className="text-sm font-semibold text-zinc-100">
@@ -242,7 +242,7 @@ export function PolicySandbox() {
         </div>
 
         {/* Effectiveness + brief */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 text-sm font-medium text-zinc-200">
               <Target className="size-4 text-emerald-400" /> Nudge Effectiveness
@@ -285,7 +285,7 @@ export function PolicySandbox() {
 
       {/* Outcomes */}
       <div className="space-y-4">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <h4 className="text-sm font-semibold text-zinc-100">
             National impact: baseline vs your nudges
           </h4>
@@ -309,7 +309,7 @@ export function PolicySandbox() {
                 />
                 <YAxis
                   domain={[0, 100]}
-                  tick={{ fill: '#8a6f5e', fontSize: 10 }}
+                  tick={{ fill: '#6e7681', fontSize: 10 }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -327,7 +327,7 @@ export function PolicySandbox() {
                 <Bar
                   dataKey="baseline"
                   name="Baseline"
-                  fill="#5c463a"
+                  fill="#484f58"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={26}
                 />
@@ -436,7 +436,7 @@ function KpiCard({
         ? 'bg-sky-400'
         : 'bg-emerald-400'
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-3">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-3">
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
           {label}

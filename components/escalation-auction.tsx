@@ -183,14 +183,11 @@ export function EscalationAuction() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       {/* Arena */}
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5">
-
-        <div className="flex items-center gap-2">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400 ring-1 ring-rose-500/30">
-            <Gavel className="size-5" />
-          </span>
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
+        <div className="flex items-center gap-2.5 border-l-2 border-rose-500 pl-3">
+          <Gavel className="size-4 text-rose-400" />
           <div>
-            <h4 className="font-serif text-lg font-semibold text-zinc-50">
+            <h4 className="font-serif text-lg font-semibold leading-tight text-zinc-50">
               The Escalation Pit
             </h4>
             <p className="text-[11px] text-zinc-500">
@@ -204,7 +201,7 @@ export function EscalationAuction() {
           <span className="text-[11px] uppercase tracking-wider text-emerald-400/80">
             On the block
           </span>
-          <div className="mt-1 flex items-center gap-1 font-mono text-4xl font-bold text-emerald-400 text-glow-emerald">
+          <div className="mt-1 flex items-center gap-1 font-mono text-4xl font-bold text-emerald-400">
             <DollarSign className="size-7" />
             20
           </div>
@@ -271,7 +268,7 @@ export function EscalationAuction() {
             'rounded-2xl border p-4 transition-colors',
             userBid > PRIZE
               ? 'border-rose-500/40 bg-rose-500/10'
-              : 'border-zinc-800 bg-zinc-900/60',
+              : 'border-zinc-800 bg-zinc-900',
           )}
         >
           <div className="flex items-center gap-2 text-rose-300">
@@ -308,21 +305,17 @@ export function EscalationAuction() {
                 : 'border-rose-500/40 bg-rose-500/5',
             )}
           >
-            <div className="flex items-center gap-2">
-              <span
-                className={cn(
-                  'flex size-8 items-center justify-center rounded-lg',
-                  result.good
-                    ? 'bg-emerald-500/15 text-emerald-400'
-                    : 'bg-rose-500/15 text-rose-400',
-                )}
-              >
-                {result.good ? (
-                  <Trophy className="size-4" />
-                ) : (
-                  <TrendingDown className="size-4" />
-                )}
-              </span>
+            <div
+              className={cn(
+                'flex items-center gap-2 border-l-2 pl-3',
+                result.good ? 'border-emerald-500' : 'border-rose-500',
+              )}
+            >
+              {result.good ? (
+                <Trophy className="size-4 shrink-0 text-emerald-400" />
+              ) : (
+                <TrendingDown className="size-4 shrink-0 text-rose-400" />
+              )}
               <p className="text-sm font-semibold text-zinc-100">
                 {result.headline}
               </p>
@@ -334,7 +327,7 @@ export function EscalationAuction() {
         )}
 
         {/* Log */}
-        <div className="flex-1 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="flex-1 rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <h5 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
             Bid history
           </h5>

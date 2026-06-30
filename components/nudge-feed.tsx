@@ -19,7 +19,7 @@ function ConceptCard({ concept }: { concept: Concept }) {
   return (
     <div
       className={cn(
-        'group flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4 transition-all hover:border-zinc-700 hover:bg-zinc-900',
+        'group flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900 p-4 transition-all hover:border-zinc-700 hover:bg-zinc-900',
         open && 'ring-1',
         open && a.ring,
       )}

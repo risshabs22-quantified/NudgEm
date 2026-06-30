@@ -525,8 +525,8 @@ export function LifeSimulator() {
   /* ----------------------------- Intro ----------------------------- */
   if (g.phase === 'intro') {
     return (
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-8 text-center">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-8 text-center">
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-400">
           <Hourglass className="size-3" /> The 10-Minute Life Run
         </span>
         <h3 className="mx-auto mt-4 max-w-xl font-serif text-2xl font-semibold text-zinc-50 sm:text-3xl">
@@ -602,7 +602,7 @@ export function LifeSimulator() {
         <div className="space-y-4">
           {/* Controls */}
           {g.phase !== 'finished' && (
-            <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 p-2">
+            <div className="flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900 p-2">
               <button
                 onClick={() => set({ paused: !g.paused })}
                 className="flex items-center gap-1.5 rounded-lg border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-xs font-medium text-zinc-200 hover:bg-zinc-800"
@@ -642,7 +642,7 @@ export function LifeSimulator() {
 
           {/* Event beat */}
           {g.phase === 'event' && (
-            <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
               <div className="flex items-center gap-2 text-sky-400">
                 <Clock className="size-4 animate-spin [animation-duration:3s]" />
                 <span className="text-sm font-semibold">
@@ -677,7 +677,7 @@ export function LifeSimulator() {
           )}
 
           {/* Chart */}
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
             <div className="flex items-center gap-2">
               <LineChartIcon className="size-4 text-emerald-400" />
               <h4 className="text-sm font-semibold text-zinc-100">
@@ -704,7 +704,7 @@ export function LifeSimulator() {
                   />
                   <YAxis
                     yAxisId="left"
-                    tick={{ fill: '#8a6f5e', fontSize: 10 }}
+                    tick={{ fill: '#6e7681', fontSize: 10 }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(v) =>
@@ -715,7 +715,7 @@ export function LifeSimulator() {
                     yAxisId="right"
                     orientation="right"
                     domain={[0, 100]}
-                    tick={{ fill: '#8a6f5e', fontSize: 10 }}
+                    tick={{ fill: '#6e7681', fontSize: 10 }}
                     axisLine={false}
                     tickLine={false}
                   />
@@ -753,10 +753,10 @@ export function LifeSimulator() {
                     yAxisId="right"
                     type="monotone"
                     dataKey="rationality"
-                    stroke="#7bb2c0"
+                    stroke="#58a6ff"
                     strokeWidth={2}
                     strokeDasharray="4 3"
-                    dot={{ r: 2, fill: '#7bb2c0' }}
+                    dot={{ r: 2, fill: '#58a6ff' }}
                     isAnimationActive={false}
                   />
                 </LineChart>
@@ -766,7 +766,7 @@ export function LifeSimulator() {
         </div>
 
         {/* Right: timeline */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Clock className="size-4 text-emerald-400" /> Life Timeline
           </h4>
@@ -830,7 +830,7 @@ function StatChip({
   tone: string
 }) {
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-3">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-3">
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
           {label}
@@ -859,7 +859,7 @@ function DecisionCard({
   const Icon = decision.icon
   const urgent = secondsLeft <= 10
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-zinc-900/70 p-5 nudge-rise">
+    <div className="relative overflow-hidden rounded-2xl border border-amber-500/30 bg-zinc-900 p-5 nudge-rise">
       <div className="flex items-start gap-3">
         <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/15 text-amber-400 ring-1 ring-amber-500/30">
           <Icon className="size-5" />
@@ -945,7 +945,7 @@ function FinishCard({
           ? { label: 'The Nudge-Prone', tone: 'text-amber-400' }
           : { label: 'The Impulse Spender', tone: 'text-rose-400' }
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6 text-center nudge-rise">
+    <div className="relative overflow-hidden rounded-2xl border border-emerald-500/30 bg-zinc-900 p-6 text-center nudge-rise">
       <Trophy className="mx-auto size-8 text-emerald-400" />
       <h3 className="mt-3 font-serif text-2xl font-semibold text-zinc-50">
         Decade complete

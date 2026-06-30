@@ -238,7 +238,7 @@ export function DashboardShell({
       <div className="px-3 pb-4">
         <button
           onClick={reset}
-          className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-3 py-2.5 text-sm font-medium text-zinc-300 transition-all hover:border-rose-500/40 hover:bg-rose-500/10 hover:text-rose-300"
+          className="flex w-full items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900 px-3 py-2.5 text-sm font-medium text-zinc-300 transition-all hover:border-rose-500/40 hover:bg-rose-500/10 hover:text-rose-300"
         >
           <RotateCcw className="size-4" />
           Reset Simulation

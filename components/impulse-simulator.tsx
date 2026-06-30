@@ -215,7 +215,7 @@ export function ImpulseSimulator() {
       {/* Product card */}
       <div
         className={cn(
-          'relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-1',
+          'relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-1',
           shake && 'nudge-shake',
         )}
       >
@@ -307,7 +307,7 @@ export function ImpulseSimulator() {
 
       {/* Control + analysis panel */}
       <div className="flex flex-col gap-4">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <div className="flex items-center justify-between">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
               <Sparkles className="size-4 text-emerald-400" />
@@ -376,18 +376,14 @@ export function ImpulseSimulator() {
 
           {outcome?.type === 'trapped' && (
             <div className="nudge-rise">
-              <div className="flex items-center gap-2">
-                <span className="flex size-8 items-center justify-center rounded-lg bg-rose-500/15 text-rose-400">
-                  <TrendingDown className="size-4" />
-                </span>
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-rose-400">
-                    {outcome.bias}
-                  </p>
-                  <p className="text-sm font-semibold text-zinc-100">
-                    {outcome.title}
-                  </p>
-                </div>
+              <div className="border-l-2 border-rose-500 pl-3">
+                <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400">
+                  <TrendingDown className="size-3.5" />
+                  {outcome.bias}
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-zinc-100">
+                  {outcome.title}
+                </p>
               </div>
               <p className="mt-3 text-xs leading-relaxed text-zinc-400">
                 {outcome.detail}
@@ -403,18 +399,14 @@ export function ImpulseSimulator() {
 
           {outcome?.type === 'resisted' && (
             <div className="nudge-rise">
-              <div className="flex items-center gap-2">
-                <span className="flex size-8 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-400">
-                  <CheckCircle2 className="size-4" />
-                </span>
-                <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
-                    Smart Move
-                  </p>
-                  <p className="text-sm font-semibold text-zinc-100">
-                    {outcome.title}
-                  </p>
-                </div>
+              <div className="border-l-2 border-emerald-500 pl-3">
+                <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-400">
+                  <CheckCircle2 className="size-3.5" />
+                  Smart Move
+                </p>
+                <p className="mt-0.5 text-sm font-semibold text-zinc-100">
+                  {outcome.title}
+                </p>
               </div>
               <p className="mt-3 text-xs leading-relaxed text-zinc-400">
                 {outcome.detail}

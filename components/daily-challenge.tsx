@@ -116,7 +116,7 @@ export function DailyChallenge() {
   // Already answered in a previous session (state persisted) but no local pick.
   if (dailyAnswered && picked === null) {
     return (
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <div className="flex items-center gap-2">
           <span className="flex size-9 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400">
             <CheckCircle2 className="size-5" />

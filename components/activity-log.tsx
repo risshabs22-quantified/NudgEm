@@ -31,7 +31,7 @@ export function ActivityLog() {
   }, [])
 
   return (
-    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
       <div className="flex items-center gap-2">
         <Activity className="size-4 text-emerald-400" />
         <h3 className="text-sm font-semibold text-zinc-100">The Receipts</h3>

@@ -77,7 +77,7 @@ export function ShieldSimulator() {
       </div>
 
       {/* Mock browser */}
-      <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60">
+      <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900">
         {/* Chrome */}
         <div className="flex items-center gap-2 border-b border-zinc-800 bg-zinc-800/40 px-3 py-2">
           <div className="flex gap-1.5">

@@ -277,7 +277,7 @@ export function CaseStudyVault() {
             key={s.id}
             className={cn(
               'overflow-hidden rounded-2xl border transition-colors',
-              isOpen ? 'border-violet-500/30 bg-zinc-900/60' : 'border-zinc-800 bg-zinc-900/40',
+              isOpen ? 'border-violet-500/30 bg-zinc-900' : 'border-zinc-800 bg-zinc-900/40',
             )}
           >
             <button

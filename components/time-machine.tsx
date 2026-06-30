@@ -76,7 +76,7 @@ export function TimeMachine() {
     <div className="space-y-6">
       {/* Controls */}
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 text-sm font-medium text-zinc-200">
               <Coffee className="size-4 text-amber-400" /> Daily impulse spend
@@ -101,7 +101,7 @@ export function TimeMachine() {
           </p>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 text-sm font-medium text-zinc-200">
               <Hourglass className="size-4 text-sky-400" /> Fast-forward to age
@@ -147,7 +147,7 @@ export function TimeMachine() {
               If invested at 8%
             </span>
           </div>
-          <p className="mt-2 font-mono text-3xl font-bold text-emerald-400 text-glow-emerald">
+          <p className="mt-2 font-mono text-3xl font-bold text-emerald-400">
             {money(invested)}
           </p>
           <p className="mt-1 text-[11px] text-zinc-500">
@@ -171,7 +171,7 @@ export function TimeMachine() {
       )}
 
       {/* Chart */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <div className="flex items-center justify-between">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Coins className="size-4 text-emerald-400" /> The compounding gap
@@ -194,14 +194,14 @@ export function TimeMachine() {
                   <stop offset="100%" stopColor="#3fb950" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="tmSpent" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#e57a66" stopOpacity={0.35} />
-                  <stop offset="100%" stopColor="#e57a66" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#f85149" stopOpacity={0.35} />
+                  <stop offset="100%" stopColor="#f85149" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
-              <XAxis dataKey="age" tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="age" tick={{ fill: '#6e7681', fontSize: 10 }} axisLine={false} tickLine={false} />
               <YAxis
-                tick={{ fill: '#8a6f5e', fontSize: 10 }}
+                tick={{ fill: '#6e7681', fontSize: 10 }}
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
@@ -211,7 +211,7 @@ export function TimeMachine() {
                 formatter={(v: number, n) => [money(v), n === 'invested' ? 'If invested' : 'Spent']}
                 labelFormatter={(l) => `Age ${l}`}
               />
-              <Area type="monotone" dataKey="spent" stroke="#e57a66" strokeWidth={2} fill="url(#tmSpent)" isAnimationActive={false} />
+              <Area type="monotone" dataKey="spent" stroke="#f85149" strokeWidth={2} fill="url(#tmSpent)" isAnimationActive={false} />
               <Area type="monotone" dataKey="invested" stroke="#3fb950" strokeWidth={2.5} fill="url(#tmInvest)" isAnimationActive={false} />
               <ReferenceDot x={age} y={Math.round(invested)} r={5} fill="#3fb950" stroke="#0d1117" strokeWidth={2} />
             </AreaChart>

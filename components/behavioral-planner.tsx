@@ -82,7 +82,7 @@ export function BehavioralPlanner() {
     <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       {/* Inputs */}
       <div className="space-y-4">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Wallet className="size-4 text-emerald-400" /> Monthly income
           </h4>
@@ -148,7 +148,7 @@ export function BehavioralPlanner() {
         </div>
 
         {/* Nudge protocols */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Sparkles className="size-4 text-emerald-400" /> Speed bumps
           </h4>
@@ -205,7 +205,7 @@ export function BehavioralPlanner() {
       {/* Forecast */}
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
             <p className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
               Saved / mo now
             </p>
@@ -227,7 +227,7 @@ export function BehavioralPlanner() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center justify-between">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
               <PiggyBank className="size-4 text-emerald-400" /> 24-month savings
@@ -251,14 +251,14 @@ export function BehavioralPlanner() {
                     <stop offset="100%" stopColor="#3fb950" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gStandard" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#8a6f5e" stopOpacity={0.4} />
-                    <stop offset="100%" stopColor="#8a6f5e" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#6e7681" stopOpacity={0.4} />
+                    <stop offset="100%" stopColor="#6e7681" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
-                <XAxis dataKey="month" tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="month" tick={{ fill: '#6e7681', fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis
-                  tick={{ fill: '#8a6f5e', fontSize: 10 }}
+                  tick={{ fill: '#6e7681', fontSize: 10 }}
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
@@ -267,7 +267,7 @@ export function BehavioralPlanner() {
                   contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                   formatter={(v: number, n) => [money(v), n === 'nudged' ? 'With nudges' : 'Standard']}
                 />
-                <Area type="monotone" dataKey="standard" stroke="#8a6f5e" strokeWidth={2} fill="url(#gStandard)" isAnimationActive={false} />
+                <Area type="monotone" dataKey="standard" stroke="#6e7681" strokeWidth={2} fill="url(#gStandard)" isAnimationActive={false} />
                 <Area type="monotone" dataKey="nudged" stroke="#3fb950" strokeWidth={2.5} fill="url(#gNudged)" isAnimationActive={false} />
               </AreaChart>
             </ResponsiveContainer>

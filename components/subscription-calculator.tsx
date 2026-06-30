@@ -79,7 +79,7 @@ export function SubscriptionCalculator() {
   return (
     <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
       {/* Controls */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <h4 className="text-sm font-semibold text-zinc-100">
           The little stuff you forget about
         </h4>
@@ -183,7 +183,7 @@ export function SubscriptionCalculator() {
 
       {/* Visualization */}
       <div className="flex flex-col gap-4">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-semibold text-zinc-100">
               What "forgetting to cancel" actually costs
@@ -213,7 +213,7 @@ export function SubscriptionCalculator() {
                   tickLine={false}
                 />
                 <YAxis
-                  tick={{ fill: '#8a6f5e', fontSize: 11 }}
+                  tick={{ fill: '#6e7681', fontSize: 11 }}
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
@@ -234,7 +234,7 @@ export function SubscriptionCalculator() {
                 />
                 <Bar dataKey="spent" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {data.map((_, i) => (
-                    <Cell key={i} fill="#e57a66" />
+                    <Cell key={i} fill="#f85149" />
                   ))}
                 </Bar>
                 <Bar dataKey="invested" radius={[6, 6, 0, 0]} maxBarSize={42}>
@@ -271,7 +271,7 @@ export function SubscriptionCalculator() {
                 Opportunity Cost
               </span>
             </div>
-            <p className="mt-2 font-mono text-2xl font-bold text-emerald-400 text-glow-emerald">
+            <p className="mt-2 font-mono text-2xl font-bold text-emerald-400">
               ${fmt(opportunityCost)}
             </p>
             <p className="mt-1 flex items-center gap-1 text-[11px] text-zinc-500">

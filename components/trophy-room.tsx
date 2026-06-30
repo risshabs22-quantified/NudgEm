@@ -61,10 +61,10 @@ export function TrophyRoom() {
   return (
     <div className="space-y-6">
       {/* Progress hero */}
-      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6">
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
         <div className="relative flex flex-wrap items-center justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-400">
               <Trophy className="size-3" /> Cognitive Master Room
             </span>
             <h2 className="mt-3 font-serif text-2xl font-semibold text-zinc-50">
@@ -94,7 +94,7 @@ export function TrophyRoom() {
           {stats.map((s) => {
             const Icon = s.icon
             return (
-              <div key={s.label} className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+              <div key={s.label} className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">
                     {s.label}
@@ -109,21 +109,21 @@ export function TrophyRoom() {
           })}
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <h4 className="text-sm font-semibold text-zinc-100">Traps avoided vs sprung</h4>
           <div className="mt-2 h-40 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={trapData} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
                 <XAxis dataKey="name" tick={{ fill: '#8b949e', fontSize: 11 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <YAxis tick={{ fill: '#6e7681', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.3)' }}
                   contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                 />
                 <Bar dataKey="value" radius={[6, 6, 0, 0]} maxBarSize={56}>
                   <Cell fill="#3fb950" />
-                  <Cell fill="#e57a66" />
+                  <Cell fill="#f85149" />
                 </Bar>
               </BarChart>
             </ResponsiveContainer>
@@ -154,7 +154,7 @@ export function TrophyRoom() {
                   className={cn(
                     'flex size-12 shrink-0 items-center justify-center rounded-xl',
                     has
-                      ? 'bg-gradient-to-br from-emerald-400 to-emerald-600 text-zinc-950'
+                      ? 'bg-emerald-500 text-zinc-950'
                       : 'bg-zinc-800 text-zinc-600',
                   )}
                 >

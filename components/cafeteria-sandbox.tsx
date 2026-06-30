@@ -169,7 +169,7 @@ export function CafeteriaSandbox() {
   return (
     <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
       {/* Arrangement */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <div className="flex items-center justify-between">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <Salad className="size-4 text-emerald-400" /> Arrange the line
@@ -250,14 +250,14 @@ export function CafeteriaSandbox() {
       {/* Analytics */}
       <div className="space-y-4">
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+          <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
             <div className="flex items-center gap-2 text-emerald-300">
               <Target className="size-4" />
               <span className="text-[11px] font-medium uppercase tracking-wider">
                 Healthy choice share
               </span>
             </div>
-            <p className="mt-2 font-mono text-3xl font-bold text-emerald-400 text-glow-emerald">
+            <p className="mt-2 font-mono text-3xl font-bold text-emerald-400">
               {Math.round(currentHealthy * 100)}%
             </p>
             <p className="mt-0.5 text-[11px] text-zinc-500">
@@ -269,7 +269,7 @@ export function CafeteriaSandbox() {
               'rounded-2xl border p-4',
               goalMet
                 ? 'border-emerald-500/40 bg-emerald-500/10'
-                : 'border-zinc-800 bg-zinc-900/60',
+                : 'border-zinc-800 bg-zinc-900',
             )}
           >
             <div className="flex items-center gap-2 text-zinc-300">
@@ -299,7 +299,7 @@ export function CafeteriaSandbox() {
           </div>
         )}
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-semibold text-zinc-100">
               What {served} diners chose
@@ -311,7 +311,7 @@ export function CafeteriaSandbox() {
               <BarChart data={chartData} margin={{ top: 8, right: 4, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
                 <XAxis dataKey="name" tick={{ fontSize: 16 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: '#8a6f5e', fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <YAxis tick={{ fill: '#6e7681', fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.3)' }}
                   contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
@@ -319,7 +319,7 @@ export function CafeteriaSandbox() {
                 />
                 <Bar dataKey="count" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {chartData.map((d, i) => (
-                    <Cell key={i} fill={d.healthy ? '#3fb950' : '#e57a66'} />
+                    <Cell key={i} fill={d.healthy ? '#3fb950' : '#f85149'} />
                   ))}
                 </Bar>
               </BarChart>

@@ -140,7 +140,7 @@ export function HabitLoop() {
   return (
     <div className="space-y-6">
       {/* Habit picker */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <label className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
           <Repeat className="size-4 text-emerald-400" /> Pick a habit to rewire
         </label>
@@ -161,7 +161,7 @@ export function HabitLoop() {
       </div>
 
       {/* The loop */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <h4 className="text-sm font-semibold text-zinc-100">The habit loop</h4>
         <p className="mt-1 text-xs text-zinc-500">
           Every habit is a 4-part loop. You can&apos;t easily kill the cue or the
@@ -214,7 +214,7 @@ export function HabitLoop() {
 
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         {/* Friction palette */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <ShieldPlus className="size-4 text-emerald-400" /> Insert a friction point
           </h4>
@@ -251,7 +251,7 @@ export function HabitLoop() {
         </div>
 
         {/* Projection */}
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-semibold text-zinc-100">
               Projected habit frequency
@@ -266,13 +266,13 @@ export function HabitLoop() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
-                <XAxis dataKey="week" tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                <XAxis dataKey="week" tick={{ fill: '#6e7681', fontSize: 10 }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fill: '#6e7681', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
                   contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                   formatter={(v: number, n) => [`${v}×/wk`, n === 'rewired' ? 'Rewired' : 'Unchanged']}
                 />
-                <Line type="monotone" dataKey="baseline" stroke="#8a6f5e" strokeWidth={2} strokeDasharray="4 3" dot={false} isAnimationActive={false} />
+                <Line type="monotone" dataKey="baseline" stroke="#6e7681" strokeWidth={2} strokeDasharray="4 3" dot={false} isAnimationActive={false} />
                 <Line type="monotone" dataKey="rewired" stroke="#3fb950" strokeWidth={2.5} dot={{ r: 2, fill: '#3fb950' }} isAnimationActive={false} />
               </LineChart>
             </ResponsiveContainer>

@@ -77,23 +77,20 @@ export function FramingTest() {
               'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all',
               pick === 'gain'
                 ? 'border-emerald-500/60 bg-emerald-500/10 ring-2 ring-emerald-500/30'
-                : 'border-zinc-700 bg-zinc-900/60 hover:border-emerald-500/40',
+                : 'border-zinc-700 bg-zinc-900 hover:border-emerald-500/40',
             )}
           >
-            <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400">
-              <Shield className="size-5" />
-            </span>
-            <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
-              Option A · Gain frame
+            <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-400">
+              <Shield className="size-3.5" /> Option A · Gain frame
             </p>
-            <p className="mt-1 font-serif text-lg font-semibold text-zinc-50">
+            <p className="mt-2 font-serif text-lg font-semibold text-zinc-50">
               "Keep ${KEEP} of your ${POOL}."
             </p>
             <p className="mt-2 text-xs text-zinc-400">
               Sounds like a win — you're holding onto something.
             </p>
             {pick === 'gain' && (
-              <span className="absolute right-3 top-3 rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+              <span className="absolute right-3 top-3 rounded-sm bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
                 You chose this
               </span>
             )}
@@ -106,23 +103,20 @@ export function FramingTest() {
               'group relative overflow-hidden rounded-2xl border p-5 text-left transition-all',
               pick === 'loss'
                 ? 'border-rose-500/60 bg-rose-500/10 ring-2 ring-rose-500/30'
-                : 'border-zinc-700 bg-zinc-900/60 hover:border-rose-500/40',
+                : 'border-zinc-700 bg-zinc-900 hover:border-rose-500/40',
             )}
           >
-            <span className="flex size-10 items-center justify-center rounded-xl bg-rose-500/15 text-rose-400">
-              <Skull className="size-5" />
-            </span>
-            <p className="mt-3 text-[11px] font-semibold uppercase tracking-wider text-rose-400">
-              Option B · Loss frame
+            <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400">
+              <Skull className="size-3.5" /> Option B · Loss frame
             </p>
-            <p className="mt-1 font-serif text-lg font-semibold text-zinc-50">
+            <p className="mt-2 font-serif text-lg font-semibold text-zinc-50">
               "Lose ${LOSE} of your ${POOL}."
             </p>
             <p className="mt-2 text-xs text-zinc-400">
               Sounds painful — yet you end with the same ${KEEP}.
             </p>
             {pick === 'loss' && (
-              <span className="absolute right-3 top-3 rounded-full bg-rose-500/20 px-2 py-0.5 text-[10px] font-semibold text-rose-300">
+              <span className="absolute right-3 top-3 rounded-sm bg-rose-500/20 px-2 py-0.5 text-[10px] font-semibold text-rose-300">
                 You chose this
               </span>
             )}
@@ -160,18 +154,14 @@ export function FramingTest() {
           </div>
         ) : (
           <div className="nudge-rise flex flex-1 flex-col">
-            <div className="flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-lg bg-sky-500/15 text-sky-400">
-                <Lightbulb className="size-4" />
-              </span>
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-sky-400">
-                  Framing Effect · Loss Aversion
-                </p>
-                <p className="text-sm font-semibold text-zinc-100">
-                  How humans actually choose
-                </p>
-              </div>
+            <div className="border-l-2 border-sky-500 pl-3">
+              <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-400">
+                <Lightbulb className="size-3.5" />
+                Framing Effect · Loss Aversion
+              </p>
+              <p className="mt-0.5 text-sm font-semibold text-zinc-100">
+                How humans actually choose
+              </p>
             </div>
 
             <div className="mt-4 h-40 w-full">
@@ -194,7 +184,7 @@ export function FramingTest() {
                     {data.map((d) => (
                       <Cell
                         key={d.key}
-                        fill={d.key === 'gain' ? '#3fb950' : '#e57a66'}
+                        fill={d.key === 'gain' ? '#3fb950' : '#f85149'}
                         opacity={pick === d.key ? 1 : 0.55}
                       />
                     ))}
@@ -202,7 +192,7 @@ export function FramingTest() {
                       dataKey="value"
                       position="right"
                       formatter={(v: number) => `${v}%`}
-                      fill="#e3d3c2"
+                      fill="#cdd9e5"
                       fontSize={12}
                       fontWeight={700}
                     />

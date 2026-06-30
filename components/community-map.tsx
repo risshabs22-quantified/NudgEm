@@ -60,7 +60,7 @@ export function CommunityMap() {
     <div className="space-y-6">
       {/* Top stats */}
       <div className="grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <div className="flex items-center gap-2 text-zinc-400">
             <Users className="size-4" />
             <span className="text-[11px] font-medium uppercase tracking-wider">
@@ -113,7 +113,7 @@ export function CommunityMap() {
       </div>
 
       {/* The map */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <h4 className="text-sm font-semibold text-zinc-100">
           % of people who fell for each trap
         </h4>
@@ -137,14 +137,14 @@ export function CommunityMap() {
                 {combined.map((d, i) => (
                   <Cell
                     key={d.bias}
-                    fill={i === 0 ? '#e57a66' : d.pct >= 65 ? '#d29922' : '#7bb2c0'}
+                    fill={i === 0 ? '#f85149' : d.pct >= 65 ? '#d29922' : '#58a6ff'}
                   />
                 ))}
                 <LabelList
                   dataKey="pct"
                   position="right"
                   formatter={(v: number) => `${v}%`}
-                  fill="#e3d3c2"
+                  fill="#cdd9e5"
                   fontSize={12}
                   fontWeight={700}
                 />

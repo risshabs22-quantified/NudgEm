@@ -220,7 +220,7 @@ export function TrapScanner() {
             />
           </div>
         ) : (
-          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+          <div className="relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
             {/* Scan sweep line */}
             {scanning && (
               <div className="pointer-events-none absolute inset-x-0 z-20">
@@ -296,7 +296,7 @@ export function TrapScanner() {
       </div>
 
       {/* Findings */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <div className="flex items-center justify-between">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
             <ShieldCheck className="size-4 text-emerald-400" /> Detected patterns

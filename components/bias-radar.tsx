@@ -246,7 +246,7 @@ export function BiasRadar() {
     ).join('')
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>NudgeEm Behavioral Profile</title>
 <style>
-body{background:#0d1117;color:#e3d3c2;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
+body{background:#0d1117;color:#cdd9e5;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
 h1{font-size:28px;margin:0}
 .tag{display:inline-block;background:rgba(63,185,80,.12);color:#3fb950;border:1px solid rgba(63,185,80,.3);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .card{background:#161b22;border:1px solid #21262d;border-radius:16px;padding:24px;margin-top:24px}
@@ -254,7 +254,7 @@ table{width:100%;border-collapse:collapse}
 td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
 .big{font-size:40px;font-weight:800;color:#3fb950;margin:8px 0}
 .muted{color:#8b949e;font-size:13px}
-.foot{margin-top:32px;color:#5c463a;font-size:12px;text-align:center}
+.foot{margin-top:32px;color:#484f58;font-size:12px;text-align:center}
 @media print{body{background:#fff;color:#000}}
 </style></head><body>
 <span class="tag">NudgeEm · Behavioral Profile Résumé</span>
@@ -289,7 +289,7 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
     const progress = ((step + (answers[step] !== null ? 1 : 0)) / QUESTIONS.length) * 100
     return (
       <div className="mx-auto max-w-2xl">
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-violet-400">
               <ShieldQuestion className="size-3.5" />
@@ -346,7 +346,7 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {/* Radar */}
-      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
         <div className="flex items-center gap-2">
           <Radar className="size-4 text-violet-400" />
           <h4 className="text-sm font-semibold text-zinc-100">
@@ -354,14 +354,14 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
           </h4>
         </div>
         <div className="mx-auto mt-2 max-w-sm">
-          <SpiderChart data={radarData} accent="#b594ce" />
+          <SpiderChart data={radarData} accent="#bc8cff" />
         </div>
       </div>
 
       {/* Profile */}
       <div className="flex flex-col gap-4">
-        <div className="relative overflow-hidden rounded-2xl border border-violet-500/30 bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 nudge-rise">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-[11px] font-medium text-violet-300">
+        <div className="relative overflow-hidden rounded-2xl border border-violet-500/30 bg-zinc-900 p-5 nudge-rise">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-violet-400">
             <Sparkles className="size-3" /> Your archetype
           </span>
           <h3 className="mt-3 font-serif text-2xl font-semibold text-zinc-50">
@@ -378,7 +378,7 @@ td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
           </p>
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-4">
           <h5 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
             Axis breakdown
           </h5>
