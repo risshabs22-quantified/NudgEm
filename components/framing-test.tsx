@@ -27,7 +27,7 @@ const LOSE = POOL - KEEP // 400 loss frame
 type Pick = 'gain' | 'loss' | null
 
 export function FramingTest() {
-  const { logInfo, resistTrap } = useNudge()
+  const { logInfo, resistTrap, unlockBadge } = useNudge()
   const [pick, setPick] = React.useState<Pick>(null)
 
   const choose = (p: Exclude<Pick, null>) => {
@@ -48,6 +48,7 @@ export function FramingTest() {
         detail:
           'You recognized both options are identical and resisted the pull of the gain wording.',
       })
+      unlockBadge('frame-proof-analyst')
     }
   }
 
@@ -185,7 +186,7 @@ export function FramingTest() {
                     type="category"
                     dataKey="name"
                     width={120}
-                    tick={{ fill: '#a1a1aa', fontSize: 11 }}
+                    tick={{ fill: '#ab8f7c', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                   />
@@ -193,7 +194,7 @@ export function FramingTest() {
                     {data.map((d) => (
                       <Cell
                         key={d.key}
-                        fill={d.key === 'gain' ? '#10b981' : '#f43f5e'}
+                        fill={d.key === 'gain' ? '#93c2a1' : '#e57a66'}
                         opacity={pick === d.key ? 1 : 0.55}
                       />
                     ))}
@@ -201,7 +202,7 @@ export function FramingTest() {
                       dataKey="value"
                       position="right"
                       formatter={(v: number) => `${v}%`}
-                      fill="#e4e4e7"
+                      fill="#e3d3c2"
                       fontSize={12}
                       fontWeight={700}
                     />

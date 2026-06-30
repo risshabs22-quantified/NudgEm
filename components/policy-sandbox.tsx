@@ -47,7 +47,7 @@ const TARGETS = {
 }
 
 export function PolicySandbox() {
-  const { logInfo, resistTrap } = useNudge()
+  const { logInfo, resistTrap, unlockBadge } = useNudge()
   const [organ, setOrgan] = React.useState<OrganPolicy>('optIn')
   const [bagFee, setBagFee] = React.useState(0) // dollars, 0–0.25
   const [greenEnergy, setGreenEnergy] = React.useState(false)
@@ -98,6 +98,7 @@ export function PolicySandbox() {
         bias: 'Choice Architecture',
         detail: `Hit national goals using nudges alone — ${effectiveness}% effectiveness, zero mandates.`,
       })
+      unlockBadge('policy-whisperer')
     } else {
       logInfo({
         title: `Cabinet brief: ${targetsHit}/4 targets hit`,
@@ -297,28 +298,28 @@ export function PolicySandbox() {
               >
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="rgba(82,82,91,0.25)"
+                  stroke="rgba(92,70,58,0.25)"
                   vertical={false}
                 />
                 <XAxis
                   dataKey="name"
-                  tick={{ fill: '#a1a1aa', fontSize: 11 }}
+                  tick={{ fill: '#ab8f7c', fontSize: 11 }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <YAxis
                   domain={[0, 100]}
-                  tick={{ fill: '#71717a', fontSize: 10 }}
+                  tick={{ fill: '#8a6f5e', fontSize: 10 }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <Tooltip
-                  cursor={{ fill: 'rgba(63,63,70,0.25)' }}
+                  cursor={{ fill: 'rgba(58,44,36,0.25)' }}
                   contentStyle={{
-                    background: '#18181b',
-                    border: '1px solid #3f3f46',
+                    background: '#1d1512',
+                    border: '1px solid #3a2c24',
                     borderRadius: 12,
-                    color: '#fafafa',
+                    color: '#f2e7d9',
                     fontSize: 12,
                   }}
                 />
@@ -326,14 +327,14 @@ export function PolicySandbox() {
                 <Bar
                   dataKey="baseline"
                   name="Baseline"
-                  fill="#52525b"
+                  fill="#5c463a"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={26}
                 />
                 <Bar
                   dataKey="nudged"
                   name="Your policy"
-                  fill="#10b981"
+                  fill="#93c2a1"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={26}
                 />

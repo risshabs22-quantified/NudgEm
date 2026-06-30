@@ -72,7 +72,7 @@ const TRAPS: Trap[] = [
 type Mode = 'idle' | 'example' | 'image'
 
 export function TrapScanner() {
-  const { logInfo } = useNudge()
+  const { logInfo, unlockBadge } = useNudge()
   const [mode, setMode] = React.useState<Mode>('idle')
   const [imageUrl, setImageUrl] = React.useState<string | null>(null)
   const [revealed, setRevealed] = React.useState(0)
@@ -117,6 +117,7 @@ export function TrapScanner() {
             detail:
               'Learning to spot these in the wild is the strongest defense of all.',
           })
+          unlockBadge('trap-spotter')
         }
       }
     }, 700)
@@ -223,7 +224,7 @@ export function TrapScanner() {
             {/* Scan sweep line */}
             {scanning && (
               <div className="pointer-events-none absolute inset-x-0 z-20">
-                <div className="nudge-scan-line absolute inset-x-0 h-0.5 bg-emerald-400 shadow-[0_0_18px_4px_rgba(16,185,129,0.6)]" />
+                <div className="nudge-scan-line absolute inset-x-0 h-0.5 bg-emerald-400 shadow-[0_0_18px_4px_rgba(147,194,161,0.6)]" />
               </div>
             )}
             {scanning && (

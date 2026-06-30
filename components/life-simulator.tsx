@@ -334,7 +334,7 @@ const uid = () => Math.random().toString(36).slice(2, 9)
 /* ------------------------------------------------------------------ */
 
 export function LifeSimulator() {
-  const { applyOutcome, logInfo } = useNudge()
+  const { applyOutcome, logInfo, unlockBadge } = useNudge()
   const [game, setGameState] = React.useState<Game>(initialGame)
   const gameRef = React.useRef(game)
 
@@ -358,7 +358,8 @@ export function LifeSimulator() {
         nw,
       )} and a life-rationality of ${g.rationality}%.`,
     })
-  }, [logInfo, set])
+    unlockBadge('decade-survivor')
+  }, [logInfo, set, unlockBadge])
 
   const enterYear = React.useCallback(
     (n: number) => {
@@ -693,19 +694,19 @@ export function LifeSimulator() {
                 >
                   <CartesianGrid
                     strokeDasharray="3 3"
-                    stroke="rgba(82,82,91,0.25)"
+                    stroke="rgba(92,70,58,0.25)"
                     vertical={false}
                   />
                   <XAxis
                     dataKey="age"
-                    tick={{ fill: '#a1a1aa', fontSize: 11 }}
+                    tick={{ fill: '#ab8f7c', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(v) => `${v}`}
                   />
                   <YAxis
                     yAxisId="left"
-                    tick={{ fill: '#71717a', fontSize: 10 }}
+                    tick={{ fill: '#8a6f5e', fontSize: 10 }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(v) =>
@@ -716,16 +717,16 @@ export function LifeSimulator() {
                     yAxisId="right"
                     orientation="right"
                     domain={[0, 100]}
-                    tick={{ fill: '#71717a', fontSize: 10 }}
+                    tick={{ fill: '#8a6f5e', fontSize: 10 }}
                     axisLine={false}
                     tickLine={false}
                   />
                   <Tooltip
                     contentStyle={{
-                      background: '#18181b',
-                      border: '1px solid #3f3f46',
+                      background: '#1d1512',
+                      border: '1px solid #3a2c24',
                       borderRadius: 12,
-                      color: '#fafafa',
+                      color: '#f2e7d9',
                       fontSize: 12,
                     }}
                     formatter={(value: number, name) =>
@@ -745,19 +746,19 @@ export function LifeSimulator() {
                     yAxisId="left"
                     type="monotone"
                     dataKey="netWorth"
-                    stroke="#10b981"
+                    stroke="#93c2a1"
                     strokeWidth={2.5}
-                    dot={{ r: 3, fill: '#10b981' }}
+                    dot={{ r: 3, fill: '#93c2a1' }}
                     isAnimationActive={false}
                   />
                   <Line
                     yAxisId="right"
                     type="monotone"
                     dataKey="rationality"
-                    stroke="#38bdf8"
+                    stroke="#7bb2c0"
                     strokeWidth={2}
                     strokeDasharray="4 3"
-                    dot={{ r: 2, fill: '#38bdf8' }}
+                    dot={{ r: 2, fill: '#7bb2c0' }}
                     isAnimationActive={false}
                   />
                 </LineChart>

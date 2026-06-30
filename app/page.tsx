@@ -1,6 +1,7 @@
 import { BookOpen } from 'lucide-react'
 import { DashboardShell } from '@/components/dashboard-shell'
 import { DashboardOverview } from '@/components/dashboard-overview'
+import { DailyChallenge } from '@/components/daily-challenge'
 import { ActivityLog } from '@/components/activity-log'
 import { NudgeFeed } from '@/components/nudge-feed'
 import { SectionHeader } from '@/components/section-header'
@@ -12,6 +13,7 @@ export default function DashboardPage() {
       subtitle="A live read-out of how nudge-proof you are"
     >
       <div className="space-y-8">
+        <DailyChallenge />
         <DashboardOverview />
 
         <div className="grid gap-6 xl:grid-cols-[1fr_1.4fr]">

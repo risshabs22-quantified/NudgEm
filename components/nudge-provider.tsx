@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { BADGES } from '@/lib/badges'
 
 /**
  * Global behavioral-economics game state shared across every page.
@@ -9,6 +10,8 @@ import * as React from 'react'
  */
 
 export type NudgeEventKind = 'trap' | 'good' | 'info'
+
+export type TrapStat = { fell: number; avoided: number }
 
 export type NudgeEvent = {
   id: string
@@ -31,6 +34,12 @@ type NudgeState = {
   decisions: number
   moneySaved: number
   moneyLost: number
+  /** Unlocked achievement ids. */
+  badges: string[]
+  /** Per-bias tally feeding the Community "herd" map. */
+  trapStats: Record<string, TrapStat>
+  /** Whether today's Daily Nudge teaser has been answered. */
+  dailyAnswered: boolean
 }
 
 type FallArgs = {
@@ -69,6 +78,13 @@ type NudgeContextValue = NudgeState & {
    */
   applyOutcome: (args: OutcomeArgs) => void
   logInfo: (args: { title: string; detail: string; bias?: string }) => void
+  /** Unlock an achievement by id (no-op if already unlocked). */
+  unlockBadge: (id: string) => void
+  /** Mark the Daily Nudge teaser answered for this cycle. */
+  markDailyAnswered: () => void
+  /** Most-recently unlocked badge id, drives the confetti toast. */
+  recentBadge: string | null
+  clearRecentBadge: () => void
   reset: () => void
 }
 
@@ -86,6 +102,9 @@ const initialState: NudgeState = {
   decisions: 0,
   moneySaved: 0,
   moneyLost: 0,
+  badges: [],
+  trapStats: {},
+  dailyAnswered: false,
 }
 
 const clamp = (n: number, min: number, max: number) =>
@@ -94,11 +113,24 @@ const clamp = (n: number, min: number, max: number) =>
 const uid = () =>
   `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
 
+/** Immutably bump a per-bias trap tally. */
+const bumpTrap = (
+  stats: Record<string, TrapStat>,
+  bias: string | undefined,
+  key: keyof TrapStat,
+): Record<string, TrapStat> => {
+  if (!bias) return stats
+  const cur = stats[bias] ?? { fell: 0, avoided: 0 }
+  return { ...stats, [bias]: { ...cur, [key]: cur[key] + 1 } }
+}
+
 const NudgeContext = React.createContext<NudgeContextValue | null>(null)
 
 export function NudgeProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = React.useState<NudgeState>(initialState)
   const [hydrated, setHydrated] = React.useState(false)
+  // Transient (not persisted) — drives the badge-unlock confetti toast.
+  const [recentBadge, setRecentBadge] = React.useState<string | null>(null)
 
   // Restore from localStorage so progress survives navigation/refresh.
   React.useEffect(() => {
@@ -146,6 +178,7 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
         trapsFallen: s.trapsFallen + 1,
         decisions: s.decisions + 1,
         moneyLost: s.moneyLost + Math.abs(cost),
+        trapStats: bumpTrap(s.trapStats, bias, 'fell'),
         events: [ev, ...s.events].slice(0, 14),
       }))
     },
@@ -169,6 +202,7 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
         trapsAvoided: s.trapsAvoided + 1,
         decisions: s.decisions + 1,
         moneySaved: s.moneySaved + 0,
+        trapStats: bumpTrap(s.trapStats, bias, 'avoided'),
         events: [ev, ...s.events].slice(0, 14),
       }))
     },
@@ -203,6 +237,12 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
         decisions: kind === 'info' ? s.decisions : s.decisions + 1,
         moneyLost: budgetDelta < 0 ? s.moneyLost + Math.abs(budgetDelta) : s.moneyLost,
         moneySaved: budgetDelta > 0 ? s.moneySaved + budgetDelta : s.moneySaved,
+        trapStats:
+          kind === 'trap'
+            ? bumpTrap(s.trapStats, bias, 'fell')
+            : kind === 'good'
+              ? bumpTrap(s.trapStats, bias, 'avoided')
+              : s.trapStats,
         events: [ev, ...s.events].slice(0, 14),
       }))
     },
@@ -216,8 +256,47 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
     [pushEvent],
   )
 
+  const unlockBadge = React.useCallback((id: string) => {
+    setState((s) => {
+      if (s.badges.includes(id)) return s
+      setRecentBadge(id)
+      return { ...s, badges: [...s.badges, id] }
+    })
+  }, [])
+
+  const markDailyAnswered = React.useCallback(() => {
+    setState((s) => ({ ...s, dailyAnswered: true }))
+  }, [])
+
+  const clearRecentBadge = React.useCallback(() => setRecentBadge(null), [])
+
+  // Auto-unlock stat-based badges whenever the relevant metrics change.
+  React.useEffect(() => {
+    if (!hydrated) return
+    const ctx = {
+      rationality: state.rationality,
+      trapsAvoided: state.trapsAvoided,
+      trapsFallen: state.trapsFallen,
+      decisions: state.decisions,
+    }
+    for (const b of BADGES) {
+      if (b.auto && b.auto(ctx) && !state.badges.includes(b.id)) {
+        unlockBadge(b.id)
+      }
+    }
+  }, [
+    hydrated,
+    state.rationality,
+    state.trapsAvoided,
+    state.trapsFallen,
+    state.decisions,
+    state.badges,
+    unlockBadge,
+  ])
+
   const reset = React.useCallback(() => {
     setState(initialState)
+    setRecentBadge(null)
     try {
       window.localStorage.removeItem(STORAGE_KEY)
     } catch {
@@ -226,8 +305,30 @@ export function NudgeProvider({ children }: { children: React.ReactNode }) {
   }, [])
 
   const value = React.useMemo<NudgeContextValue>(
-    () => ({ ...state, fallForTrap, resistTrap, applyOutcome, logInfo, reset }),
-    [state, fallForTrap, resistTrap, applyOutcome, logInfo, reset],
+    () => ({
+      ...state,
+      fallForTrap,
+      resistTrap,
+      applyOutcome,
+      logInfo,
+      unlockBadge,
+      markDailyAnswered,
+      recentBadge,
+      clearRecentBadge,
+      reset,
+    }),
+    [
+      state,
+      fallForTrap,
+      resistTrap,
+      applyOutcome,
+      logInfo,
+      unlockBadge,
+      markDailyAnswered,
+      recentBadge,
+      clearRecentBadge,
+      reset,
+    ],
   )
 
   return <NudgeContext.Provider value={value}>{children}</NudgeContext.Provider>

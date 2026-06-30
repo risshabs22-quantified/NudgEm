@@ -11,7 +11,7 @@ export type RadarAxis = { axis: string; value: number; short?: string }
 export function SpiderChart({
   data,
   size = 340,
-  accent = '#10b981',
+  accent = '#93c2a1',
 }: {
   data: RadarAxis[]
   size?: number
@@ -57,7 +57,7 @@ export function SpiderChart({
           key={f}
           points={ringPolygon(f)}
           fill="none"
-          stroke="rgba(82,82,91,0.35)"
+          stroke="rgba(92,70,58,0.35)"
           strokeWidth={1}
         />
       ))}
@@ -75,7 +75,7 @@ export function SpiderChart({
               y1={cy}
               x2={ex}
               y2={ey}
-              stroke="rgba(82,82,91,0.3)"
+              stroke="rgba(92,70,58,0.3)"
               strokeWidth={1}
             />
             <text
@@ -125,7 +125,7 @@ export function SpiderChart({
             cy={y}
             r={3.5}
             fill={accent}
-            stroke="#09090b"
+            stroke="#150f0d"
             strokeWidth={1.5}
           />
         )

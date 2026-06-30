@@ -16,8 +16,15 @@ import {
   Landmark,
   Radar,
   ScanLine,
+  Trophy,
+  Salad,
+  Repeat,
+  Wallet,
+  Users,
 } from 'lucide-react'
 import { MetricTicker } from '@/components/metric-ticker'
+import { BadgeToaster } from '@/components/badge-toaster'
+import { ProfNudge } from '@/components/prof-nudge'
 import { useNudge } from '@/components/nudge-provider'
 import { cn } from '@/lib/utils'
 
@@ -39,6 +46,12 @@ const NAV: NavGroup[] = [
         label: 'Dashboard',
         icon: LayoutDashboard,
         desc: 'Your behavioral overview',
+      },
+      {
+        href: '/trophy-room',
+        label: 'Master Room',
+        icon: Trophy,
+        desc: 'Badges & analytics',
       },
     ],
   },
@@ -69,11 +82,35 @@ const NAV: NavGroup[] = [
         icon: Landmark,
         desc: 'Nudge a whole nation',
       },
+      {
+        href: '/cafeteria',
+        label: 'Cafeteria Sandbox',
+        icon: Salad,
+        desc: 'Choice architecture',
+      },
+      {
+        href: '/time-machine',
+        label: 'Time Machine',
+        icon: Hourglass,
+        desc: 'Compounding visualizer',
+      },
+      {
+        href: '/habit-loop',
+        label: 'Habit Loop',
+        icon: Repeat,
+        desc: 'Rewire a bad habit',
+      },
     ],
   },
   {
     heading: 'Tools',
     items: [
+      {
+        href: '/planner',
+        label: 'Behavioral Planner',
+        icon: Wallet,
+        desc: 'Budget with nudges',
+      },
       {
         href: '/bias-radar',
         label: 'Bias Radar',
@@ -87,10 +124,16 @@ const NAV: NavGroup[] = [
         desc: 'Spot dark patterns',
       },
       {
+        href: '/community',
+        label: 'Community Map',
+        icon: Users,
+        desc: 'The herd, visualized',
+      },
+      {
         href: '/anatomy',
         label: 'Anatomy of a Choice',
         icon: Brain,
-        desc: 'Core concept library',
+        desc: 'Concepts & case studies',
       },
     ],
   },
@@ -157,7 +200,7 @@ export function DashboardShell({
                   )}
                 >
                   {active && (
-                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.8)]" />
+                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-400 shadow-[0_0_12px_rgba(147,194,161,0.8)]" />
                   )}
                   <span
                     className={cn(
@@ -277,6 +320,10 @@ export function DashboardShell({
 
         <main className="relative px-4 py-6 sm:px-6 lg:px-8">{children}</main>
       </div>
+
+      {/* Global overlays */}
+      <BadgeToaster />
+      <ProfNudge />
     </div>
   )
 }

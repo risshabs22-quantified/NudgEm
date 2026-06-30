@@ -47,7 +47,7 @@ type Outcome =
   | null
 
 export function ImpulseSimulator() {
-  const { fallForTrap, resistTrap } = useNudge()
+  const { fallForTrap, resistTrap, unlockBadge } = useNudge()
 
   const [triggers, setTriggers] = React.useState<Triggers>({
     timer: true,
@@ -173,6 +173,7 @@ export function ImpulseSimulator() {
       bias: 'Scarcity Mindset',
       detail: `Resisted ${activeCount} active trigger(s). Saved $${ITEM.realPrice}.`,
     })
+    if (activeCount > 0) unlockBadge('scarcity-skeptic')
   }
 
   const reset = () => {
@@ -242,11 +243,11 @@ export function ImpulseSimulator() {
         <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-gradient-to-br from-zinc-800 via-zinc-900 to-black">
           {/* Stylized sneaker visual */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-[7rem] leading-none drop-shadow-[0_8px_24px_rgba(16,185,129,0.35)]">
+            <div className="text-[7rem] leading-none drop-shadow-[0_8px_24px_rgba(147,194,161,0.35)]">
               👟
             </div>
           </div>
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.15),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,194,161,0.15),transparent_55%)]" />
 
           {/* Stock badge */}
           {triggers.stock && (

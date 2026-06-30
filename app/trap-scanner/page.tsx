@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { ScanLine } from 'lucide-react'
+import { ScanLine, Shield } from 'lucide-react'
 import { DashboardShell } from '@/components/dashboard-shell'
 import { TrapScanner } from '@/components/trap-scanner'
+import { ShieldSimulator } from '@/components/shield-simulator'
 import { SectionHeader } from '@/components/section-header'
 import { NudgeFeed } from '@/components/nudge-feed'
 
@@ -26,6 +27,17 @@ export default function TrapScannerPage() {
           accent="emerald"
         />
         <TrapScanner />
+
+        <div className="space-y-4 pt-2">
+          <SectionHeader
+            icon={Shield}
+            eyebrow="Extension shield simulator"
+            title="See what a protected web feels like"
+            description="Flip the NudgeEm Shield on and off over a live mock checkout to watch dark patterns get stripped into honest, calm disclosures."
+            accent="emerald"
+          />
+          <ShieldSimulator />
+        </div>
 
         <div className="space-y-4 pt-2">
           <SectionHeader

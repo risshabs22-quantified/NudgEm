@@ -21,6 +21,7 @@ import {
   AlertCircle,
   PiggyBank,
 } from 'lucide-react'
+import { useNudge } from '@/components/nudge-provider'
 import { cn } from '@/lib/utils'
 
 type Sub = {
@@ -51,6 +52,7 @@ function investedValue(monthly: number, years: number) {
 }
 
 export function SubscriptionCalculator() {
+  const { unlockBadge } = useNudge()
   const [subs, setSubs] = React.useState<Sub[]>(INITIAL)
   const [autoRenew, setAutoRenew] = React.useState(true)
 
@@ -120,7 +122,12 @@ export function SubscriptionCalculator() {
 
         {/* Auto-renew toggle */}
         <button
-          onClick={() => setAutoRenew((v) => !v)}
+          onClick={() =>
+            setAutoRenew((v) => {
+              if (v) unlockBadge('default-bias-defeater') // turning it OFF
+              return !v
+            })
+          }
           className={cn(
             'mt-6 flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition-all',
             autoRenew
@@ -196,28 +203,28 @@ export function SubscriptionCalculator() {
               <BarChart data={data} barGap={6} margin={{ top: 8, right: 4, left: -16, bottom: 0 }}>
                 <CartesianGrid
                   strokeDasharray="3 3"
-                  stroke="rgba(82,82,91,0.25)"
+                  stroke="rgba(92,70,58,0.25)"
                   vertical={false}
                 />
                 <XAxis
                   dataKey="year"
-                  tick={{ fill: '#a1a1aa', fontSize: 12 }}
+                  tick={{ fill: '#ab8f7c', fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                 />
                 <YAxis
-                  tick={{ fill: '#71717a', fontSize: 11 }}
+                  tick={{ fill: '#8a6f5e', fontSize: 11 }}
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
                 />
                 <Tooltip
-                  cursor={{ fill: 'rgba(63,63,70,0.25)' }}
+                  cursor={{ fill: 'rgba(58,44,36,0.25)' }}
                   contentStyle={{
-                    background: '#18181b',
-                    border: '1px solid #3f3f46',
+                    background: '#1d1512',
+                    border: '1px solid #3a2c24',
                     borderRadius: 12,
-                    color: '#fafafa',
+                    color: '#f2e7d9',
                     fontSize: 12,
                   }}
                   formatter={(value: number, name) => [
@@ -227,12 +234,12 @@ export function SubscriptionCalculator() {
                 />
                 <Bar dataKey="spent" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {data.map((_, i) => (
-                    <Cell key={i} fill="#f43f5e" />
+                    <Cell key={i} fill="#e57a66" />
                   ))}
                 </Bar>
                 <Bar dataKey="invested" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {data.map((_, i) => (
-                    <Cell key={i} fill="#10b981" />
+                    <Cell key={i} fill="#93c2a1" />
                   ))}
                 </Bar>
               </BarChart>

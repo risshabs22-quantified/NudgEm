@@ -25,7 +25,7 @@ type Move = { id: string; who: 'user' | 'bot' | 'system'; text: string }
 const uid = () => Math.random().toString(36).slice(2, 9)
 
 export function EscalationAuction() {
-  const { applyOutcome, resistTrap } = useNudge()
+  const { applyOutcome, resistTrap, unlockBadge } = useNudge()
 
   const [userBid, setUserBid] = React.useState(0)
   const [botBid, setBotBid] = React.useState(1)
@@ -75,6 +75,7 @@ export function EscalationAuction() {
           bias: 'Sunk Cost Fallacy',
           detail: `Won the $20 bill for $${finalUserBid}.`,
         })
+        unlockBadge('sunk-cost-slayer')
       } else {
         setResult({
           net,
@@ -111,6 +112,7 @@ export function EscalationAuction() {
           bias: 'Sunk Cost Fallacy',
           detail: 'Recognized the trap and never entered the escalation.',
         })
+        unlockBadge('sunk-cost-slayer')
       } else {
         setResult({
           net: -finalUserBid,

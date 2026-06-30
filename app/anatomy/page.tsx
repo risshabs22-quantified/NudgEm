@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
-import { Brain, Library } from 'lucide-react'
+import { Brain, Library, BookMarked } from 'lucide-react'
 import { DashboardShell } from '@/components/dashboard-shell'
 import { NudgeFeed } from '@/components/nudge-feed'
+import { CaseStudyVault } from '@/components/case-study-vault'
 import { SectionHeader } from '@/components/section-header'
 import { ActivityLog } from '@/components/activity-log'
 
 export const metadata: Metadata = {
   title: 'The Anatomy of a Choice',
   description:
-    'A field guide to the nine core cognitive biases behind every nudge — with a concrete example, the economics, and your defense for each.',
+    'A field guide to the core cognitive biases behind every nudge, plus an interactive Nobel-laureate case-study vault you can replicate yourself.',
 }
 
 export default function AnatomyPage() {
@@ -48,6 +49,17 @@ export default function AnatomyPage() {
           accent="violet"
         />
         <NudgeFeed />
+
+        <div className="space-y-4 pt-2">
+          <SectionHeader
+            icon={BookMarked}
+            eyebrow="Nobel laureate vault"
+            title="Replicate the prize-winning experiments"
+            description="Bite-sized breakdowns of the papers that built the field — with interactive widgets so you can run the experiment on yourself."
+            accent="violet"
+          />
+          <CaseStudyVault />
+        </div>
 
         <div className="pt-2">
           <ActivityLog />

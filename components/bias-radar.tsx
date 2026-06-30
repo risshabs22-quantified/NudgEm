@@ -158,7 +158,7 @@ function archetypeFor(scores: Record<AxisKey, number>) {
 }
 
 export function BiasRadar() {
-  const { applyOutcome } = useNudge()
+  const { applyOutcome, unlockBadge } = useNudge()
   const [step, setStep] = React.useState(0) // 0..9 questions, then results
   const [answers, setAnswers] = React.useState<(number | null)[]>(
     Array(QUESTIONS.length).fill(null),
@@ -223,6 +223,7 @@ export function BiasRadar() {
         bias: 'Self-Awareness',
         detail: `Overall susceptibility ${overall}/100. Knowing your profile is the first defense.`,
       })
+      unlockBadge('self-aware')
     }
   }, [finished, applyOutcome, archetype.name, overall])
 
@@ -241,19 +242,19 @@ export function BiasRadar() {
     })
     const rows = AXES.map(
       (a) =>
-        `<tr><td>${a.label}</td><td style="text-align:right;font-family:monospace;color:#34d399">${scores[a.key]}/100</td></tr>`,
+        `<tr><td>${a.label}</td><td style="text-align:right;font-family:monospace;color:#93c2a1">${scores[a.key]}/100</td></tr>`,
     ).join('')
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>NudgeEm Behavioral Profile</title>
 <style>
-body{background:#09090b;color:#e4e4e7;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
+body{background:#150f0d;color:#e3d3c2;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
 h1{font-size:28px;margin:0}
-.tag{display:inline-block;background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.3);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.card{background:#18181b;border:1px solid #27272a;border-radius:16px;padding:24px;margin-top:24px}
+.tag{display:inline-block;background:rgba(147,194,161,.12);color:#93c2a1;border:1px solid rgba(147,194,161,.3);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.card{background:#1d1512;border:1px solid #2a201b;border-radius:16px;padding:24px;margin-top:24px}
 table{width:100%;border-collapse:collapse}
-td{padding:10px 0;border-bottom:1px solid #27272a;font-size:15px}
-.big{font-size:40px;font-weight:800;color:#34d399;margin:8px 0}
-.muted{color:#a1a1aa;font-size:13px}
-.foot{margin-top:32px;color:#52525b;font-size:12px;text-align:center}
+td{padding:10px 0;border-bottom:1px solid #2a201b;font-size:15px}
+.big{font-size:40px;font-weight:800;color:#93c2a1;margin:8px 0}
+.muted{color:#ab8f7c;font-size:13px}
+.foot{margin-top:32px;color:#5c463a;font-size:12px;text-align:center}
 @media print{body{background:#fff;color:#000}}
 </style></head><body>
 <span class="tag">NudgeEm · Behavioral Profile Résumé</span>
@@ -353,7 +354,7 @@ td{padding:10px 0;border-bottom:1px solid #27272a;font-size:15px}
           </h4>
         </div>
         <div className="mx-auto mt-2 max-w-sm">
-          <SpiderChart data={radarData} accent="#a78bfa" />
+          <SpiderChart data={radarData} accent="#b594ce" />
         </div>
       </div>
 
