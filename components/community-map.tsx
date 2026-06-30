@@ -129,7 +129,7 @@ export function CommunityMap() {
                 type="category"
                 dataKey="bias"
                 width={150}
-                tick={{ fill: '#ab8f7c', fontSize: 11 }}
+                tick={{ fill: '#8b949e', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
               />
@@ -137,7 +137,7 @@ export function CommunityMap() {
                 {combined.map((d, i) => (
                   <Cell
                     key={d.bias}
-                    fill={i === 0 ? '#e57a66' : d.pct >= 65 ? '#dca56f' : '#7bb2c0'}
+                    fill={i === 0 ? '#e57a66' : d.pct >= 65 ? '#d29922' : '#7bb2c0'}
                   />
                 ))}
                 <LabelList

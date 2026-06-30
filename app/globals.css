@@ -38,10 +38,10 @@ html {
 @keyframes nudge-pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(211, 93, 73, 0.5);
+    box-shadow: 0 0 0 0 rgba(248, 81, 73, 0.45);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(211, 93, 73, 0);
+    box-shadow: 0 0 0 8px rgba(248, 81, 73, 0);
   }
 }
 .nudge-pulse-danger {
@@ -161,16 +161,16 @@ html {
 
 .nudge-grid-bg {
   background-image:
-    linear-gradient(to right, rgba(168, 140, 120, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168, 140, 120, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(110, 118, 129, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(110, 118, 129, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
-.text-glow-emerald {
-  text-shadow: 0 0 18px rgba(147, 194, 161, 0.5);
-}
+/* Glow text retired for a flatter, editorial look — kept as no-ops so
+   existing class references stay valid. */
+.text-glow-emerald,
 .text-glow-rose {
-  text-shadow: 0 0 18px rgba(211, 93, 73, 0.45);
+  text-shadow: none;
 }
 
 /* Neon range slider styling */
@@ -179,7 +179,7 @@ input[type='range'].nudge-range {
   appearance: none;
   height: 6px;
   border-radius: 9999px;
-  background: rgba(58, 44, 36, 0.9);
+  background: rgba(45, 51, 59, 0.9);
   outline: none;
 }
 input[type='range'].nudge-range::-webkit-slider-thumb {
@@ -188,10 +188,10 @@ input[type='range'].nudge-range::-webkit-slider-thumb {
   width: 18px;
   height: 18px;
   border-radius: 9999px;
-  background: #93c2a1;
-  border: 2px solid #e3f0e6;
+  background: #3fb950;
+  border: 2px solid #0d1117;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(147, 194, 161, 0.7);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition: transform 0.1s ease;
 }
 input[type='range'].nudge-range::-webkit-slider-thumb:hover {
@@ -201,10 +201,10 @@ input[type='range'].nudge-range::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 9999px;
-  background: #93c2a1;
-  border: 2px solid #e3f0e6;
+  background: #3fb950;
+  border: 2px solid #0d1117;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(147, 194, 161, 0.7);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* Slim custom scrollbars for the dark UI */
@@ -213,7 +213,7 @@ input[type='range'].nudge-range::-moz-range-thumb {
   height: 8px;
 }
 .nudge-scroll::-webkit-scrollbar-thumb {
-  background: rgba(92, 70, 58, 0.8);
+  background: rgba(110, 118, 129, 0.5);
   border-radius: 9999px;
 }
 .nudge-scroll::-webkit-scrollbar-track {
@@ -257,95 +257,99 @@ input[type='range'].nudge-range::-moz-range-thumb {
 }
 
 .dark {
-  /* Espresso / Academia palette */
-  --background: #150f0d;
-  --foreground: #f2e7d9;
-  --card: #1d1512;
-  --card-foreground: #f2e7d9;
-  --popover: #241a15;
-  --popover-foreground: #f2e7d9;
-  --primary: #93c2a1;
-  --primary-foreground: #150f0d;
-  --secondary: #2a201b;
-  --secondary-foreground: #f2e7d9;
-  --muted: #2a201b;
-  --muted-foreground: #ab8f7c;
-  --accent: #2a201b;
-  --accent-foreground: #f2e7d9;
-  --destructive: #d35d49;
-  --destructive-foreground: #f2e7d9;
-  --border: #3a2c24;
-  --input: #3a2c24;
-  --ring: #6fa07d;
-  --chart-1: #93c2a1;
-  --chart-2: #dca56f;
-  --chart-3: #7bb2c0;
-  --chart-4: #b594ce;
-  --chart-5: #e57a66;
-  --sidebar: #150f0d;
-  --sidebar-foreground: #f2e7d9;
-  --sidebar-primary: #93c2a1;
-  --sidebar-primary-foreground: #150f0d;
-  --sidebar-accent: #2a201b;
-  --sidebar-accent-foreground: #f2e7d9;
-  --sidebar-border: #3a2c24;
-  --sidebar-ring: #6fa07d;
+  /* Graphite / Signal palette — cool, neutral, professional */
+  --background: #0d1117;
+  --foreground: #e6edf3;
+  --card: #161b22;
+  --card-foreground: #e6edf3;
+  --popover: #1c2128;
+  --popover-foreground: #e6edf3;
+  --primary: #3fb950;
+  --primary-foreground: #0d1117;
+  --secondary: #21262d;
+  --secondary-foreground: #e6edf3;
+  --muted: #21262d;
+  --muted-foreground: #8b949e;
+  --accent: #21262d;
+  --accent-foreground: #e6edf3;
+  --destructive: #f85149;
+  --destructive-foreground: #ffffff;
+  --border: #2a313c;
+  --input: #2a313c;
+  --ring: #2ea043;
+  --chart-1: #3fb950;
+  --chart-2: #d29922;
+  --chart-3: #58a6ff;
+  --chart-4: #a371f7;
+  --chart-5: #f85149;
+  --sidebar: #0d1117;
+  --sidebar-foreground: #e6edf3;
+  --sidebar-primary: #3fb950;
+  --sidebar-primary-foreground: #0d1117;
+  --sidebar-accent: #21262d;
+  --sidebar-accent-foreground: #e6edf3;
+  --sidebar-border: #2a313c;
+  --sidebar-ring: #2ea043;
 }
 
 /* ---------------------------------------------------------------- */
-/*  Espresso color-token overrides — recolors every zinc/emerald/   */
+/*  Graphite color-token overrides — recolors every zinc/emerald/   */
 /*  amber/rose/sky/violet utility across the whole app at once.     */
+/*  Values track the GitHub Primer dark scale: a calm, neutral,     */
+/*  unmistakably "real product" palette.                            */
 /* ---------------------------------------------------------------- */
 @theme {
-  /* Surfaces & text (espresso → cream) */
-  --color-zinc-50: #faf3ea;
-  --color-zinc-100: #f2e7d9;
-  --color-zinc-200: #e3d3c2;
-  --color-zinc-300: #cbb4a1;
-  --color-zinc-400: #ab8f7c;
-  --color-zinc-500: #8a6f5e;
-  --color-zinc-600: #5c463a;
-  --color-zinc-700: #3a2c24;
-  --color-zinc-800: #2a201b;
-  --color-zinc-900: #1d1512;
-  --color-zinc-950: #150f0d;
+  /* Surfaces & text (cool graphite → near-white) */
+  --color-zinc-50: #f0f6fc;
+  --color-zinc-100: #e6edf3;
+  --color-zinc-200: #cdd9e5;
+  --color-zinc-300: #adbac7;
+  --color-zinc-400: #8b949e;
+  --color-zinc-500: #6e7681;
+  --color-zinc-600: #484f58;
+  --color-zinc-700: #2a313c;
+  --color-zinc-800: #21262d;
+  --color-zinc-900: #161b22;
+  --color-zinc-950: #0d1117;
 
-  /* Financial positive → muted sage/mint */
-  --color-emerald-100: #e3f0e6;
-  --color-emerald-200: #c7e0cd;
-  --color-emerald-300: #b6d8bf;
-  --color-emerald-400: #93c2a1;
-  --color-emerald-500: #6fa07d;
-  --color-emerald-600: #588566;
-  --color-emerald-700: #436b50;
+  /* Financial positive → clean signal green */
+  --color-emerald-100: #cdf5d8;
+  --color-emerald-200: #aceebb;
+  --color-emerald-300: #7ee787;
+  --color-emerald-400: #56d364;
+  --color-emerald-500: #3fb950;
+  --color-emerald-600: #2ea043;
+  --color-emerald-700: #238636;
 
-  /* Alerts / traps → warm terracotta-honey */
-  --color-amber-100: #f4e2cd;
-  --color-amber-200: #ebcaa6;
-  --color-amber-300: #e6c08f;
-  --color-amber-400: #dca56f;
-  --color-amber-500: #c9874c;
-  --color-amber-600: #ad6a35;
-  --color-amber-700: #8c5328;
+  /* Alerts / traps → measured amber */
+  --color-amber-100: #f8e3b0;
+  --color-amber-200: #f2cc60;
+  --color-amber-300: #e3b341;
+  --color-amber-400: #d29922;
+  --color-amber-500: #bb8009;
+  --color-amber-600: #9e6a06;
+  --color-amber-700: #845306;
 
-  /* Loss / danger → clay red */
-  --color-rose-100: #f6ddd6;
-  --color-rose-200: #efc0b4;
-  --color-rose-300: #f0a08f;
-  --color-rose-400: #e57a66;
-  --color-rose-500: #d35d49;
-  --color-rose-600: #b34631;
-  --color-rose-700: #8f3727;
+  /* Loss / danger → clear red */
+  --color-rose-100: #ffd8d3;
+  --color-rose-200: #ffb3ab;
+  --color-rose-300: #ff7b72;
+  --color-rose-400: #f85149;
+  --color-rose-500: #e5484d;
+  --color-rose-600: #cf222e;
+  --color-rose-700: #a40e26;
 
-  /* Secondary accents → muted jewel tones for cohesion */
-  --color-sky-300: #9fc9d4;
-  --color-sky-400: #7bb2c0;
-  --color-sky-500: #5b96a6;
-  --color-sky-600: #467f8e;
-  --color-violet-300: #c9aede;
-  --color-violet-400: #b594ce;
-  --color-violet-500: #9a78ba;
-  --color-violet-600: #815f9f;
+  /* Secondary accent → trustworthy blue */
+  --color-sky-300: #79c0ff;
+  --color-sky-400: #58a6ff;
+  --color-sky-500: #388bfd;
+  --color-sky-600: #1f6feb;
+
+  /* Tertiary accent → refined indigo */
+  --color-violet-300: #d2a8ff;
+  --color-violet-400: #bc8cff;
+  --color-violet-500: #a371f7;
+  --color-violet-600: #8957e5;
 }
 
 @theme inline {

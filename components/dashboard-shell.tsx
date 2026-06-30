@@ -167,7 +167,7 @@ export function DashboardShell({
         className="group flex items-center gap-3 px-5 py-5"
         aria-label="NudgeEm home"
       >
-        <div className="relative size-10 overflow-hidden rounded-xl ring-1 ring-amber-500/30 shadow-lg shadow-black/40 transition-transform group-hover:scale-105">
+        <div className="relative size-10 overflow-hidden rounded-xl ring-1 ring-zinc-700 transition-transform group-hover:scale-105">
           <Image
             src="/logo.png"
             alt="NudgeEm logo"
@@ -210,7 +210,7 @@ export function DashboardShell({
                   )}
                 >
                   {active && (
-                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-400 shadow-[0_0_12px_rgba(147,194,161,0.8)]" />
+                    <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-emerald-500" />
                   )}
                   <span
                     className={cn(
@@ -268,13 +268,8 @@ export function DashboardShell({
 
   return (
     <div className="relative min-h-screen bg-zinc-950 text-zinc-100">
-      {/* Ambient background */}
-      <div className="pointer-events-none fixed inset-0 nudge-grid-bg opacity-60" />
-      <div className="pointer-events-none fixed -top-40 left-1/4 h-96 w-96 rounded-full bg-emerald-500/10 blur-[120px]" />
-      <div className="pointer-events-none fixed -bottom-40 right-1/4 h-96 w-96 rounded-full bg-violet-500/10 blur-[120px]" />
-
       {/* Desktop sidebar */}
-      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-zinc-800/80 bg-zinc-950/80 backdrop-blur-xl lg:block">
+      <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 border-r border-zinc-800 bg-zinc-950 lg:block">
         {SidebarInner}
       </aside>
 
@@ -314,7 +309,7 @@ export function DashboardShell({
               <Link
                 href="/"
                 aria-label="NudgeEm home"
-                className="relative size-9 shrink-0 overflow-hidden rounded-lg ring-1 ring-amber-500/30 lg:hidden"
+                className="relative size-9 shrink-0 overflow-hidden rounded-lg ring-1 ring-zinc-700 lg:hidden"
               >
                 <Image
                   src="/logo.png"

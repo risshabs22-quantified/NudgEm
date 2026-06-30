@@ -6,12 +6,12 @@ import { useNudge } from '@/components/nudge-provider'
 import { badgeById } from '@/lib/badges'
 
 const CONFETTI_COLORS = [
-  '#93c2a1',
-  '#dca56f',
+  '#3fb950',
+  '#d29922',
   '#e57a66',
   '#b594ce',
   '#7bb2c0',
-  '#f2e7d9',
+  '#e6edf3',
 ]
 
 function Confetti() {

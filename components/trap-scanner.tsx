@@ -224,7 +224,7 @@ export function TrapScanner() {
             {/* Scan sweep line */}
             {scanning && (
               <div className="pointer-events-none absolute inset-x-0 z-20">
-                <div className="nudge-scan-line absolute inset-x-0 h-0.5 bg-emerald-400 shadow-[0_0_18px_4px_rgba(147,194,161,0.6)]" />
+                <div className="nudge-scan-line absolute inset-x-0 h-0.5 bg-emerald-400 shadow-[0_0_18px_4px_rgba(63,185,80,0.6)]" />
               </div>
             )}
             {scanning && (

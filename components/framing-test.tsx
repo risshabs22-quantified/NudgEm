@@ -186,7 +186,7 @@ export function FramingTest() {
                     type="category"
                     dataKey="name"
                     width={120}
-                    tick={{ fill: '#ab8f7c', fontSize: 11 }}
+                    tick={{ fill: '#8b949e', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                   />
@@ -194,7 +194,7 @@ export function FramingTest() {
                     {data.map((d) => (
                       <Cell
                         key={d.key}
-                        fill={d.key === 'gain' ? '#93c2a1' : '#e57a66'}
+                        fill={d.key === 'gain' ? '#3fb950' : '#e57a66'}
                         opacity={pick === d.key ? 1 : 0.55}
                       />
                     ))}

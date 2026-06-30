@@ -242,18 +242,18 @@ export function BiasRadar() {
     })
     const rows = AXES.map(
       (a) =>
-        `<tr><td>${a.label}</td><td style="text-align:right;font-family:monospace;color:#93c2a1">${scores[a.key]}/100</td></tr>`,
+        `<tr><td>${a.label}</td><td style="text-align:right;font-family:monospace;color:#3fb950">${scores[a.key]}/100</td></tr>`,
     ).join('')
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>NudgeEm Behavioral Profile</title>
 <style>
-body{background:#150f0d;color:#e3d3c2;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
+body{background:#0d1117;color:#e3d3c2;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:640px;margin:40px auto;padding:0 24px;line-height:1.6}
 h1{font-size:28px;margin:0}
-.tag{display:inline-block;background:rgba(147,194,161,.12);color:#93c2a1;border:1px solid rgba(147,194,161,.3);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.card{background:#1d1512;border:1px solid #2a201b;border-radius:16px;padding:24px;margin-top:24px}
+.tag{display:inline-block;background:rgba(63,185,80,.12);color:#3fb950;border:1px solid rgba(63,185,80,.3);padding:4px 12px;border-radius:999px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.card{background:#161b22;border:1px solid #21262d;border-radius:16px;padding:24px;margin-top:24px}
 table{width:100%;border-collapse:collapse}
-td{padding:10px 0;border-bottom:1px solid #2a201b;font-size:15px}
-.big{font-size:40px;font-weight:800;color:#93c2a1;margin:8px 0}
-.muted{color:#ab8f7c;font-size:13px}
+td{padding:10px 0;border-bottom:1px solid #21262d;font-size:15px}
+.big{font-size:40px;font-weight:800;color:#3fb950;margin:8px 0}
+.muted{color:#8b949e;font-size:13px}
 .foot{margin-top:32px;color:#5c463a;font-size:12px;text-align:center}
 @media print{body{background:#fff;color:#000}}
 </style></head><body>

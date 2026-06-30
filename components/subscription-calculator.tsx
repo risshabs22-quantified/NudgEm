@@ -208,7 +208,7 @@ export function SubscriptionCalculator() {
                 />
                 <XAxis
                   dataKey="year"
-                  tick={{ fill: '#ab8f7c', fontSize: 12 }}
+                  tick={{ fill: '#8b949e', fontSize: 12 }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -221,10 +221,10 @@ export function SubscriptionCalculator() {
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.25)' }}
                   contentStyle={{
-                    background: '#1d1512',
-                    border: '1px solid #3a2c24',
+                    background: '#161b22',
+                    border: '1px solid #2a313c',
                     borderRadius: 12,
-                    color: '#f2e7d9',
+                    color: '#e6edf3',
                     fontSize: 12,
                   }}
                   formatter={(value: number, name) => [
@@ -239,7 +239,7 @@ export function SubscriptionCalculator() {
                 </Bar>
                 <Bar dataKey="invested" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {data.map((_, i) => (
-                    <Cell key={i} fill="#93c2a1" />
+                    <Cell key={i} fill="#3fb950" />
                   ))}
                 </Bar>
               </BarChart>

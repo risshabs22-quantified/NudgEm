@@ -116,14 +116,14 @@ export function TrophyRoom() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={trapData} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(92,70,58,0.25)" vertical={false} />
-                <XAxis dataKey="name" tick={{ fill: '#ab8f7c', fontSize: 11 }} axisLine={false} tickLine={false} />
+                <XAxis dataKey="name" tick={{ fill: '#8b949e', fontSize: 11 }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.3)' }}
-                  contentStyle={{ background: '#1d1512', border: '1px solid #3a2c24', borderRadius: 12, color: '#f2e7d9', fontSize: 12 }}
+                  contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                 />
                 <Bar dataKey="value" radius={[6, 6, 0, 0]} maxBarSize={56}>
-                  <Cell fill="#93c2a1" />
+                  <Cell fill="#3fb950" />
                   <Cell fill="#e57a66" />
                 </Bar>
               </BarChart>

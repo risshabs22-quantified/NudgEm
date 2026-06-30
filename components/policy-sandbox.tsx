@@ -303,7 +303,7 @@ export function PolicySandbox() {
                 />
                 <XAxis
                   dataKey="name"
-                  tick={{ fill: '#ab8f7c', fontSize: 11 }}
+                  tick={{ fill: '#8b949e', fontSize: 11 }}
                   axisLine={false}
                   tickLine={false}
                 />
@@ -316,10 +316,10 @@ export function PolicySandbox() {
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.25)' }}
                   contentStyle={{
-                    background: '#1d1512',
-                    border: '1px solid #3a2c24',
+                    background: '#161b22',
+                    border: '1px solid #2a313c',
                     borderRadius: 12,
-                    color: '#f2e7d9',
+                    color: '#e6edf3',
                     fontSize: 12,
                   }}
                 />
@@ -334,7 +334,7 @@ export function PolicySandbox() {
                 <Bar
                   dataKey="nudged"
                   name="Your policy"
-                  fill="#93c2a1"
+                  fill="#3fb950"
                   radius={[4, 4, 0, 0]}
                   maxBarSize={26}
                 />

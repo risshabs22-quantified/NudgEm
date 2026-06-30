@@ -314,12 +314,12 @@ export function CafeteriaSandbox() {
                 <YAxis tick={{ fill: '#8a6f5e', fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
                   cursor={{ fill: 'rgba(58,44,36,0.3)' }}
-                  contentStyle={{ background: '#1d1512', border: '1px solid #3a2c24', borderRadius: 12, color: '#f2e7d9', fontSize: 12 }}
+                  contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                   formatter={(v: number, _n, p) => [`${v} diners`, (p?.payload as { label: string }).label]}
                 />
                 <Bar dataKey="count" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {chartData.map((d, i) => (
-                    <Cell key={i} fill={d.healthy ? '#93c2a1' : '#e57a66'} />
+                    <Cell key={i} fill={d.healthy ? '#3fb950' : '#e57a66'} />
                   ))}
                 </Bar>
               </BarChart>

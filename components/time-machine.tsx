@@ -191,8 +191,8 @@ export function TimeMachine() {
             <AreaChart data={data} margin={{ top: 8, right: 10, left: -6, bottom: 0 }}>
               <defs>
                 <linearGradient id="tmInvest" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#93c2a1" stopOpacity={0.5} />
-                  <stop offset="100%" stopColor="#93c2a1" stopOpacity={0} />
+                  <stop offset="0%" stopColor="#3fb950" stopOpacity={0.5} />
+                  <stop offset="100%" stopColor="#3fb950" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="tmSpent" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#e57a66" stopOpacity={0.35} />
@@ -208,13 +208,13 @@ export function TimeMachine() {
                 tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
               />
               <Tooltip
-                contentStyle={{ background: '#1d1512', border: '1px solid #3a2c24', borderRadius: 12, color: '#f2e7d9', fontSize: 12 }}
+                contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                 formatter={(v: number, n) => [money(v), n === 'invested' ? 'If invested' : 'Spent']}
                 labelFormatter={(l) => `Age ${l}`}
               />
               <Area type="monotone" dataKey="spent" stroke="#e57a66" strokeWidth={2} fill="url(#tmSpent)" isAnimationActive={false} />
-              <Area type="monotone" dataKey="invested" stroke="#93c2a1" strokeWidth={2.5} fill="url(#tmInvest)" isAnimationActive={false} />
-              <ReferenceDot x={age} y={Math.round(invested)} r={5} fill="#93c2a1" stroke="#150f0d" strokeWidth={2} />
+              <Area type="monotone" dataKey="invested" stroke="#3fb950" strokeWidth={2.5} fill="url(#tmInvest)" isAnimationActive={false} />
+              <ReferenceDot x={age} y={Math.round(invested)} r={5} fill="#3fb950" stroke="#0d1117" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>

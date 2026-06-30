@@ -70,9 +70,8 @@ export function DashboardOverview() {
   return (
     <div className="space-y-6">
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-900/60 to-zinc-950 p-6 sm:p-8">
-        <div className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-emerald-500/15 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-20 right-24 size-56 rounded-full bg-violet-500/10 blur-3xl" />
+      <div className="relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-6 sm:p-8">
+        <div className="pointer-events-none absolute -right-24 -top-24 size-72 rounded-full bg-emerald-500/[0.07] blur-3xl" />
         <div className="relative max-w-2xl">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
             <Sparkles className="size-3" />
@@ -80,7 +79,7 @@ export function DashboardOverview() {
           </span>
           <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-4xl">
             Your brain is getting{' '}
-            <span className="text-emerald-400 text-glow-emerald">played</span>{' '}
+            <span className="text-emerald-400">played</span>{' '}
             right now.
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">

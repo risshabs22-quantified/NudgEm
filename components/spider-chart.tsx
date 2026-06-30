@@ -11,7 +11,7 @@ export type RadarAxis = { axis: string; value: number; short?: string }
 export function SpiderChart({
   data,
   size = 340,
-  accent = '#93c2a1',
+  accent = '#3fb950',
 }: {
   data: RadarAxis[]
   size?: number
@@ -125,7 +125,7 @@ export function SpiderChart({
             cy={y}
             r={3.5}
             fill={accent}
-            stroke="#150f0d"
+            stroke="#0d1117"
             strokeWidth={1.5}
           />
         )

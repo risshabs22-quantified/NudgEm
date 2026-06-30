@@ -209,7 +209,7 @@ export function LearningJourney() {
                 cy="18"
                 r="15.5"
                 fill="none"
-                stroke="#93c2a1"
+                stroke="#3fb950"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeDasharray={`${(pct / 100) * 97.4} 97.4`}

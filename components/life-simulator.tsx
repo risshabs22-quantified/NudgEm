@@ -698,7 +698,7 @@ export function LifeSimulator() {
                   />
                   <XAxis
                     dataKey="age"
-                    tick={{ fill: '#ab8f7c', fontSize: 11 }}
+                    tick={{ fill: '#8b949e', fontSize: 11 }}
                     axisLine={false}
                     tickLine={false}
                     tickFormatter={(v) => `${v}`}
@@ -722,10 +722,10 @@ export function LifeSimulator() {
                   />
                   <Tooltip
                     contentStyle={{
-                      background: '#1d1512',
-                      border: '1px solid #3a2c24',
+                      background: '#161b22',
+                      border: '1px solid #2a313c',
                       borderRadius: 12,
-                      color: '#f2e7d9',
+                      color: '#e6edf3',
                       fontSize: 12,
                     }}
                     formatter={(value: number, name) =>
@@ -745,9 +745,9 @@ export function LifeSimulator() {
                     yAxisId="left"
                     type="monotone"
                     dataKey="netWorth"
-                    stroke="#93c2a1"
+                    stroke="#3fb950"
                     strokeWidth={2.5}
-                    dot={{ r: 3, fill: '#93c2a1' }}
+                    dot={{ r: 3, fill: '#3fb950' }}
                     isAnimationActive={false}
                   />
                   <Line

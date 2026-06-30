@@ -269,11 +269,11 @@ export function HabitLoop() {
                 <XAxis dataKey="week" tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fill: '#8a6f5e', fontSize: 10 }} axisLine={false} tickLine={false} allowDecimals={false} />
                 <Tooltip
-                  contentStyle={{ background: '#1d1512', border: '1px solid #3a2c24', borderRadius: 12, color: '#f2e7d9', fontSize: 12 }}
+                  contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                   formatter={(v: number, n) => [`${v}×/wk`, n === 'rewired' ? 'Rewired' : 'Unchanged']}
                 />
                 <Line type="monotone" dataKey="baseline" stroke="#8a6f5e" strokeWidth={2} strokeDasharray="4 3" dot={false} isAnimationActive={false} />
-                <Line type="monotone" dataKey="rewired" stroke="#93c2a1" strokeWidth={2.5} dot={{ r: 2, fill: '#93c2a1' }} isAnimationActive={false} />
+                <Line type="monotone" dataKey="rewired" stroke="#3fb950" strokeWidth={2.5} dot={{ r: 2, fill: '#3fb950' }} isAnimationActive={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>

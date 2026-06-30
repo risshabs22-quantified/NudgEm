@@ -247,8 +247,8 @@ export function BehavioralPlanner() {
               <AreaChart data={forecast} margin={{ top: 8, right: 6, left: -8, bottom: 0 }}>
                 <defs>
                   <linearGradient id="gNudged" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#93c2a1" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="#93c2a1" stopOpacity={0} />
+                    <stop offset="0%" stopColor="#3fb950" stopOpacity={0.5} />
+                    <stop offset="100%" stopColor="#3fb950" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="gStandard" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#8a6f5e" stopOpacity={0.4} />
@@ -264,11 +264,11 @@ export function BehavioralPlanner() {
                   tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
                 />
                 <Tooltip
-                  contentStyle={{ background: '#1d1512', border: '1px solid #3a2c24', borderRadius: 12, color: '#f2e7d9', fontSize: 12 }}
+                  contentStyle={{ background: '#161b22', border: '1px solid #2a313c', borderRadius: 12, color: '#e6edf3', fontSize: 12 }}
                   formatter={(v: number, n) => [money(v), n === 'nudged' ? 'With nudges' : 'Standard']}
                 />
                 <Area type="monotone" dataKey="standard" stroke="#8a6f5e" strokeWidth={2} fill="url(#gStandard)" isAnimationActive={false} />
-                <Area type="monotone" dataKey="nudged" stroke="#93c2a1" strokeWidth={2.5} fill="url(#gNudged)" isAnimationActive={false} />
+                <Area type="monotone" dataKey="nudged" stroke="#3fb950" strokeWidth={2.5} fill="url(#gNudged)" isAnimationActive={false} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
