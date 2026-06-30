@@ -72,7 +72,7 @@ export function TrophyRoom() {
               {unlocked} of {total} badges earned
             </h2>
             <p className="mt-1 text-sm text-zinc-400">
-              Every trophy is tied to a real behavioral win across the platform.
+              Each badge means you actually did something smart somewhere on the site.
             </p>
           </div>
           <div className="flex size-20 items-center justify-center rounded-full border-4 border-emerald-500/30">

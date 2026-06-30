@@ -66,7 +66,7 @@ function ConceptCard({ concept }: { concept: Concept }) {
         onClick={() => setOpen((o) => !o)}
         className="mt-3 flex items-center gap-1 text-xs font-medium text-zinc-400 transition-colors hover:text-zinc-200"
       >
-        {open ? 'Hide' : 'Break it down'}
+        {open ? 'Hide it' : 'Break it down'}
         <ChevronDown
           className={cn('size-3.5 transition-transform', open && 'rotate-180')}
         />
@@ -76,7 +76,7 @@ function ConceptCard({ concept }: { concept: Concept }) {
         <div className="nudge-rise mt-3 space-y-3 border-t border-zinc-800 pt-3">
           <div>
             <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-              <span className="text-base leading-none">🎯</span> In the wild
+              <span className="text-base leading-none">🎯</span> You've seen this when
             </p>
             <p className="mt-1 text-xs leading-relaxed text-zinc-300">
               {concept.example}
@@ -84,7 +84,7 @@ function ConceptCard({ concept }: { concept: Concept }) {
           </div>
           <div className="rounded-lg bg-zinc-800/40 p-2.5">
             <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">
-              <BarChart3 className="size-3" /> The economics
+              <BarChart3 className="size-3" /> The math
             </p>
             <p className="mt-1 font-mono text-xs leading-relaxed text-zinc-300">
               {concept.breakdown}
@@ -97,7 +97,7 @@ function ConceptCard({ concept }: { concept: Concept }) {
             )}
           >
             <p className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
-              <ShieldCheck className="size-3" /> Your defense
+              <ShieldCheck className="size-3" /> What to do
             </p>
             <p className="mt-1 text-xs leading-relaxed text-emerald-100/90">
               {concept.defense}

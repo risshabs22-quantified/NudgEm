@@ -531,15 +531,14 @@ export function LifeSimulator() {
           <Hourglass className="size-3" /> The 10-Minute Life Run
         </span>
         <h3 className="mx-auto mt-4 max-w-xl font-serif text-2xl font-semibold text-zinc-50 sm:text-3xl">
-          Live an entire decade of money decisions in real time
+          Ten years of money choices, live
         </h3>
         <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-zinc-400">
           You're 18 with{' '}
           <span className="font-semibold text-emerald-400">$1,000</span>. Each
-          year a decision card loaded with behavioral traps will appear. The
-          clock is ticking — and if you freeze, the tempting{' '}
-          <span className="font-semibold text-zinc-200">default</span> chooses for
-          you. Watch your Net Worth and Rationality diverge.
+          year a decision pops up — usually with a trap baked in. The clock's
+          ticking, and if you freeze, the easy default picks for you. Watch your
+          net worth and rationality split apart.
         </p>
         <button
           onClick={begin}

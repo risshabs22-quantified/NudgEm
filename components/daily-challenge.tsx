@@ -22,69 +22,69 @@ type Scenario = {
 const SCENARIOS: Scenario[] = [
   {
     prompt:
-      'An airline page screams "Only 1 ticket left at this price!" Upgrading to lock it in costs $50. What do you do?',
+      'Booking a flight and the site goes "Only 1 seat left at this price!!" Locking it costs an extra $50. Move?',
     bias: 'Artificial Scarcity',
     options: [
-      { label: 'Pay $50 now before it sells out', correct: false },
-      { label: 'Open a new tab and compare dates/sites first', correct: true },
+      { label: 'Pay the $50 before it’s gone', correct: false },
+      { label: 'New tab, compare, chill for 5 min', correct: true },
     ],
     explain:
-      'Airline "1 left" banners are manufactured urgency that often reset on refresh. A few minutes of comparison almost always beats panic-paying a $50 premium.',
+      'That "1 left" banner is fake — refresh and it usually resets. Five minutes of looking beats panic-paying $50 every time.',
   },
   {
     prompt:
-      'A free trial quietly converts to $14.99/mo after 7 days. You only need it once. What do you do?',
+      'Free trial turns into $14.99/mo after a week. You\'ll use it like twice. What do you do?',
     bias: 'Default Bias',
     options: [
-      { label: 'Sign up and remember to cancel later', correct: false },
-      { label: 'Set a cancel reminder now — or skip it', correct: true },
+      { label: 'Sign up, I’ll cancel later (I won’t)', correct: false },
+      { label: 'Set a cancel reminder now, or just don’t', correct: true },
     ],
     explain:
-      'Auto-renew relies on you forgetting. The default is designed to win; pre-committing to cancel (or not starting) is the only reliable defense.',
+      'The whole plan is you forgetting. The default is built to win. Set the reminder the second you sign up, or skip it entirely.',
   },
   {
     prompt:
-      'A stock is up 300% this week and your whole feed is buying. What do you do?',
+      'A coin is up 300% this week and literally everyone on your FYP is buying. You?',
     bias: 'Herd Mentality',
     options: [
-      { label: 'Buy in before you miss the run', correct: false },
-      { label: 'Stay out — "everyone is buying" is not a thesis', correct: true },
+      { label: 'Ape in before I miss it', correct: false },
+      { label: 'Sit it out — "everyone’s buying" isn’t a reason', correct: true },
     ],
     explain:
-      'Social proof feels like evidence but crowds usually pile in at the top. If your only reason is that others are buying, that is FOMO, not analysis.',
+      'Crowds usually pile in right at the top. "Everyone’s doing it" is pure FOMO, not a plan. The herd gets rekt together.',
   },
   {
     prompt:
-      'Checkout shows "Members who bought this also added a $40 case." Your cart is complete. What do you do?',
+      'Checkout pops "People who bought this also grabbed a $40 case." Your cart was already done. You?',
     bias: 'Social Proof Upsell',
     options: [
-      { label: 'Add the case — others did', correct: false },
-      { label: 'Stick to what you came for', correct: true },
+      { label: 'Add it, I guess everyone does', correct: false },
+      { label: 'Nah, I came here for one thing', correct: true },
     ],
     explain:
-      '"Others also bought" is a social-proof upsell engineered to inflate basket size. What strangers bought says nothing about what you actually need.',
+      'That "people also bought" line exists to fatten your cart. What random strangers bought has nothing to do with what you need.',
   },
   {
     prompt:
-      'A "$129, now $39!" gadget you never planned to buy pops up. What do you do?',
+      'A "$129 → $39!!" gadget you never even wanted pops up. You?',
     bias: 'Anchoring Effect',
     options: [
-      { label: 'Grab it — that is 70% off!', correct: false },
-      { label: 'Ignore it; I never wanted it at any price', correct: true },
+      { label: 'Cop it, that’s like 70% off', correct: false },
+      { label: 'Scroll past, didn’t want it at any price', correct: true },
     ],
     explain:
-      'The $129 anchor makes $39 feel like a win, but a discount on something you do not need is still 100% wasted. The anchor, not the value, created the urge.',
+      'The $129 is bait to make $39 feel like a win. A discount on something you don’t want is still 100% wasted money.',
   },
   {
     prompt:
-      'You\'ve spent 40 hours in a game; a $25 "completionist" pack appears after a tough loss. What do you do?',
+      '40 hours into a game, you lose a ranked match, and a $25 "complete the collection" pack appears. You?',
     bias: 'Sunk Cost Fallacy',
     options: [
-      { label: "Buy it — I've already invested so much", correct: false },
-      { label: 'Judge the $25 on its own merits today', correct: true },
+      { label: 'Buy it, I’ve already put in so much', correct: false },
+      { label: 'Judge the $25 by itself, today', correct: true },
     ],
     explain:
-      'Past hours are gone whether or not you pay. "I\'ve already invested" is the sunk-cost trap; only future value versus future cost should decide.',
+      'Those 40 hours are gone either way. "I already spent so much" is the trap. Only "is $25 worth it right now" matters.',
   },
 ]
 
@@ -107,7 +107,7 @@ export function DailyChallenge() {
       kind: correct ? 'good' : 'trap',
       rationalityDelta: correct ? 4 : -6,
       budgetDelta: correct ? 0 : -15,
-      title: correct ? 'Daily Nudge: passed' : 'Daily Nudge: caught out',
+      title: correct ? 'Daily teaser: nailed it' : 'Daily teaser: got got',
       bias: scenario.bias,
       detail: scenario.explain,
     })
@@ -123,10 +123,10 @@ export function DailyChallenge() {
           </span>
           <div>
             <h3 className="text-sm font-semibold text-zinc-100">
-              Daily Brain Teaser — complete
+              Today’s teaser — done
             </h3>
             <p className="text-xs text-zinc-500">
-              You&apos;ve done today&apos;s teaser. Reset the simulation for a fresh one.
+              That’s it for today. Hit reset if you want a fresh one now.
             </p>
           </div>
         </div>
@@ -188,7 +188,7 @@ export function DailyChallenge() {
         >
           <p className={cn('flex items-center gap-1.5 text-xs font-semibold', result ? 'text-emerald-300' : 'text-rose-300')}>
             <Brain className="size-3.5" />
-            {result ? 'Sharp.' : 'Gotcha.'} The trap: {scenario.bias}
+            {result ? 'Clean. You saw it coming.' : 'Yeah, they got you.'} The trap: {scenario.bias}
           </p>
           <p className="mt-1.5 text-xs leading-relaxed text-zinc-300">
             {scenario.explain}

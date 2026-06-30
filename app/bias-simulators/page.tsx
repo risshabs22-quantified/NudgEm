@@ -9,22 +9,22 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'Bias Simulators',
   description:
-    'Model the compounding cost of forgotten subscription defaults, and run the framing A/B test on your own loss aversion.',
+    'Drag sliders on the stuff you forget to cancel. Then see what a decade of auto-renew actually costs you.',
 }
 
 export default function BiasSimulatorsPage() {
   return (
     <DashboardShell
       title="Bias Simulators"
-      subtitle="Default Bias & the Framing Effect, made tangible"
+      subtitle="Forgotten subs and sneaky wording"
     >
       <div className="space-y-10">
         <section className="space-y-4">
           <SectionHeader
             icon={ToggleRight}
-            eyebrow="Interactive calculator"
-            title="The Subscription Trap & Default Bias"
-            description="Tiny auto-renewing charges are invisible by design. Drag the sliders and watch a decade compound."
+            eyebrow="Calculator"
+            title="The Subscription Trap"
+            description="Those $9.99 charges you never think about? Drag the sliders and watch ten years of them stack up."
             accent="amber"
           />
           <SubscriptionCalculator />
@@ -33,9 +33,9 @@ export default function BiasSimulatorsPage() {
         <section className="space-y-4">
           <SectionHeader
             icon={SplitSquareHorizontal}
-            eyebrow="Interactive A/B test"
+            eyebrow="Quick test"
             title="The Framing Effect"
-            description="Same dollars, two descriptions. Find out which version your brain prefers — and why."
+            description="Same money, two ways of saying it. Pick one and see which frame most people fall for."
             accent="sky"
           />
           <FramingTest />
@@ -44,8 +44,8 @@ export default function BiasSimulatorsPage() {
         <section className="space-y-4">
           <SectionHeader
             icon={SlidersHorizontal}
-            eyebrow="The biases at play"
-            title="The mechanics behind the sliders"
+            eyebrow="Background"
+            title="What's going on under the hood"
             accent="violet"
           />
           <NudgeFeed slugs={['default-bias', 'framing', 'decoy-effect']} />

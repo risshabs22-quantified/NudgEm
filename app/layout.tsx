@@ -21,7 +21,7 @@ const SITE_URL = 'https://nudgeem.app'
 const SITE_NAME = 'NudgeEm'
 const TITLE = 'NudgeEm — Learn Behavioral Economics by Living It'
 const DESCRIPTION =
-  'NudgeEm teaches Behavioral Economics and Nudge Theory through real-time, interactive economic simulations. Spot the dark patterns, beat your biases, and protect your Rationality Score.'
+  'Play with fake checkouts, rigged auctions, and life simulators. See where your brain gets tricked and track your Rationality Score.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

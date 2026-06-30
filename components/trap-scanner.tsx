@@ -112,10 +112,10 @@ export function TrapScanner() {
         if (!loggedRef.current) {
           loggedRef.current = true
           logInfo({
-            title: `Trap Scanner flagged ${TRAPS.length} dark patterns`,
+            title: `Trap Scanner flagged ${TRAPS.length} checkout tricks`,
             bias: 'Pattern Recognition',
             detail:
-              'Learning to spot these in the wild is the strongest defense of all.',
+              'Once you spot these in the wild, half the battle is already won.',
           })
           unlockBadge('trap-spotter')
         }
@@ -188,11 +188,11 @@ export function TrapScanner() {
               <ScanLine className="size-7" />
             </span>
             <h4 className="mt-4 font-serif text-lg font-semibold text-zinc-50">
-              Scan an interface for dark patterns
+              Scan a checkout for tricks
             </h4>
             <p className="mt-1 max-w-sm text-sm text-zinc-400">
-              Drag in a checkout screenshot, or load our built-in example to see
-              the scanner pinpoint every manipulation with a counter-strategy.
+              Drop in a screenshot, or load our example. The scanner flags each
+              trick and tells you how to beat it.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <button
@@ -308,7 +308,7 @@ export function TrapScanner() {
 
         {mode === 'idle' ? (
           <p className="mt-6 text-center text-sm text-zinc-500">
-            Load a target to begin scanning.
+            Load a checkout to start.
           </p>
         ) : (
           <ul className="mt-4 space-y-2.5">

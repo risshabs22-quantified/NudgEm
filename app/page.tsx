@@ -10,7 +10,7 @@ export default function DashboardPage() {
   return (
     <DashboardShell
       title="Dashboard"
-      subtitle="A live read-out of how nudge-proof you are"
+      subtitle="How you're doing so far"
     >
       <div className="space-y-8">
         <DailyChallenge />
@@ -21,9 +21,9 @@ export default function DashboardPage() {
           <div className="space-y-4">
             <SectionHeader
               icon={BookOpen}
-              eyebrow="Today's primer"
+              eyebrow="Worth knowing"
               title="Three biases to know"
-              description="Bite-sized breakdowns. Tap a card to reveal the economics and your defense."
+              description="Quick cards on how each trick works and how to dodge it. Tap one to go deeper."
               accent="violet"
             />
             <NudgeFeed

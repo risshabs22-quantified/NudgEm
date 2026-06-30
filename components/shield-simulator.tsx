@@ -28,7 +28,7 @@ export function ShieldSimulator() {
         logInfo({
           title: 'Enabled the NudgeEm Shield',
           bias: 'Consumer Protection',
-          detail: 'Saw a checkout with the dark patterns stripped away.',
+          detail: 'Saw the same checkout with all the tricks stripped out.',
         })
       }
       return next
@@ -59,8 +59,8 @@ export function ShieldSimulator() {
             </p>
             <p className="text-[11px] text-zinc-500">
               {shield
-                ? 'Active — dark patterns neutralized into plain disclosures.'
-                : 'Off — this is the manipulative web most people browse.'}
+                ? 'On — panic buttons replaced with plain facts.'
+                : 'Off — this is what most checkout pages look like.'}
             </p>
           </div>
         </div>
@@ -223,8 +223,7 @@ export function ShieldSimulator() {
           {shield && (
             <div className="mt-3 flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/5 px-3 py-2 text-xs text-emerald-200">
               <Leaf className="size-4 shrink-0" />
-              Calm Shopping Environment: every manipulation replaced with a plain,
-              honest disclosure. Same product, zero pressure.
+              Same product, zero pressure — just the facts, no tricks.
             </div>
           )}
         </div>

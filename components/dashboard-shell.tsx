@@ -24,7 +24,6 @@ import {
 } from 'lucide-react'
 import { MetricTicker } from '@/components/metric-ticker'
 import { BadgeToaster } from '@/components/badge-toaster'
-import { ProfNudge } from '@/components/prof-nudge'
 import { useNudge } from '@/components/nudge-provider'
 import { cn } from '@/lib/utils'
 
@@ -45,13 +44,13 @@ const NAV: NavGroup[] = [
         href: '/',
         label: 'Dashboard',
         icon: LayoutDashboard,
-        desc: 'Your behavioral overview',
+        desc: 'Your overview',
       },
       {
         href: '/trophy-room',
         label: 'Master Room',
         icon: Trophy,
-        desc: 'Badges & analytics',
+        desc: 'Badges & stats',
       },
     ],
   },
@@ -62,43 +61,43 @@ const NAV: NavGroup[] = [
         href: '/impulse-lab',
         label: 'The Impulse Lab',
         icon: Zap,
-        desc: 'Dark patterns & auction',
+        desc: 'Checkout tricks & auction',
       },
       {
         href: '/life-simulator',
         label: 'Life Simulator',
         icon: Hourglass,
-        desc: 'The 10-minute life run',
+        desc: 'Ten years in ten minutes',
       },
       {
         href: '/bias-simulators',
         label: 'Bias Simulators',
         icon: SlidersHorizontal,
-        desc: 'Defaults & framing',
+        desc: 'Subs & framing test',
       },
       {
         href: '/macro-lab',
         label: 'Macro Lab',
         icon: Landmark,
-        desc: 'Nudge a whole nation',
+        desc: 'Nudge a whole country',
       },
       {
         href: '/cafeteria',
         label: 'Cafeteria Sandbox',
         icon: Salad,
-        desc: 'Choice architecture',
+        desc: 'Rearrange the lunch line',
       },
       {
         href: '/time-machine',
         label: 'Time Machine',
         icon: Hourglass,
-        desc: 'Compounding visualizer',
+        desc: 'See compounding in action',
       },
       {
         href: '/habit-loop',
         label: 'Habit Loop',
         icon: Repeat,
-        desc: 'Rewire a bad habit',
+        desc: 'Break a bad habit',
       },
     ],
   },
@@ -109,19 +108,19 @@ const NAV: NavGroup[] = [
         href: '/planner',
         label: 'Behavioral Planner',
         icon: Wallet,
-        desc: 'Budget with nudges',
+        desc: 'Budget with friction',
       },
       {
         href: '/bias-radar',
         label: 'Bias Radar',
         icon: Radar,
-        desc: 'Diagnose your profile',
+        desc: 'Find your weak spots',
       },
       {
         href: '/trap-scanner',
         label: 'Trap Scanner',
         icon: ScanLine,
-        desc: 'Spot dark patterns',
+        desc: 'Spot checkout tricks',
       },
       {
         href: '/community',
@@ -133,7 +132,7 @@ const NAV: NavGroup[] = [
         href: '/anatomy',
         label: 'Anatomy of a Choice',
         icon: Brain,
-        desc: 'Concepts & case studies',
+        desc: 'Bias cards & case studies',
       },
     ],
   },
@@ -236,8 +235,8 @@ export function DashboardShell({
           Reset Simulation
         </button>
         <p className="mt-3 px-2 text-center text-[10px] leading-relaxed text-zinc-600">
-          NudgeEm is an educational sandbox. No real money is involved — only
-          your behavioral instincts.
+          NudgeEm is a learning sandbox. No real money — just your instincts
+          getting tested.
         </p>
         <div className="mt-2 flex items-center justify-center gap-2 text-[10px] text-zinc-600">
           <Link href="/privacy" className="hover:text-zinc-400">
@@ -323,7 +322,6 @@ export function DashboardShell({
 
       {/* Global overlays */}
       <BadgeToaster />
-      <ProfNudge />
     </div>
   )
 }

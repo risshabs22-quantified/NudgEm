@@ -63,37 +63,37 @@ export function EscalationAuction() {
         setResult({
           net,
           good: true,
-          headline: `You won the $20 for $${finalUserBid}.`,
+          headline: `Got the $20 for only $${finalUserBid}. Sheesh.`,
           detail:
-            'The bot blinked early, so you actually came out ahead. Rare — most dollar auctions spiral past $20.',
+            'The bot chickened out early so you actually profited. That basically never happens — these auctions usually blow way past $20.',
         })
         applyOutcome({
           budgetDelta: net,
           rationalityDelta: 3,
           kind: 'good',
-          title: 'Escalation Pit: won cheaply',
+          title: 'Won the $20 auction cheap',
           bias: 'Sunk Cost Fallacy',
-          detail: `Won the $20 bill for $${finalUserBid}.`,
+          detail: `Snagged the $20 for $${finalUserBid}.`,
         })
         unlockBadge('sunk-cost-slayer')
       } else {
         setResult({
           net,
           good: false,
-          headline: `You "won" the $20 — by paying $${finalUserBid} for it.`,
-          detail: `You're down $${Math.abs(
+          headline: `You "won" $20... by paying $${finalUserBid} for it.`,
+          detail: `So you're down $${Math.abs(
             net,
-          )}. Each $1 raise felt rational to protect what you'd already bid. That's the sunk cost fallacy weaponized.`,
+          )}. Every extra dollar felt worth it to not "lose" — that feeling is the sunk cost trap, and it just cleaned you out.`,
         })
         applyOutcome({
           budgetDelta: net,
           rationalityDelta: -clamp(Math.round(finalUserBid / 2), 4, 18),
           kind: 'trap',
-          title: 'Escalation Pit: overpaid to "win"',
+          title: `Overpaid $${finalUserBid} to "win" a $20`,
           bias: 'Sunk Cost Fallacy',
-          detail: `Paid $${finalUserBid} for a $20 bill — a $${Math.abs(
+          detail: `Paid $${finalUserBid} for a $20 bill. Down $${Math.abs(
             net,
-          )} loss.`,
+          )}.`,
         })
       }
     } else {
@@ -102,31 +102,31 @@ export function EscalationAuction() {
         setResult({
           net: 0,
           good: true,
-          headline: 'You refused to play. The only winning move.',
+          headline: 'You didn’t even play. Genuinely the only way to win.',
           detail:
-            'You never placed a bid, so you lose nothing. In the dollar auction, walking away at $0 is the single rational strategy.',
+            'Zero bids, zero loss. In this rigged auction the smart move is to never touch it. You passed the test most people fail.',
         })
         resistTrap({
           rationalityGain: 6,
-          title: 'Refused the dollar auction',
+          title: 'Noped out of the rigged auction',
           bias: 'Sunk Cost Fallacy',
-          detail: 'Recognized the trap and never entered the escalation.',
+          detail: 'Saw the trap and refused to bid a cent.',
         })
         unlockBadge('sunk-cost-slayer')
       } else {
         setResult({
           net: -finalUserBid,
           good: false,
-          headline: `You folded — and still owe your $${finalUserBid} bid.`,
-          detail: `In this auction the second-highest bidder pays too and gets nothing. You lost $${finalUserBid} chasing money that was already gone.`,
+          headline: `You folded — and you STILL owe your $${finalUserBid}.`,
+          detail: `Plot twist: in this auction the loser pays their bid too and gets nothing. You burned $${finalUserBid} chasing money that was already gone.`,
         })
         applyOutcome({
           budgetDelta: -finalUserBid,
           rationalityDelta: -clamp(Math.round(finalUserBid / 2), 3, 15),
           kind: 'trap',
-          title: 'Escalation Pit: folded at a loss',
+          title: 'Folded the auction, still paid up',
           bias: 'Sunk Cost Fallacy',
-          detail: `Forfeited a $${finalUserBid} bid for nothing.`,
+          detail: `Lost $${finalUserBid} for literally nothing.`,
         })
       }
     }
@@ -195,7 +195,7 @@ export function EscalationAuction() {
               The Escalation Pit
             </h4>
             <p className="text-[11px] text-zinc-500">
-              Auction for a real $20 bill · highest bid wins it
+              Bid on a $20 bill · catch: the loser pays their bid too
             </p>
           </div>
         </div>
@@ -210,7 +210,7 @@ export function EscalationAuction() {
             20
           </div>
           <span className="mt-1 text-[11px] text-zinc-500">
-            a single twenty-dollar bill
+            one crisp twenty. easy, right?
           </span>
         </div>
 
@@ -287,14 +287,14 @@ export function EscalationAuction() {
           <p className="mt-1 text-[11px] text-zinc-500">
             {status === 'active'
               ? userBid === 0
-                ? 'You owe nothing — yet.'
-                : `If you stop now you forfeit $${userBid} and get nothing.`
-              : 'final amount committed'}
+                ? 'Nothing yet. Keep it that way.'
+                : `Quit now and you eat $${userBid} for nothing.`
+              : 'Final tally — money you walked away owing'}
           </p>
           {userBid > PRIZE && status === 'active' && (
             <p className="mt-2 flex items-center gap-1.5 rounded-lg bg-rose-500/15 px-2 py-1.5 text-[11px] font-medium text-rose-300">
               <AlertTriangle className="size-3.5" />
-              You're now bidding more than the $20 is worth. This is the trap.
+              You’re now bidding more than $20 to win $20. This is the trap. Bail.
             </p>
           )}
         </div>

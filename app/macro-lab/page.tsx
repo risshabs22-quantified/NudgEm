@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Macro Lab',
   description:
-    'Macro-nudging mode: act as a government economic advisor and hit national targets using only choice architecture — no bans, no mandates.',
+    "You're the government's nudge guy. Hit national targets without banning anything — just change the defaults.",
 }
 
 export default function MacroLabPage() {
   return (
     <DashboardShell
       title="The Macro Lab"
-      subtitle="Policy Sandbox — nudge an entire nation"
+      subtitle="Run a country with nudges, not laws"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Landmark}
-          eyebrow="Macro-nudging mode"
+          eyebrow="Macro mode"
           title="Move millions by changing one default"
-          description="You're the government's behavioral economist. Hit public-health, green, and savings targets using nudges alone — and watch the macro charts respond live."
+          description="You're the behavioral economist for a whole country. Hit health, green, and savings targets using nudges only — no bans."
           accent="sky"
         />
         <PolicySandbox />
@@ -30,8 +30,8 @@ export default function MacroLabPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Brain}
-            eyebrow="The science behind the levers"
-            title="Why defaults rule populations"
+            eyebrow="Background"
+            title="Why defaults run the world"
             accent="violet"
           />
           <NudgeFeed slugs={['default-bias', 'loss-aversion', 'choice-overload']} />

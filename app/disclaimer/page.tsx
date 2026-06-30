@@ -20,7 +20,7 @@ export default function DisclaimerPage() {
         eyebrow="Important"
         title="Educational Disclaimer"
         updated="June 29, 2026"
-        intro="NudgeEm exists to make behavioral economics tangible. To do that it uses simplified, illustrative models — not precise forecasts of your real life."
+        intro="NudgeEm is here to make behavioral econ feel real — with simplified models, not exact predictions of your life."
       >
         <LegalSection heading="Not financial or investment advice">
           <p>

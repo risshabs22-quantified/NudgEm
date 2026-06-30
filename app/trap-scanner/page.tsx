@@ -9,21 +9,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Trap Scanner',
   description:
-    'Drop in a checkout screenshot — or load the built-in example — and watch an animated scanner reveal every dark pattern with a counter-strategy.',
+    'Load a checkout screenshot or try our example. The scanner flags every trick and tells you what to do about it.',
 }
 
 export default function TrapScannerPage() {
   return (
     <DashboardShell
       title="The Trap Scanner"
-      subtitle="Reveal the dark patterns hiding in any interface"
+      subtitle="Spot the tricks hiding in any checkout"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={ScanLine}
-          eyebrow="Dark-pattern detector"
-          title="X-ray vision for manipulative design"
-          description="The scanner sweeps an interface and flags each manipulation — anchoring, default bias, drip pricing — with a plain-English counter-strategy."
+          eyebrow="Scanner"
+          title="X-ray for shady checkout pages"
+          description="Sweep an interface and it flags each trick — fake timers, inflated prices, pre-checked boxes — plus a plain fix for each one."
           accent="emerald"
         />
         <TrapScanner />
@@ -31,9 +31,9 @@ export default function TrapScannerPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Shield}
-            eyebrow="Extension shield simulator"
-            title="See what a protected web feels like"
-            description="Flip the NudgeEm Shield on and off over a live mock checkout to watch dark patterns get stripped into honest, calm disclosures."
+            eyebrow="Shield demo"
+            title="What a honest checkout looks like"
+            description="Flip the NudgeEm Shield on and off over a fake checkout. Watch the panic buttons turn into plain, boring facts."
             accent="emerald"
           />
           <ShieldSimulator />
@@ -42,8 +42,8 @@ export default function TrapScannerPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={ScanLine}
-            eyebrow="The patterns it hunts"
-            title="Know them, beat them"
+            eyebrow="The hits"
+            title="Know them, dodge them"
             accent="amber"
           />
           <NudgeFeed slugs={['anchoring', 'default-bias', 'scarcity']} />

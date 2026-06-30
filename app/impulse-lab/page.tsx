@@ -9,14 +9,14 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Impulse Lab',
   description:
-    'A live dark-pattern checkout. Toggle scarcity timers, low-stock badges, and fake social proof — then see if you crack.',
+    'Fake checkout with countdown timers, low-stock badges, and bogus social proof. See if you can walk away.',
 }
 
 export default function ImpulseLabPage() {
   return (
     <DashboardShell
       title="The Impulse Lab"
-      subtitle="Live dark-pattern checkout simulator"
+      subtitle="Fake checkout, real pressure"
     >
       <div className="space-y-8">
         <div className="rounded-2xl border border-rose-500/20 bg-rose-500/5 p-4">
@@ -25,21 +25,21 @@ export default function ImpulseLabPage() {
               <ShieldAlert className="size-5" />
             </span>
             <p className="text-sm leading-relaxed text-zinc-300">
-              This is a <span className="font-semibold text-rose-300">safe replica</span>{' '}
-              of the manipulation tactics real e-commerce sites use. Toggle the
-              triggers, try to buy, and feel the pressure. Buying while triggers
-              are active <span className="font-semibold">drops your Rationality
-              Score</span> and drains your{' '}
-              <span className="font-semibold">Psychological Budget</span>.
+              This is a <span className="font-semibold text-rose-300">safe copy</span>{' '}
+              of the tricks real stores use. Flip the switches, try to buy, feel
+              the squeeze. Buy with tricks on and your{' '}
+              <span className="font-semibold">Rationality Score</span> drops and
+              your <span className="font-semibold">Psychological Budget</span>{' '}
+              takes a hit.
             </p>
           </div>
         </div>
 
         <SectionHeader
           icon={Zap}
-          eyebrow="Interactive simulator"
-          title="The 'Impulse Buy' dark pattern"
-          description="Scarcity Mindset + Anchoring Effect, weaponized. Can you walk away?"
+          eyebrow="Try it"
+          title="The fake impulse buy"
+          description="Countdown timer, fake scarcity, inflated anchor price — the usual suspects. Can you close the tab?"
           accent="rose"
         />
         <ImpulseSimulator />
@@ -47,9 +47,9 @@ export default function ImpulseLabPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Gavel}
-            eyebrow="Sunk cost mini-game"
+            eyebrow="Mini-game"
             title="The Escalation Pit"
-            description="Bid against an AI for a $20 bill — but the loser pays their bid too. Watch how far sunk cost drags you past rational."
+            description="Bid against a bot for a $20 bill. Catch: the loser pays their bid too. See how far sunk cost pulls you past $20."
             accent="rose"
           />
           <EscalationAuction />
@@ -58,8 +58,8 @@ export default function ImpulseLabPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={ShieldAlert}
-            eyebrow="The biases at play"
-            title="What just happened to your brain"
+            eyebrow="What happened"
+            title="The tricks you just ran into"
             accent="amber"
           />
           <NudgeFeed slugs={['scarcity', 'anchoring', 'sunk-cost']} />

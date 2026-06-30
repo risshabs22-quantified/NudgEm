@@ -152,10 +152,10 @@ export function FramingTest() {
           <div className="flex flex-1 flex-col items-center justify-center py-10 text-center">
             <SplitSquareHorizontal className="size-8 text-zinc-700" />
             <p className="mt-3 text-sm font-medium text-zinc-400">
-              Pick a frame to reveal the data
+              Pick one and see how most people choose
             </p>
             <p className="mt-1 max-w-xs text-xs text-zinc-600">
-              We'll show how the rest of humanity chooses — and why.
+              We'll show how everyone else picks — and why the words matter.
             </p>
           </div>
         ) : (
@@ -224,10 +224,10 @@ export function FramingTest() {
                 </>
               ) : (
                 <>
-                  You picked the loss frame — meaning you likely saw past the
-                  wording to the identical math.{' '}
+                  You picked the loss frame — you probably saw past the wording
+                  to the same math underneath.{' '}
                   <span className="font-semibold text-sky-300">
-                    That's exactly the skill NudgeEm trains.
+                    That's the whole game here.
                   </span>
                 </>
               )}

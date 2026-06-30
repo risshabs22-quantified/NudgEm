@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Community Herd Map',
   description:
-    'See what percentage of NudgeEm visitors fall for each behavioral trap — a live lesson in Social Proof and Herd Mentality.',
+    'See what percentage of visitors fall for each trap — a live look at herd mentality.',
 }
 
 export default function CommunityPage() {
   return (
     <DashboardShell
       title="The Community Herd Map"
-      subtitle="Social proof, visualized"
+      subtitle="What everyone else falls for"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Users}
-          eyebrow="Herd mentality map"
-          title="What the crowd falls for"
-          description="A blended view of community data and your own live choices. Watching the herd is instructive — and a trap in itself."
+          eyebrow="The herd"
+          title="What the crowd keeps falling for"
+          description="Blended community data plus your own choices. Useful to watch — but remember, the crowd is often wrong."
           accent="sky"
         />
         <CommunityMap />
@@ -30,8 +30,8 @@ export default function CommunityPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Brain}
-            eyebrow="The science"
-            title="Why the crowd is so persuasive"
+            eyebrow="Why"
+            title="Why the crowd feels so convincing"
             accent="violet"
           />
           <NudgeFeed slugs={['scarcity', 'framing', 'loss-aversion']} />

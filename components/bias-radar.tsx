@@ -131,27 +131,27 @@ function archetypeFor(scores: Record<AxisKey, number>) {
     risk: {
       name: 'The Safety-Seeker',
       blurb:
-        'You feel losses far more than gains. Great for avoiding disasters, but you may leave growth on the table by playing it too safe.',
+        'Losses hit you harder than wins feel good. Good for avoiding disasters — but you might play it too safe and miss upside.',
     },
     present: {
       name: 'The Now-ist',
       blurb:
-        'Present-you wins most arguments with future-you. Automate your savings and investments so the decision is made before temptation arrives.',
+        'Present-you wins most fights with future-you. Auto-save on payday before you can touch it.',
     },
     fatigue: {
       name: 'The Overwhelmed Optimizer',
       blurb:
-        'Too many options drain you into defaults. Pre-commit to criteria and "satisfice" — pick the first option that clears your bar.',
+        'Too many options and your brain taps out. Pick criteria first, grab the first thing that clears the bar, move on.',
     },
     scarcity: {
       name: 'The FOMO-Prone',
       blurb:
-        'Urgency and limited supply light up your buy reflex. Treat every countdown as a red flag and impose a 24-hour rule.',
+        '"Only 2 left" and countdown timers get you. Treat urgency like a scam and wait 24 hours.',
     },
     statusquo: {
       name: 'The Default-Dweller',
       blurb:
-        'Inertia rules — you keep whatever is already set. Audit your auto-renewals quarterly; friction is quietly costing you money.',
+        "You stick with whatever's already set. Audit your auto-renewals every few months — inertia is quietly costing you.",
     },
   }
   return { key: top[0], ...map[top[0]] }
@@ -221,7 +221,7 @@ export function BiasRadar() {
         rationalityDelta: 2,
         title: `Bias profile mapped: ${archetype.name}`,
         bias: 'Self-Awareness',
-        detail: `Overall susceptibility ${overall}/100. Knowing your profile is the first defense.`,
+        detail: `Overall susceptibility ${overall}/100. Knowing your weak spots is step one.`,
       })
       unlockBadge('self-aware')
     }
@@ -269,7 +269,7 @@ td{padding:10px 0;border-bottom:1px solid #2a201b;font-size:15px}
 <h3 style="margin-top:0">Bias breakdown</h3>
 <table>${rows}</table>
 </div>
-<p class="foot">Higher numbers mean a stronger pull toward that bias. NudgeEm is an educational tool — not financial advice.</p>
+<p class="foot">Higher numbers = stronger pull toward that bias. Just for learning — not financial advice.</p>
 </body></html>`
     const blob = new Blob([html], { type: 'text/html' })
     const url = URL.createObjectURL(blob)
@@ -408,7 +408,7 @@ td{padding:10px 0;border-bottom:1px solid #2a201b;font-size:15px}
             onClick={download}
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-500 to-violet-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-violet-500/20 transition-all hover:scale-[1.02]"
           >
-            <Download className="size-4" /> Download Profile Résumé
+            <Download className="size-4" /> Download profile
           </button>
           <button
             onClick={restart}

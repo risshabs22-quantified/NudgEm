@@ -312,7 +312,7 @@ export function CaseStudyVault() {
         )
       })}
       <p className="flex items-center gap-1.5 px-1 text-[11px] text-zinc-600">
-        <BookMarked className="size-3" /> Interactive recreations of the studies
+        <BookMarked className="size-3" /> Try the famous studies yourself
         that built behavioral economics.
       </p>
     </div>

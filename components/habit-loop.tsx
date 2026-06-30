@@ -102,7 +102,7 @@ export function HabitLoop() {
         rationalityDelta: 3,
         title: 'Rewired a habit loop',
         bias: 'Habit Formation',
-        detail: `Inserted friction into the Response phase to break an automatic spending loop.`,
+        detail: `Inserted friction into a habit loop to slow automatic spending.`,
       })
     }
   }

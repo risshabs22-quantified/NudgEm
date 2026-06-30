@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Time Machine',
   description:
-    'Hyperbolic discounting, visualized: drag a daily impulse spend across the decades and watch what it becomes if invested at 8%.',
+    'Drag a daily coffee habit across the decades. See what it becomes if you invested it instead.',
 }
 
 export default function TimeMachinePage() {
   return (
     <DashboardShell
       title="The Time Machine"
-      subtitle="Hyperbolic discounting, made impossible to ignore"
+      subtitle="What your daily habit actually costs you"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Hourglass}
-          eyebrow="Compounding visualizer"
-          title="Your daily habit, fast-forwarded 50 years"
-          description="Set a daily impulse spend and drag the age slider from 18 to 68. See the chasm between what you bought and what it could have become."
+          eyebrow="Compounding"
+          title="Your daily habit, fast-forwarded"
+          description="Set a daily spend and drag the age slider. Watch the gap between what you bought and what you could've had."
           accent="emerald"
         />
         <TimeMachine />
@@ -30,7 +30,7 @@ export default function TimeMachinePage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Brain}
-            eyebrow="The science"
+            eyebrow="Why"
             title="Why the future feels free"
             accent="violet"
           />

@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Cafeteria Sandbox',
   description:
-    'Play Choice Architect: increase healthy eating 40% by rearranging a cafeteria — no bans, just salience bias.',
+    'Rearrange a cafeteria line and get 40% more people eating salad — without banning a single fry.',
 }
 
 export default function CafeteriaPage() {
   return (
     <DashboardShell
       title="The Cafeteria Sandbox"
-      subtitle="Choice architecture — nudge without banning"
+      subtitle="Nudge people without banning anything"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Salad}
-          eyebrow="Choice architecture designer"
-          title="Increase healthy eating by 40% — ban nothing"
-          description="You're the Choice Architect. Move food between eye level and the back of the line, then run real diners through and watch Salience Bias do the work."
+          eyebrow="Lunch line"
+          title="Get 40% more salads — ban nothing"
+          description="Move food to eye level or tuck it in the back. Run diners through and watch where they grab without thinking."
           accent="emerald"
         />
         <CafeteriaSandbox />
@@ -30,8 +30,8 @@ export default function CafeteriaPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Brain}
-            eyebrow="The science"
-            title="Why placement beats willpower"
+            eyebrow="Why it works"
+            title="Placement beats willpower"
             accent="violet"
           />
           <NudgeFeed slugs={['choice-overload', 'default-bias', 'anchoring']} />

@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Habit Loop Rewire Canvas',
   description:
-    'Map a bad financial habit as a Cue → Craving → Response → Reward loop, then insert a friction point to break it.',
+    'Map a bad money habit, stick a friction point in the middle, and watch it fade over eight weeks.',
 }
 
 export default function HabitLoopPage() {
   return (
     <DashboardShell
       title="The Habit Loop Canvas"
-      subtitle="Rewire a money habit by design"
+      subtitle="Break a money habit on purpose"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Repeat}
-          eyebrow="Behavioral modification"
-          title="Break the loop where it's weakest"
-          description="Cue → Craving → Response → Reward powers every habit. Pick a bad money habit and jam a friction point into the Response to watch the behavior fade."
+          eyebrow="Habit loop"
+          title="Break it where it's weakest"
+          description="Cue → Craving → Response → Reward. Pick a bad spending habit and jam friction into the Response step. Watch it die off."
           accent="emerald"
         />
         <HabitLoop />
@@ -30,7 +30,7 @@ export default function HabitLoopPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Brain}
-            eyebrow="The science"
+            eyebrow="Why"
             title="The biases inside the loop"
             accent="violet"
           />

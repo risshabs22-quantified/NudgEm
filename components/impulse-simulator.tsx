@@ -112,12 +112,9 @@ export function ImpulseSimulator() {
       const biasName = triggers.timer || triggers.stock ? 'Scarcity Mindset' : 'Anchoring Effect'
 
       const reasons: string[] = []
-      if (triggers.timer)
-        reasons.push('a countdown timer manufacturing false urgency')
-      if (triggers.stock)
-        reasons.push('a "low stock" badge triggering fear of missing out')
-      if (triggers.social)
-        reasons.push('fake social proof ("someone just bought this")')
+      if (triggers.timer) reasons.push('a fake countdown timer')
+      if (triggers.stock) reasons.push('a "low stock" scare')
+      if (triggers.social) reasons.push('a fake "someone just bought this" popup')
 
       setShake(true)
       setTimeout(() => setShake(false), 500)
@@ -125,33 +122,33 @@ export function ImpulseSimulator() {
       setOutcome({
         type: 'trapped',
         bias: biasName,
-        title: `Gotcha. You spent $${cost} on impulse.`,
-        detail: `You bought under pressure from ${reasons.length} active dark pattern${
-          reasons.length > 1 ? 's' : ''
-        }: ${reasons.join(
+        title: `Yeah... you just dropped $${cost} on impulse.`,
+        detail: `${reasons.length} trick${
+          reasons.length > 1 ? 's were' : ' was'
+        } running on you: ${reasons.join(
           ', ',
-        )}. The "$${ITEM.anchorPrice} → $${ITEM.realPrice}" tag anchored you into feeling it was a steal. The timer almost certainly resets on reload — the scarcity was fake.`,
+        )}. And that "$${ITEM.anchorPrice} → $${ITEM.realPrice}" tag? The $${ITEM.anchorPrice} only exists to make $${ITEM.realPrice} feel like a W. The timer resets on reload btw. None of it was real.`,
       })
       fallForTrap({
         cost,
         rationalityHit,
-        title: `Impulse-bought ${ITEM.name}`,
+        title: `Folded under pressure. Bought the sneakers.`,
         bias: biasName,
-        detail: `Fell for ${reasons.length} active trigger(s). Lost $${cost}.`,
+        detail: `Caved to ${reasons.length} live trick(s). -$${cost}.`,
       })
     } else {
       // No triggers active — a calm, rational purchase.
       setOutcome({
         type: 'resisted',
-        title: 'A calm, considered purchase.',
+        title: 'Bought it with zero pressure. That’s fine.',
         detail:
-          'With every manipulation turned off, this is just a normal buying decision — no panic, no fake scarcity. Notice how different it feels without the pressure? That feeling IS the nudge.',
+          'No timers, no fake scarcity, no popups — just you deciding you want it. Feel how boring and calm that was? That calm is exactly what every store deletes on purpose.',
       })
       resistTrap({
         rationalityGain: 3,
-        title: 'Bought with no dark patterns active',
+        title: 'Bought it, but with a clear head',
         bias: 'Mindful Spending',
-        detail: 'Made a purchase decision free of manufactured urgency.',
+        detail: 'Made the call with none of the tricks running.',
       })
     }
   }
@@ -159,19 +156,19 @@ export function ImpulseSimulator() {
   const handleSkip = () => {
     setOutcome({
       type: 'resisted',
-      title: 'You walked away. Rationality intact.',
+      title: 'You closed the tab. Respect.',
       detail:
         activeCount > 0
-          ? `You resisted ${activeCount} active manipulation${
+          ? `You ignored ${activeCount} trick${
               activeCount > 1 ? 's' : ''
-            }. A genuinely good deal is still good tomorrow — urgency is the tell that someone wants you to skip thinking.`
-          : 'You skipped a no-pressure offer. Smart default: if you don\'t actively want it, you don\'t need it.',
+            } screaming at you. A real deal is still a deal tomorrow — the panic was the whole point.`
+          : 'No pressure on, and you still passed. If you don’t actually want it, you don’t need it. Easy.',
     })
     resistTrap({
       rationalityGain: 4,
-      title: `Skipped ${ITEM.name}`,
+      title: `Walked away from the sneakers`,
       bias: 'Scarcity Mindset',
-      detail: `Resisted ${activeCount} active trigger(s). Saved $${ITEM.realPrice}.`,
+      detail: `Ignored ${activeCount} live trick(s). Kept your $${ITEM.realPrice}.`,
     })
     if (activeCount > 0) unlockBadge('scarcity-skeptic')
   }
@@ -286,7 +283,7 @@ export function ImpulseSimulator() {
             </span>
           </div>
           <p className="mt-1 flex items-center gap-1 text-[11px] text-zinc-500">
-            <Anchor className="size-3" /> The $250 "original" price is the anchor.
+            <Anchor className="size-3" /> That $250 isn’t real. It’s bait to make $95 look cheap.
           </p>
 
           <div className="mt-4 flex gap-3">
@@ -314,7 +311,7 @@ export function ImpulseSimulator() {
           <div className="flex items-center justify-between">
             <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
               <Sparkles className="size-4 text-emerald-400" />
-              Psychological Triggers
+              The Dirty Tricks
             </h4>
             <span
               className={cn(
@@ -328,8 +325,8 @@ export function ImpulseSimulator() {
             </span>
           </div>
           <p className="mt-1 text-xs text-zinc-500">
-            Toggle the manipulations on and off, then try buying. Feel how the
-            pressure changes your gut reaction.
+            Flip the tricks on and off, then try to buy. Notice how different it
+            feels when they’re all yelling at you.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <ToggleChip
@@ -368,11 +365,11 @@ export function ImpulseSimulator() {
             <div className="flex h-full flex-col items-center justify-center py-8 text-center">
               <AlertTriangle className="size-8 text-zinc-700" />
               <p className="mt-3 text-sm font-medium text-zinc-400">
-                Make a choice to see the analysis
+                Pick something and find out
               </p>
               <p className="mt-1 max-w-xs text-xs text-zinc-600">
-                Every decision updates your Rationality Score and Psychological
-                Budget at the top of the screen.
+                Buy or skip — either way your score and budget up top will move.
+                No pressure. (Okay, lots of pressure.)
               </p>
             </div>
           )}
@@ -412,7 +409,7 @@ export function ImpulseSimulator() {
                 </span>
                 <div>
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
-                    Rational Choice
+                    Smart Move
                   </p>
                   <p className="text-sm font-semibold text-zinc-100">
                     {outcome.title}

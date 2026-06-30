@@ -8,21 +8,21 @@ import { NudgeFeed } from '@/components/nudge-feed'
 export const metadata: Metadata = {
   title: 'The Life Simulator',
   description:
-    'The 10-Minute Life Run — a real-time, choice-driven decade where every year throws a behaviorally-loaded money decision at you.',
+    'Ten years of money decisions in about ten minutes. Hesitate and the tempting default picks for you.',
 }
 
 export default function LifeSimulatorPage() {
   return (
     <DashboardShell
       title="The Life Simulator"
-      subtitle="The 10-Minute Life Run — a decade of decisions in real time"
+      subtitle="Ten years of choices, one clock"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Hourglass}
-          eyebrow="Accelerated life simulator"
-          title="Ten years. One clock. Every bias."
-          description="Start at 18 with $1,000. Each year delivers a decision wired with a behavioral trap — and the timer auto-picks the tempting default if you hesitate."
+          eyebrow="Life sim"
+          title="Ten years. One clock. Every trap."
+          description="You start at 18 with $1,000. Each year throws a money decision at you — and if you freeze, the easy (usually bad) choice wins automatically."
           accent="emerald"
         />
         <LifeSimulator />
@@ -30,8 +30,8 @@ export default function LifeSimulatorPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={Hourglass}
-            eyebrow="The biases you just faced"
-            title="Why each year was a trap"
+            eyebrow="After the run"
+            title="Why each year was a setup"
             accent="violet"
           />
           <NudgeFeed

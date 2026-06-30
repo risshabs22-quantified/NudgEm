@@ -22,56 +22,56 @@ import { cn } from '@/lib/utils'
 
 function verdict(rationality: number) {
   if (rationality >= 90)
-    return { label: 'Stoic Optimizer', tone: 'text-emerald-400' }
+    return { label: 'Basically Unhackable', tone: 'text-emerald-400' }
   if (rationality >= 70)
-    return { label: 'Mostly Rational', tone: 'text-emerald-400' }
+    return { label: 'Pretty Switched On', tone: 'text-emerald-400' }
   if (rationality >= 45)
-    return { label: 'Nudge-Susceptible', tone: 'text-amber-400' }
+    return { label: 'Kinda Easy to Trick', tone: 'text-amber-400' }
   if (rationality >= 20)
-    return { label: 'Easily Nudged', tone: 'text-rose-400' }
-  return { label: 'Marketer’s Dream', tone: 'text-rose-400' }
+    return { label: 'Marketers Love You', tone: 'text-rose-400' }
+  return { label: 'A Marketer’s Dream', tone: 'text-rose-400' }
 }
 
 const QUICK = [
   {
     href: '/impulse-lab',
     label: 'The Impulse Lab',
-    desc: 'A live dark-pattern checkout plus the sunk-cost Escalation Pit auction.',
+    desc: 'Fake checkout tricks and a rigged $20 auction.',
     icon: Zap,
     accent: 'rose',
   },
   {
     href: '/life-simulator',
     label: 'Life Simulator',
-    desc: 'Live a decade of money decisions in real time — the 10-minute life run.',
+    desc: 'Speedrun ten years of money choices. See what past-you did to future-you.',
     icon: Hourglass,
     accent: 'emerald',
   },
   {
     href: '/bias-simulators',
     label: 'Bias Simulators',
-    desc: 'Tune subscription defaults and run the framing A/B test on yourself.',
+    desc: 'Forgotten subs and wording that flips your brain.',
     icon: SlidersHorizontal,
     accent: 'amber',
   },
   {
     href: '/macro-lab',
     label: 'Macro Lab',
-    desc: 'Become a policy advisor and nudge a whole nation toward its targets.',
+    desc: 'Run a country with nudges. No laws required.',
     icon: Landmark,
     accent: 'sky',
   },
   {
     href: '/bias-radar',
     label: 'Bias Radar',
-    desc: 'Take the diagnostic and map your behavioral profile on a radar chart.',
+    desc: 'Ten questions that show where you get played.',
     icon: Radar,
     accent: 'violet',
   },
   {
     href: '/trap-scanner',
     label: 'Trap Scanner',
-    desc: 'Scan any checkout and reveal its hidden dark patterns with fixes.',
+    desc: 'Scan a shady checkout and watch every trick light up.',
     icon: ScanLine,
     accent: 'emerald',
   },
@@ -108,25 +108,25 @@ export function DashboardOverview() {
       sub: v.label,
     },
     {
-      label: 'Budget left',
+      label: 'Cash left',
       value: `$${budget}`,
       icon: Wallet,
       tone: budget >= startingBudget ? 'text-emerald-400' : 'text-amber-400',
       sub: `of $${startingBudget}`,
     },
     {
-      label: 'Traps avoided',
+      label: 'Traps dodged',
       value: `${trapsAvoided}`,
       icon: ShieldCheck,
       tone: 'text-emerald-400',
-      sub: 'good calls',
+      sub: 'nice',
     },
     {
-      label: 'Lost to impulse',
+      label: 'Wasted on impulse',
       value: `$${moneyLost}`,
       icon: TrendingDown,
       tone: 'text-rose-400',
-      sub: `${trapsFallen} slip-ups`,
+      sub: `${trapsFallen} oof moments`,
     },
   ]
 
@@ -139,31 +139,32 @@ export function DashboardOverview() {
         <div className="relative max-w-2xl">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-medium text-emerald-300">
             <Sparkles className="size-3" />
-            Behavioral Economics, played — not read
+            Behavioral econ you can actually play
           </span>
           <h2 className="mt-4 font-serif text-3xl font-semibold leading-tight tracking-tight text-zinc-50 sm:text-4xl">
-            Your brain is being{' '}
-            <span className="text-emerald-400 text-glow-emerald">nudged</span>{' '}
+            Your brain is getting{' '}
+            <span className="text-emerald-400 text-glow-emerald">played</span>{' '}
             right now.
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-zinc-400 sm:text-base">
-            NudgeEm turns Nudge Theory into a live arena. Step into real
-            simulations of scarcity, framing, and default bias — and watch your{' '}
+            Every app you open is nudging you to spend. NudgeEm does it on
+            purpose so you can feel it happening. Mess with the simulators and
+            watch your{' '}
             <span className="font-medium text-zinc-200">Rationality Score</span>{' '}
             and{' '}
             <span className="font-medium text-zinc-200">Psychological Budget</span>{' '}
-            react to every choice you make.
+            move with every choice you make.
           </p>
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <Link
               href="/impulse-lab"
               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-emerald-600 px-5 py-2.5 text-sm font-bold text-zinc-950 shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.03]"
             >
-              Enter the Impulse Lab
+              See if you can be tricked
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <div className="inline-flex items-center gap-2 rounded-xl border border-zinc-800 bg-zinc-900/60 px-4 py-2.5 text-sm">
-              <span className="text-zinc-500">Current verdict:</span>
+              <span className="text-zinc-500">Right now you’re:</span>
               <span className={cn('font-semibold', v.tone)}>{v.label}</span>
             </div>
           </div>
@@ -231,7 +232,7 @@ export function DashboardOverview() {
                   {q.desc}
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-zinc-300 group-hover:text-zinc-100">
-                  Open
+                  Let's go
                   <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>

@@ -143,29 +143,28 @@ export function BehavioralPlanner() {
             ))}
           </div>
           <p className="mt-2 text-[11px] text-zinc-500">
-            Tip: the rose-bordered row is treated as impulse spend the Friction
-            Protocol can curb.
+            Tip: the rose-bordered row is impulse spend — that's what the 24-hour hold targets.
           </p>
         </div>
 
         {/* Nudge protocols */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
           <h4 className="flex items-center gap-2 text-sm font-semibold text-zinc-100">
-            <Sparkles className="size-4 text-emerald-400" /> Nudge Protocols
+            <Sparkles className="size-4 text-emerald-400" /> Speed bumps
           </h4>
           <ProtocolToggle
             on={friction}
             onToggle={() => setFriction((v) => !v)}
             icon={Clock}
-            title="Friction Protocol"
-            desc="Force a 24-hour hold on non-essentials. ~30% of impulse buys quietly evaporate."
+            title="24-hour wait"
+            desc="Hold non-essentials for a day before buying. ~30% of impulse buys never come back."
           />
           <ProtocolToggle
             on={buckets}
             onToggle={() => setBuckets((v) => !v)}
             icon={Lock}
-            title="Mental Accounting Buckets"
-            desc="Lock money into labeled envelopes so it stops feeling fungible and spendable."
+            title="Locked buckets"
+            desc="Split money into labeled envelopes so it stops feeling like one big pile to spend."
           />
 
           {buckets && (
@@ -274,8 +273,8 @@ export function BehavioralPlanner() {
             </ResponsiveContainer>
           </div>
           <p className="mt-2 text-xs leading-relaxed text-zinc-400">
-            Behavioral friction isn't deprivation — it just removes the
-            autopilot. Over two years that&apos;s an extra{' '}
+            Behavioral friction isn't about suffering — it just kills autopilot.
+            Over two years that's an extra{' '}
             <span className="font-semibold text-emerald-300">
               {money(extra * 24)}
             </span>{' '}

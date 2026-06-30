@@ -81,11 +81,11 @@ export function SubscriptionCalculator() {
       {/* Controls */}
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
         <h4 className="text-sm font-semibold text-zinc-100">
-          Your monthly micro-spends
+          The little stuff you forget about
         </h4>
         <p className="mt-1 text-xs text-zinc-500">
-          Drag each slider to match your real life. Small, "forgotten" defaults
-          add up faster than almost anyone expects.
+          Drag the sliders to match your actual life. These tiny "I won’t even
+          notice it" charges add up way faster than you think.
         </p>
 
         <div className="mt-5 space-y-5">
@@ -152,8 +152,8 @@ export function SubscriptionCalculator() {
               </span>
               <span className="block text-[11px] text-zinc-500">
                 {autoRenew
-                  ? 'Default Bias active — you forget to cancel and pay full price.'
-                  : 'You actively review & cancel — paying ~35% of the default.'}
+                  ? 'Default Bias mode: you forget, you pay full price, every month, forever.'
+                  : 'You actually check and cancel stuff — so you only pay ~35%.'}
               </span>
             </span>
           </span>
@@ -173,7 +173,7 @@ export function SubscriptionCalculator() {
         </button>
 
         <div className="mt-4 flex items-center justify-between rounded-xl bg-zinc-800/40 px-4 py-3">
-          <span className="text-xs text-zinc-400">Effective monthly drain</span>
+          <span className="text-xs text-zinc-400">What actually leaves your wallet</span>
           <span className="font-mono text-lg font-bold text-zinc-50">
             ${fmt(effectiveMonthly)}
             <span className="text-xs font-normal text-zinc-500">/mo</span>
@@ -186,7 +186,7 @@ export function SubscriptionCalculator() {
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
           <div className="flex items-center justify-between">
             <h4 className="text-sm font-semibold text-zinc-100">
-              Compounding cost of "forgotten" defaults
+              What "forgetting to cancel" actually costs
             </h4>
             <div className="flex items-center gap-3 text-[11px]">
               <span className="flex items-center gap-1.5 text-rose-300">
@@ -260,7 +260,7 @@ export function SubscriptionCalculator() {
               ${fmt(tenYearSpent)}
             </p>
             <p className="mt-1 text-[11px] text-zinc-500">
-              Quietly drained on autopilot.
+              Gone before you notice.
             </p>
           </div>
 
@@ -276,16 +276,16 @@ export function SubscriptionCalculator() {
             </p>
             <p className="mt-1 flex items-center gap-1 text-[11px] text-zinc-500">
               <TrendingUp className="size-3" />
-              What it'd be worth invested at 7%/yr.
+              What it'd be at 7%/yr if you kept it.
             </p>
           </div>
         </div>
 
         <p className="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3 text-xs leading-relaxed text-zinc-400">
           <span className="font-semibold text-amber-300">Default Bias</span> is
-          why "auto-renew" is always pre-checked. Flipping it off forces an active
-          decision every cycle — and that single friction point is the difference
-          between the red bar and the green one.
+          why auto-renew is always pre-checked. Turning it off means you have to
+          decide every month — and that one extra step is the gap between the red
+          bar and the green one.
         </p>
       </div>
     </div>

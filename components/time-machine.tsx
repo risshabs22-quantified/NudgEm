@@ -219,9 +219,9 @@ export function TimeMachine() {
           </ResponsiveContainer>
         </div>
         <p className="mt-2 text-xs leading-relaxed text-zinc-400">
-          Hyperbolic discounting makes the ${daily} feel free because the reward
-          is now and the cost is invisible. The Time Machine just makes the cost
-          visible.
+          Hyperbolic discounting is why ${daily} feels like nothing — the reward
+          is now and the cost is invisible. This chart just makes the cost show
+          up.
         </p>
       </div>
     </div>

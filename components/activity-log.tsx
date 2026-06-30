@@ -34,7 +34,7 @@ export function ActivityLog() {
     <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
       <div className="flex items-center gap-2">
         <Activity className="size-4 text-emerald-400" />
-        <h3 className="text-sm font-semibold text-zinc-100">Decision Ledger</h3>
+        <h3 className="text-sm font-semibold text-zinc-100">The Receipts</h3>
         <span className="ml-auto flex items-center gap-1.5 text-[11px] text-zinc-500">
           <span className="size-1.5 animate-pulse rounded-full bg-emerald-400" />
           live
@@ -44,10 +44,10 @@ export function ActivityLog() {
       {events.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-10 text-center">
           <Trophy className="size-7 text-zinc-700" />
-          <p className="mt-2 text-sm text-zinc-400">No decisions logged yet</p>
+          <p className="mt-2 text-sm text-zinc-400">Nothing on you yet</p>
           <p className="mt-1 max-w-xs text-xs text-zinc-600">
-            Head into a simulator. Every choice you make shows up here with the
-            bias it triggered.
+            Go mess with a simulator. Every move you make ends up here — with the
+            exact trick that got you.
           </p>
         </div>
       ) : (

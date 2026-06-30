@@ -5,14 +5,14 @@ import { TrophyRoom } from '@/components/trophy-room'
 export const metadata: Metadata = {
   title: 'The Cognitive Master Room',
   description:
-    'Your trophy cabinet and behavioral analytics — 12 badges tied to real performance across every NudgeEm simulator.',
+    "Badges and stats from every simulator — proof of how gullible (or sharp) you've been.",
 }
 
 export default function TrophyRoomPage() {
   return (
     <DashboardShell
       title="The Cognitive Master Room"
-      subtitle="Achievements & behavioral analytics"
+      subtitle="Badges and your track record"
     >
       <TrophyRoom />
     </DashboardShell>

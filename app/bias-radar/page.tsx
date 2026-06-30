@@ -7,21 +7,21 @@ import { SectionHeader } from '@/components/section-header'
 export const metadata: Metadata = {
   title: 'The Bias Radar',
   description:
-    'A 10-question behavioral diagnostic that maps your susceptibility across Risk Aversion, Present Bias, Choice Fatigue, Scarcity, and Status Quo Bias — with a downloadable profile.',
+    "Ten quick money questions. See where your brain gets played — and download your profile when you're done.",
 }
 
 export default function BiasRadarPage() {
   return (
     <DashboardShell
       title="The Bias Radar"
-      subtitle="Map your personal behavioral profile"
+      subtitle="Find out where you get played"
     >
       <div className="space-y-8">
         <SectionHeader
           icon={Radar}
-          eyebrow="Diagnostic audit"
-          title="Where do your biases actually live?"
-          description="Ten quick economic trade-offs. We plot your answers across five behavioral axes — then hand you a downloadable Behavioral Profile Résumé."
+          eyebrow="Quiz"
+          title="Where do your weak spots live?"
+          description="Ten fast trade-offs. We plot your answers on five axes and hand you a profile you can download."
           accent="violet"
         />
         <BiasRadar />

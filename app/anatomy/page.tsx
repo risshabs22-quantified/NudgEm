@@ -9,14 +9,14 @@ import { ActivityLog } from '@/components/activity-log'
 export const metadata: Metadata = {
   title: 'The Anatomy of a Choice',
   description:
-    'A field guide to the core cognitive biases behind every nudge, plus an interactive Nobel-laureate case-study vault you can replicate yourself.',
+    'Nine biases that power almost every trick online — plus the famous experiments you can try yourself.',
 }
 
 export default function AnatomyPage() {
   return (
     <DashboardShell
       title="The Anatomy of a Choice"
-      subtitle="A field guide to the biases behind every nudge"
+      subtitle="The biases behind every trick"
     >
       <div className="space-y-8">
         <div className="rounded-2xl border border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-6">
@@ -32,11 +32,11 @@ export default function AnatomyPage() {
                 Every nudge is just a bias with a budget
               </h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
-                These nine biases power almost every dark pattern you'll meet
-                online. Each card gives you a real-world example, the economics
-                that make it profitable, and a concrete defense. Tap{' '}
-                <span className="font-medium text-zinc-200">"Break it down"</span>{' '}
-                to go deeper.
+                These nine biases show up in almost every checkout, subscription,
+                and sale page you'll ever see. Each card has a real example, the
+                math behind it, and what to do. Tap{' '}
+                <span className="font-medium text-zinc-200">Break it down</span>{' '}
+                for the full story.
               </p>
             </div>
           </div>
@@ -53,9 +53,9 @@ export default function AnatomyPage() {
         <div className="space-y-4 pt-2">
           <SectionHeader
             icon={BookMarked}
-            eyebrow="Nobel laureate vault"
-            title="Replicate the prize-winning experiments"
-            description="Bite-sized breakdowns of the papers that built the field — with interactive widgets so you can run the experiment on yourself."
+            eyebrow="The classics"
+            title="The experiments that started it all"
+            description="Short write-ups of the famous studies — with little widgets so you can run them on yourself."
             accent="violet"
           />
           <CaseStudyVault />
