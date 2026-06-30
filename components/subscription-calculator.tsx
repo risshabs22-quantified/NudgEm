@@ -1,0 +1,286 @@
+'use client'
+
+import * as React from 'react'
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Cell,
+  CartesianGrid,
+} from 'recharts'
+import {
+  Tv,
+  Gamepad2,
+  ShoppingBag,
+  Coffee,
+  ToggleRight,
+  TrendingUp,
+  AlertCircle,
+  PiggyBank,
+} from 'lucide-react'
+import { cn } from '@/lib/utils'
+
+type Sub = {
+  key: string
+  label: string
+  icon: typeof Tv
+  value: number
+  max: number
+}
+
+const INITIAL: Sub[] = [
+  { key: 'streaming', label: 'Streaming services', icon: Tv, value: 16, max: 60 },
+  { key: 'gaming', label: 'Gaming skins / battle passes', icon: Gamepad2, value: 10, max: 60 },
+  { key: 'tiktok', label: 'TikTok Shop impulse buys', icon: ShoppingBag, value: 12, max: 60 },
+  { key: 'coffee', label: 'App-ordered coffee', icon: Coffee, value: 9, max: 60 },
+]
+
+const ANNUAL_RETURN = 0.07
+const fmt = (n: number) =>
+  n.toLocaleString('en-US', { maximumFractionDigits: 0 })
+
+// Future value of a monthly contribution stream at ANNUAL_RETURN, compounded monthly.
+function investedValue(monthly: number, years: number) {
+  const r = ANNUAL_RETURN / 12
+  const k = years * 12
+  if (r === 0) return monthly * k
+  return monthly * ((Math.pow(1 + r, k) - 1) / r)
+}
+
+export function SubscriptionCalculator() {
+  const [subs, setSubs] = React.useState<Sub[]>(INITIAL)
+  const [autoRenew, setAutoRenew] = React.useState(true)
+
+  const monthlyRaw = subs.reduce((sum, s) => sum + s.value, 0)
+  // Default Bias: with auto-renew ON you forget and pay 100%.
+  // With it OFF you actively review and cancel, paying ~35%.
+  const forgottenFactor = autoRenew ? 1 : 0.35
+  const effectiveMonthly = monthlyRaw * forgottenFactor
+
+  const horizons = [1, 5, 10]
+  const data = horizons.map((y) => ({
+    year: `${y}yr`,
+    spent: Math.round(effectiveMonthly * 12 * y),
+    invested: Math.round(investedValue(effectiveMonthly, y)),
+  }))
+
+  const tenYearSpent = data[2].spent
+  const tenYearInvested = data[2].invested
+  const opportunityCost = tenYearInvested
+
+  const setValue = (key: string, value: number) =>
+    setSubs((prev) => prev.map((s) => (s.key === key ? { ...s, value } : s)))
+
+  return (
+    <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+      {/* Controls */}
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <h4 className="text-sm font-semibold text-zinc-100">
+          Your monthly micro-spends
+        </h4>
+        <p className="mt-1 text-xs text-zinc-500">
+          Drag each slider to match your real life. Small, "forgotten" defaults
+          add up faster than almost anyone expects.
+        </p>
+
+        <div className="mt-5 space-y-5">
+          {subs.map((s) => {
+            const Icon = s.icon
+            return (
+              <div key={s.key}>
+                <div className="flex items-center justify-between">
+                  <label className="flex items-center gap-2 text-sm text-zinc-300">
+                    <span className="flex size-7 items-center justify-center rounded-lg bg-zinc-800 text-emerald-400">
+                      <Icon className="size-4" />
+                    </span>
+                    {s.label}
+                  </label>
+                  <span className="font-mono text-sm font-semibold text-zinc-100">
+                    ${s.value}
+                    <span className="text-xs text-zinc-500">/mo</span>
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0}
+                  max={s.max}
+                  step={1}
+                  value={s.value}
+                  onChange={(e) => setValue(s.key, Number(e.target.value))}
+                  className="nudge-range mt-2 w-full"
+                  aria-label={s.label}
+                />
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Auto-renew toggle */}
+        <button
+          onClick={() => setAutoRenew((v) => !v)}
+          className={cn(
+            'mt-6 flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition-all',
+            autoRenew
+              ? 'border-amber-500/40 bg-amber-500/10'
+              : 'border-emerald-500/40 bg-emerald-500/10',
+          )}
+        >
+          <span className="flex items-center gap-3">
+            <span
+              className={cn(
+                'flex size-9 items-center justify-center rounded-lg',
+                autoRenew
+                  ? 'bg-amber-500/20 text-amber-400'
+                  : 'bg-emerald-500/20 text-emerald-400',
+              )}
+            >
+              <ToggleRight className="size-5" />
+            </span>
+            <span>
+              <span className="block text-sm font-semibold text-zinc-100">
+                Auto-Renewal {autoRenew ? 'ON' : 'OFF'}
+              </span>
+              <span className="block text-[11px] text-zinc-500">
+                {autoRenew
+                  ? 'Default Bias active — you forget to cancel and pay full price.'
+                  : 'You actively review & cancel — paying ~35% of the default.'}
+              </span>
+            </span>
+          </span>
+          <span
+            className={cn(
+              'relative h-6 w-11 shrink-0 rounded-full transition-colors',
+              autoRenew ? 'bg-amber-500' : 'bg-zinc-700',
+            )}
+          >
+            <span
+              className={cn(
+                'absolute top-0.5 size-5 rounded-full bg-white transition-all',
+                autoRenew ? 'left-[22px]' : 'left-0.5',
+              )}
+            />
+          </span>
+        </button>
+
+        <div className="mt-4 flex items-center justify-between rounded-xl bg-zinc-800/40 px-4 py-3">
+          <span className="text-xs text-zinc-400">Effective monthly drain</span>
+          <span className="font-mono text-lg font-bold text-zinc-50">
+            ${fmt(effectiveMonthly)}
+            <span className="text-xs font-normal text-zinc-500">/mo</span>
+          </span>
+        </div>
+      </div>
+
+      {/* Visualization */}
+      <div className="flex flex-col gap-4">
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <div className="flex items-center justify-between">
+            <h4 className="text-sm font-semibold text-zinc-100">
+              Compounding cost of "forgotten" defaults
+            </h4>
+            <div className="flex items-center gap-3 text-[11px]">
+              <span className="flex items-center gap-1.5 text-rose-300">
+                <span className="size-2.5 rounded-sm bg-rose-500" /> Spent
+              </span>
+              <span className="flex items-center gap-1.5 text-emerald-300">
+                <span className="size-2.5 rounded-sm bg-emerald-500" /> If invested
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-4 h-56 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={data} barGap={6} margin={{ top: 8, right: 4, left: -16, bottom: 0 }}>
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  stroke="rgba(82,82,91,0.25)"
+                  vertical={false}
+                />
+                <XAxis
+                  dataKey="year"
+                  tick={{ fill: '#a1a1aa', fontSize: 12 }}
+                  axisLine={false}
+                  tickLine={false}
+                />
+                <YAxis
+                  tick={{ fill: '#71717a', fontSize: 11 }}
+                  axisLine={false}
+                  tickLine={false}
+                  tickFormatter={(v) => `$${v >= 1000 ? `${(v / 1000).toFixed(0)}k` : v}`}
+                />
+                <Tooltip
+                  cursor={{ fill: 'rgba(63,63,70,0.25)' }}
+                  contentStyle={{
+                    background: '#18181b',
+                    border: '1px solid #3f3f46',
+                    borderRadius: 12,
+                    color: '#fafafa',
+                    fontSize: 12,
+                  }}
+                  formatter={(value: number, name) => [
+                    `$${fmt(value)}`,
+                    name === 'spent' ? 'Money spent' : 'If invested @7%',
+                  ]}
+                />
+                <Bar dataKey="spent" radius={[6, 6, 0, 0]} maxBarSize={42}>
+                  {data.map((_, i) => (
+                    <Cell key={i} fill="#f43f5e" />
+                  ))}
+                </Bar>
+                <Bar dataKey="invested" radius={[6, 6, 0, 0]} maxBarSize={42}>
+                  {data.map((_, i) => (
+                    <Cell key={i} fill="#10b981" />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Stat cards */}
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-2xl border border-rose-500/30 bg-rose-500/5 p-4">
+            <div className="flex items-center gap-2 text-rose-300">
+              <AlertCircle className="size-4" />
+              <span className="text-xs font-medium uppercase tracking-wider">
+                10-Year Spend
+              </span>
+            </div>
+            <p className="mt-2 font-mono text-2xl font-bold text-zinc-50">
+              ${fmt(tenYearSpent)}
+            </p>
+            <p className="mt-1 text-[11px] text-zinc-500">
+              Quietly drained on autopilot.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-4">
+            <div className="flex items-center gap-2 text-emerald-300">
+              <PiggyBank className="size-4" />
+              <span className="text-xs font-medium uppercase tracking-wider">
+                Opportunity Cost
+              </span>
+            </div>
+            <p className="mt-2 font-mono text-2xl font-bold text-emerald-400 text-glow-emerald">
+              ${fmt(opportunityCost)}
+            </p>
+            <p className="mt-1 flex items-center gap-1 text-[11px] text-zinc-500">
+              <TrendingUp className="size-3" />
+              What it'd be worth invested at 7%/yr.
+            </p>
+          </div>
+        </div>
+
+        <p className="rounded-xl border border-zinc-800 bg-zinc-900/40 px-4 py-3 text-xs leading-relaxed text-zinc-400">
+          <span className="font-semibold text-amber-300">Default Bias</span> is
+          why "auto-renew" is always pre-checked. Flipping it off forces an active
+          decision every cycle — and that single friction point is the difference
+          between the red bar and the green one.
+        </p>
+      </div>
+    </div>
+  )
+}
